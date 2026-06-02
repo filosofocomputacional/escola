@@ -8,15 +8,15 @@
    "GEOGRAFIA": "27",
    "ED. DIGITAL": 20,
    "ED. FISICA": "26",
-   ": INTERVENÇÃO CIDADÃ": "28,5",
-   ": SOLUÇÕES MATEMÁTICAS": "19",
+   "INTERVENÇÃO CIDADÃ": "28,5",
+   "SOLUÇÕES MATEMÁTICAS": "19",
    "QUÍMICA": "20,5",
    "BIOLOGIA": 18,
    "INGLES": "19,5",
    "FILOSOFIA": "26,5",
    "SOCIOLOGIA": "26",
    "ARTE": 22,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "ANA LUIZA FERREIRA RODRIGUES",
@@ -27,15 +27,15 @@
    "GEOGRAFIA": "25",
    "ED. DIGITAL": 25,
    "ED. FISICA": "27",
-   ": INTERVENÇÃO CIDADÃ": "29",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "29",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "24",
    "BIOLOGIA": 22,
    "INGLES": "27",
    "FILOSOFIA": "26",
    "SOCIOLOGIA": "25",
    "ARTE": 25,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "BEATRIZ FIGUEIREDO VIEIRA",
@@ -46,15 +46,15 @@
    "GEOGRAFIA": "22,75",
    "ED. DIGITAL": 18,
    "ED. FISICA": "22,25",
-   ": INTERVENÇÃO CIDADÃ": "26,25",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "26,25",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 19,
    "INGLES": "23,7",
    "FILOSOFIA": "18,75",
    "SOCIOLOGIA": "25,25",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "CARLA CRISTINA DE OLIVEIRA SILVA",
@@ -65,15 +65,15 @@
    "GEOGRAFIA": "21,75",
    "ED. DIGITAL": 23,
    "ED. FISICA": "18",
-   ": INTERVENÇÃO CIDADÃ": "27,25",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "27,25",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 18,
    "INGLES": "24,2",
    "FILOSOFIA": "18,25",
    "SOCIOLOGIA": "23,25",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "CLARISSE VIEIRA RODRIGUES",
@@ -84,15 +84,15 @@
    "GEOGRAFIA": "28",
    "ED. DIGITAL": 25,
    "ED. FISICA": "27",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "26,5",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "26,5",
    "QUÍMICA": "25",
    "BIOLOGIA": 27,
    "INGLES": "28",
    "FILOSOFIA": "24",
    "SOCIOLOGIA": "27",
    "ARTE": 29,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "DANILO VENTURA ESTEVAM",
@@ -103,15 +103,15 @@
    "GEOGRAFIA": "29,5",
    "ED. DIGITAL": 25,
    "ED. FISICA": "25,75",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "25,3",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "25,3",
    "QUÍMICA": "23,25",
    "BIOLOGIA": 25,
    "INGLES": "28,7",
    "FILOSOFIA": "24,25",
    "SOCIOLOGIA": "26,25",
    "ARTE": 29,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "ELLEN BATISTA RODRIGUES",
@@ -122,15 +122,15 @@
    "GEOGRAFIA": "28,5",
    "ED. DIGITAL": 24,
    "ED. FISICA": "27,75",
-   ": INTERVENÇÃO CIDADÃ": "27,75",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "27,75",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 19,
    "INGLES": "25,7",
    "FILOSOFIA": "21,25",
    "SOCIOLOGIA": "26,75",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "EROS GABRIEL CASTRO DOS SANTOS",
@@ -141,15 +141,15 @@
    "GEOGRAFIA": "27,5",
    "ED. DIGITAL": 29,
    "ED. FISICA": "26,75",
-   ": INTERVENÇÃO CIDADÃ": "27,75",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "27,75",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "19,75",
    "BIOLOGIA": 25,
    "INGLES": "27,2",
    "FILOSOFIA": "22,75",
    "SOCIOLOGIA": "25,75",
    "ARTE": 28,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "ERYCK FERNANDES DOS SANTOS",
@@ -160,15 +160,15 @@
    "GEOGRAFIA": "24,75",
    "ED. DIGITAL": 25,
    "ED. FISICA": "22,75",
-   ": INTERVENÇÃO CIDADÃ": "29,75",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "29,75",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 19,
    "INGLES": "24,2",
    "FILOSOFIA": "22,75",
    "SOCIOLOGIA": "23,75",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "FERNANDA RAYSSA RIBEIRO RODRIGUES",
@@ -179,15 +179,15 @@
    "GEOGRAFIA": "30",
    "ED. DIGITAL": 21,
    "ED. FISICA": "26",
-   ": INTERVENÇÃO CIDADÃ": "27,5",
-   ": SOLUÇÕES MATEMÁTICAS": "20",
+   "INTERVENÇÃO CIDADÃ": "27,5",
+   "SOLUÇÕES MATEMÁTICAS": "20",
    "QUÍMICA": "23",
    "BIOLOGIA": 18,
    "INGLES": "26,5",
    "FILOSOFIA": "24",
    "SOCIOLOGIA": "28",
    "ARTE": 23,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "GABRIEL LIMA PEREIRA",
@@ -198,15 +198,15 @@
    "GEOGRAFIA": "20,5",
    "ED. DIGITAL": 18,
    "ED. FISICA": "18",
-   ": INTERVENÇÃO CIDADÃ": "22",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "22",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 19,
    "INGLES": "20",
    "FILOSOFIA": "18,5",
    "SOCIOLOGIA": "24,5",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "HELOA CRISTINA MARTINS DE MOURA",
@@ -217,15 +217,15 @@
    "GEOGRAFIA": "28",
    "ED. DIGITAL": 18,
    "ED. FISICA": "26,5",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "24,5",
    "BIOLOGIA": 20,
    "INGLES": "27",
    "FILOSOFIA": "25,5",
    "SOCIOLOGIA": "29",
    "ARTE": 27,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "JÚLIA VITÓRIA KELLY DOMINGOS DE SOUZA",
@@ -236,15 +236,15 @@
    "GEOGRAFIA": "20,5",
    "ED. DIGITAL": 20,
    "ED. FISICA": "19",
-   ": INTERVENÇÃO CIDADÃ": "23",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "23",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "9",
    "BIOLOGIA": 18,
    "INGLES": "18",
    "FILOSOFIA": "20",
    "SOCIOLOGIA": "24",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "KAROLAINE MARESA SANTOS SILVA",
@@ -255,15 +255,15 @@
    "GEOGRAFIA": "18",
    "ED. DIGITAL": 18,
    "ED. FISICA": "2",
-   ": INTERVENÇÃO CIDADÃ": "18",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "18",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "3",
    "BIOLOGIA": 18,
    "INGLES": "18",
    "FILOSOFIA": "18",
    "SOCIOLOGIA": "9",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "KAUAN HENRYQUE LIMA EUFROSINO",
@@ -274,15 +274,15 @@
    "GEOGRAFIA": "27,25",
    "ED. DIGITAL": 19,
    "ED. FISICA": "23,75",
-   ": INTERVENÇÃO CIDADÃ": "29,25",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "29,25",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18,75",
    "BIOLOGIA": 18,
    "INGLES": "25,7",
    "FILOSOFIA": "26,25",
    "SOCIOLOGIA": "25,25",
    "ARTE": 25,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "LORRAN PABLO MAGALHÃES OLIVEIRA",
@@ -293,15 +293,15 @@
    "GEOGRAFIA": "17",
    "ED. DIGITAL": 22,
    "ED. FISICA": "23,5",
-   ": INTERVENÇÃO CIDADÃ": "25,5",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "25,5",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "11",
    "BIOLOGIA": 18,
    "INGLES": "23,5",
    "FILOSOFIA": "19",
    "SOCIOLOGIA": "20",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "LUANY CRISTINA ANTUNES CARVALHO",
@@ -312,15 +312,15 @@
    "GEOGRAFIA": "25",
    "ED. DIGITAL": 23,
    "ED. FISICA": "22",
-   ": INTERVENÇÃO CIDADÃ": "27,5",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "27,5",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "26",
    "BIOLOGIA": 23,
    "INGLES": "23",
    "FILOSOFIA": "20",
    "SOCIOLOGIA": "24,5",
    "ARTE": 25,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "MANUELA LUISA SANTOS DE SOUZA",
@@ -331,15 +331,15 @@
    "GEOGRAFIA": "22",
    "ED. DIGITAL": 18,
    "ED. FISICA": "18",
-   ": INTERVENÇÃO CIDADÃ": "19",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "19",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "20",
    "BIOLOGIA": 18,
    "INGLES": "18",
    "FILOSOFIA": "18",
    "SOCIOLOGIA": "21",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "MARCELLA GABRYELLA VIEIRA MENDES ALVES BARBOSA",
@@ -350,15 +350,15 @@
    "GEOGRAFIA": "29,5",
    "ED. DIGITAL": 20,
    "ED. FISICA": "27,5",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "22",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "22",
    "QUÍMICA": "24",
    "BIOLOGIA": 22,
    "INGLES": "29",
    "FILOSOFIA": "26",
    "SOCIOLOGIA": "29",
    "ARTE": 26,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "MARIA EDUARDA FERREIRA DE SALES",
@@ -369,15 +369,15 @@
    "GEOGRAFIA": "30",
    "ED. DIGITAL": 26,
    "ED. FISICA": "28",
-   ": INTERVENÇÃO CIDADÃ": "29,5",
-   ": SOLUÇÕES MATEMÁTICAS": "25",
+   "INTERVENÇÃO CIDADÃ": "29,5",
+   "SOLUÇÕES MATEMÁTICAS": "25",
    "QUÍMICA": "24",
    "BIOLOGIA": 24,
    "INGLES": "29",
    "FILOSOFIA": "29",
    "SOCIOLOGIA": "28",
    "ARTE": 30,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "MATEUS TORRES DA CRUZ",
@@ -388,15 +388,15 @@
    "GEOGRAFIA": "30",
    "ED. DIGITAL": 26,
    "ED. FISICA": "26",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "23",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "23",
    "QUÍMICA": "25,5",
    "BIOLOGIA": 27,
    "INGLES": "25",
    "FILOSOFIA": "28",
    "SOCIOLOGIA": "30",
    "ARTE": 25,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "NICKOLAS GOMES TOSTES",
@@ -407,15 +407,15 @@
    "GEOGRAFIA": "18,25",
    "ED. DIGITAL": 18,
    "ED. FISICA": "22,25",
-   ": INTERVENÇÃO CIDADÃ": "25,75",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "25,75",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "14,75",
    "BIOLOGIA": 18,
    "INGLES": "24,7",
    "FILOSOFIA": "18,25",
    "SOCIOLOGIA": "18",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "NÁTHALY DE SOUZA NASCIMENTO",
@@ -426,15 +426,15 @@
    "GEOGRAFIA": "28,5",
    "ED. DIGITAL": 28,
    "ED. FISICA": "27",
-   ": INTERVENÇÃO CIDADÃ": "29",
-   ": SOLUÇÕES MATEMÁTICAS": "24",
+   "INTERVENÇÃO CIDADÃ": "29",
+   "SOLUÇÕES MATEMÁTICAS": "24",
    "QUÍMICA": "21,5",
    "BIOLOGIA": 23,
    "INGLES": "27",
    "FILOSOFIA": "25",
    "SOCIOLOGIA": "28",
    "ARTE": 28,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "RAYSSA DA SILVA LOPES CASSIMIRO",
@@ -445,15 +445,15 @@
    "GEOGRAFIA": "24,5",
    "ED. DIGITAL": 20,
    "ED. FISICA": "23,5",
-   ": INTERVENÇÃO CIDADÃ": "25",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "25",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "22",
    "BIOLOGIA": 18,
    "INGLES": "23,5",
    "FILOSOFIA": "25",
    "SOCIOLOGIA": "27",
    "ARTE": 23,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "TASILA JULIA DE MIRANDA SANTOS SOUZA",
@@ -464,15 +464,15 @@
    "GEOGRAFIA": "22",
    "ED. DIGITAL": 22,
    "ED. FISICA": "20",
-   ": INTERVENÇÃO CIDADÃ": "23",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "23",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18,5",
    "BIOLOGIA": 21,
    "INGLES": "24,5",
    "FILOSOFIA": "18",
    "SOCIOLOGIA": "20,5",
    "ARTE": 22,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "THIAGO HENRIQUE FERREIRA DA SILVA",
@@ -483,15 +483,15 @@
    "GEOGRAFIA": "16",
    "ED. DIGITAL": 18,
    "ED. FISICA": "18",
-   ": INTERVENÇÃO CIDADÃ": "25,5",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "25,5",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "10,5",
    "BIOLOGIA": 18,
    "INGLES": "18",
    "FILOSOFIA": "19,5",
    "SOCIOLOGIA": "21",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "THIERRY GOMES BARBOSA",
@@ -502,15 +502,15 @@
    "GEOGRAFIA": "27",
    "ED. DIGITAL": 19,
    "ED. FISICA": "23,5",
-   ": INTERVENÇÃO CIDADÃ": "29",
-   ": SOLUÇÕES MATEMÁTICAS": "19",
+   "INTERVENÇÃO CIDADÃ": "29",
+   "SOLUÇÕES MATEMÁTICAS": "19",
    "QUÍMICA": "15,5",
    "BIOLOGIA": 19,
    "INGLES": "27",
    "FILOSOFIA": "19",
    "SOCIOLOGIA": "27,5",
    "ARTE": 26,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "VITOR SAMUEL RODRIGUES DOS SANTOS",
@@ -521,15 +521,15 @@
    "GEOGRAFIA": "17",
    "ED. DIGITAL": 21,
    "ED. FISICA": "18",
-   ": INTERVENÇÃO CIDADÃ": "19,5",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "19,5",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "7",
    "BIOLOGIA": 18,
    "INGLES": "22,5",
    "FILOSOFIA": "18",
    "SOCIOLOGIA": "18",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "WANDERLEI FERREIRA VIANA",
@@ -540,15 +540,15 @@
    "GEOGRAFIA": "23,5",
    "ED. DIGITAL": 18,
    "ED. FISICA": "18,5",
-   ": INTERVENÇÃO CIDADÃ": "21,5",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "21,5",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "8,5",
    "BIOLOGIA": 18,
    "INGLES": "18",
    "FILOSOFIA": "15,5",
    "SOCIOLOGIA": "18",
    "ARTE": 18,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "YAN KAIK DOS SANTOS",
@@ -559,15 +559,15 @@
    "GEOGRAFIA": "22",
    "ED. DIGITAL": 20,
    "ED. FISICA": "23,5",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "20",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "20",
    "QUÍMICA": "20,5",
    "BIOLOGIA": 18,
    "INGLES": "27,5",
    "FILOSOFIA": "21",
    "SOCIOLOGIA": "27",
    "ARTE": 24,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "YASMIN BRUNA RODRIGUES DE QUEIROZ",
@@ -578,15 +578,15 @@
    "GEOGRAFIA": "24",
    "ED. DIGITAL": 18,
    "ED. FISICA": "22",
-   ": INTERVENÇÃO CIDADÃ": "27",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "27",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 18,
    "INGLES": "23,5",
    "FILOSOFIA": "21",
    "SOCIOLOGIA": "25",
    "ARTE": 22,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "YUMI SHERON DE JESUS MARTINS",
@@ -597,15 +597,15 @@
    "GEOGRAFIA": "26",
    "ED. DIGITAL": 23,
    "ED. FISICA": "26",
-   ": INTERVENÇÃO CIDADÃ": "29,5",
-   ": SOLUÇÕES MATEMÁTICAS": "19",
+   "INTERVENÇÃO CIDADÃ": "29,5",
+   "SOLUÇÕES MATEMÁTICAS": "19",
    "QUÍMICA": "25,5",
    "BIOLOGIA": 24,
    "INGLES": "24",
    "FILOSOFIA": "25",
    "SOCIOLOGIA": "28",
    "ARTE": 25,
-   "FIELD17": 3001
+   "TURMA": 3001
  },
  {
    "ALUNO": "AIANY CAROLLINY RODRIGUES DOS SANTOS",
@@ -616,15 +616,15 @@
    "GEOGRAFIA": "23",
    "ED. DIGITAL": 23,
    "ED. FISICA": "24,5",
-   ": INTERVENÇÃO CIDADÃ": "28",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "28",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "20",
    "BIOLOGIA": 20,
    "INGLES": "23",
    "FILOSOFIA": "25",
    "SOCIOLOGIA": "24",
    "ARTE": 28,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "ANNA LUIZA CONCEICAO SANTOS",
@@ -635,15 +635,15 @@
    "GEOGRAFIA": "23,5",
    "ED. DIGITAL": 19,
    "ED. FISICA": "18",
-   ": INTERVENÇÃO CIDADÃ": "25",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "25",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 18,
    "INGLES": "22",
    "FILOSOFIA": "19",
    "SOCIOLOGIA": "23",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "CALEB SAMUEL OLIVEIRA ROQUE",
@@ -654,15 +654,15 @@
    "GEOGRAFIA": "27,75",
    "ED. DIGITAL": 24,
    "ED. FISICA": "24,25",
-   ": INTERVENÇÃO CIDADÃ": "29,5",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "29,5",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "19,75",
    "BIOLOGIA": 25,
    "INGLES": "23,7",
    "FILOSOFIA": "29,25",
    "SOCIOLOGIA": "28,25",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "DANIEL FERNANDES DE SOUZA",
@@ -673,15 +673,15 @@
    "GEOGRAFIA": "18",
    "ED. DIGITAL": 18,
    "ED. FISICA": "18",
-   ": INTERVENÇÃO CIDADÃ": "19",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "19",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 18,
    "INGLES": "18",
    "FILOSOFIA": "5",
    "SOCIOLOGIA": "20",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "DHIEMERSON LUCAS GONÇALVES DOS SANTOS",
@@ -692,15 +692,15 @@
    "GEOGRAFIA": "30",
    "ED. DIGITAL": 29,
    "ED. FISICA": "26,75",
-   ": INTERVENÇÃO CIDADÃ": "29",
-   ": SOLUÇÕES MATEMÁTICAS": "30",
+   "INTERVENÇÃO CIDADÃ": "29",
+   "SOLUÇÕES MATEMÁTICAS": "30",
    "QUÍMICA": "24,25",
    "BIOLOGIA": 28,
    "INGLES": "25,7",
    "FILOSOFIA": "29,75",
    "SOCIOLOGIA": "28,75",
    "ARTE": 28,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "GABRIELLY STEFANNY PAIXÃO DE SOUZA",
@@ -711,15 +711,15 @@
    "GEOGRAFIA": "27,5",
    "ED. DIGITAL": 23,
    "ED. FISICA": "19",
-   ": INTERVENÇÃO CIDADÃ": "26",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "26",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 18,
    "INGLES": "23",
    "FILOSOFIA": "22",
    "SOCIOLOGIA": "24",
    "ARTE": 23,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "GUSTAVO HENRIQUE ARAUJO DE OLIVEIRA",
@@ -730,15 +730,15 @@
    "GEOGRAFIA": "14,5",
    "ED. DIGITAL": 18,
    "ED. FISICA": "19",
-   ": INTERVENÇÃO CIDADÃ": "18",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "18",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "12",
    "BIOLOGIA": 15,
    "INGLES": "12",
    "FILOSOFIA": "19",
    "SOCIOLOGIA": "15",
    "ARTE": 9,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "ITALO RODRIGUES LUZ",
@@ -749,15 +749,15 @@
    "GEOGRAFIA": "25",
    "ED. DIGITAL": 19,
    "ED. FISICA": "18",
-   ": INTERVENÇÃO CIDADÃ": "25,5",
-   ": SOLUÇÕES MATEMÁTICAS": "23,5",
+   "INTERVENÇÃO CIDADÃ": "25,5",
+   "SOLUÇÕES MATEMÁTICAS": "23,5",
    "QUÍMICA": "25,5",
    "BIOLOGIA": 18,
    "INGLES": "18",
    "FILOSOFIA": "21,5",
    "SOCIOLOGIA": "18,5",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "JENNIFER SANTANA SILVA",
@@ -768,15 +768,15 @@
    "GEOGRAFIA": "28,75",
    "ED. DIGITAL": 26,
    "ED. FISICA": "24,75",
-   ": INTERVENÇÃO CIDADÃ": "28,5",
-   ": SOLUÇÕES MATEMÁTICAS": "20",
+   "INTERVENÇÃO CIDADÃ": "28,5",
+   "SOLUÇÕES MATEMÁTICAS": "20",
    "QUÍMICA": "18",
    "BIOLOGIA": 20,
    "INGLES": "28,75",
    "FILOSOFIA": "19,75",
    "SOCIOLOGIA": "26,75",
    "ARTE": 27,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "JONATHAN HENRIQUE DOS SANTOS RIBEIRO",
@@ -787,15 +787,15 @@
    "GEOGRAFIA": "18,5",
    "ED. DIGITAL": 18,
    "ED. FISICA": "19",
-   ": INTERVENÇÃO CIDADÃ": "24",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "24",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "15",
    "BIOLOGIA": 19,
    "INGLES": "23",
    "FILOSOFIA": "24,5",
    "SOCIOLOGIA": "23",
    "ARTE": 21,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "KETHELYN PEREIRA RAMOS DA SILVA",
@@ -806,15 +806,15 @@
    "GEOGRAFIA": "29,5",
    "ED. DIGITAL": 26,
    "ED. FISICA": "28",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "22,5",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "22,5",
    "QUÍMICA": "22,5",
    "BIOLOGIA": 25,
    "INGLES": "26",
    "FILOSOFIA": "29",
    "SOCIOLOGIA": "30",
    "ARTE": 26,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "LAURA SOARES DA SILVA",
@@ -825,15 +825,15 @@
    "GEOGRAFIA": "28,5",
    "ED. DIGITAL": 29,
    "ED. FISICA": "28",
-   ": INTERVENÇÃO CIDADÃ": "29,5",
-   ": SOLUÇÕES MATEMÁTICAS": "28",
+   "INTERVENÇÃO CIDADÃ": "29,5",
+   "SOLUÇÕES MATEMÁTICAS": "28",
    "QUÍMICA": "23,5",
    "BIOLOGIA": 28,
    "INGLES": "26",
    "FILOSOFIA": "29",
    "SOCIOLOGIA": "29",
    "ARTE": 30,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "LIS DE OLIVEIRA CÉZAR CARVALHO",
@@ -844,15 +844,15 @@
    "GEOGRAFIA": "30",
    "ED. DIGITAL": 28,
    "ED. FISICA": "30",
-   ": INTERVENÇÃO CIDADÃ": "29,5",
-   ": SOLUÇÕES MATEMÁTICAS": "25,5",
+   "INTERVENÇÃO CIDADÃ": "29,5",
+   "SOLUÇÕES MATEMÁTICAS": "25,5",
    "QUÍMICA": "26",
    "BIOLOGIA": 26,
    "INGLES": "29",
    "FILOSOFIA": "29",
    "SOCIOLOGIA": "29",
    "ARTE": 30,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "MARCOS PHILLIPPE VIEIRA DE ANDRADE",
@@ -863,15 +863,15 @@
    "GEOGRAFIA": "19,5",
    "ED. DIGITAL": 18,
    "ED. FISICA": "21",
-   ": INTERVENÇÃO CIDADÃ": "26",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "26",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "17",
    "BIOLOGIA": 18,
    "INGLES": "20",
    "FILOSOFIA": "25",
    "SOCIOLOGIA": "25",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "MATEUS DE OLIVEIRA BOREL",
@@ -882,15 +882,15 @@
    "GEOGRAFIA": "22,5",
    "ED. DIGITAL": 24,
    "ED. FISICA": "22",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "19",
    "BIOLOGIA": 18,
    "INGLES": "18",
    "FILOSOFIA": "27",
    "SOCIOLOGIA": "24",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "MATHEUS GABRIEL GONCALVES DIAS",
@@ -901,15 +901,15 @@
    "GEOGRAFIA": "27,25",
    "ED. DIGITAL": 19,
    "ED. FISICA": "23,25",
-   ": INTERVENÇÃO CIDADÃ": "28,75",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "28,75",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "13,25",
    "BIOLOGIA": 21,
    "INGLES": "18",
    "FILOSOFIA": "28,25",
    "SOCIOLOGIA": "28,25",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "NAIRON ROBSON EVANGELISTA COSTA",
@@ -920,15 +920,15 @@
    "GEOGRAFIA": "29",
    "ED. DIGITAL": 25,
    "ED. FISICA": "27,5",
-   ": INTERVENÇÃO CIDADÃ": "29",
-   ": SOLUÇÕES MATEMÁTICAS": "25",
+   "INTERVENÇÃO CIDADÃ": "29",
+   "SOLUÇÕES MATEMÁTICAS": "25",
    "QUÍMICA": "25",
    "BIOLOGIA": 24,
    "INGLES": "24,5",
    "FILOSOFIA": "29",
    "SOCIOLOGIA": "30",
    "ARTE": 30,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "NICOLAS AUGUSTO VIEIRA AVILA",
@@ -939,15 +939,15 @@
    "GEOGRAFIA": "25",
    "ED. DIGITAL": 18,
    "ED. FISICA": "23",
-   ": INTERVENÇÃO CIDADÃ": "29",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "29",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "14",
    "BIOLOGIA": 19,
    "INGLES": "23",
    "FILOSOFIA": "28",
    "SOCIOLOGIA": "27,5",
    "ARTE": 21,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "PAMELA MARTINS DOS SANTOS",
@@ -958,15 +958,15 @@
    "GEOGRAFIA": "30",
    "ED. DIGITAL": 28,
    "ED. FISICA": "25,25",
-   ": INTERVENÇÃO CIDADÃ": "29,5",
-   ": SOLUÇÕES MATEMÁTICAS": "20",
+   "INTERVENÇÃO CIDADÃ": "29,5",
+   "SOLUÇÕES MATEMÁTICAS": "20",
    "QUÍMICA": "21,75",
    "BIOLOGIA": 22,
    "INGLES": "26,7",
    "FILOSOFIA": "28,75",
    "SOCIOLOGIA": "28,75",
    "ARTE": 26,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "PIETRA BRANDÃO LIBERATO",
@@ -977,15 +977,15 @@
    "GEOGRAFIA": "23,25",
    "ED. DIGITAL": 21,
    "ED. FISICA": "22,75",
-   ": INTERVENÇÃO CIDADÃ": "26,75",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "26,75",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "15,25",
    "BIOLOGIA": 20,
    "INGLES": "20,7",
    "FILOSOFIA": "23,25",
    "SOCIOLOGIA": "22,25",
    "ARTE": 25,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "RAYSSA LAYSLA ALVES NUNES",
@@ -996,15 +996,15 @@
    "GEOGRAFIA": "25",
    "ED. DIGITAL": 28,
    "ED. FISICA": "29",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "28",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "28",
    "QUÍMICA": "23",
    "BIOLOGIA": 20,
    "INGLES": "28",
    "FILOSOFIA": "30",
    "SOCIOLOGIA": "29",
    "ARTE": 30,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "SAMUEL EDSON NUNES DA SILVA",
@@ -1015,15 +1015,15 @@
    "GEOGRAFIA": "27",
    "ED. DIGITAL": 24,
    "ED. FISICA": "27,5",
-   ": INTERVENÇÃO CIDADÃ": "27,25",
-   ": SOLUÇÕES MATEMÁTICAS": "25,8",
+   "INTERVENÇÃO CIDADÃ": "27,25",
+   "SOLUÇÕES MATEMÁTICAS": "25,8",
    "QUÍMICA": "25,5",
    "BIOLOGIA": 23,
    "INGLES": "24,45",
    "FILOSOFIA": "28,5",
    "SOCIOLOGIA": "28,5",
    "ARTE": 26,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "SARA LUCAS DE OLIVEIRA MANSUR",
@@ -1034,15 +1034,15 @@
    "GEOGRAFIA": "29,5",
    "ED. DIGITAL": 27,
    "ED. FISICA": "25,75",
-   ": INTERVENÇÃO CIDADÃ": "30",
-   ": SOLUÇÕES MATEMÁTICAS": "20",
+   "INTERVENÇÃO CIDADÃ": "30",
+   "SOLUÇÕES MATEMÁTICAS": "20",
    "QUÍMICA": "24,25",
    "BIOLOGIA": 22,
    "INGLES": "25,7",
    "FILOSOFIA": "26,75",
    "SOCIOLOGIA": "26,75",
    "ARTE": 27,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "SARAH EMANUELY PEDRO",
@@ -1053,15 +1053,15 @@
    "GEOGRAFIA": "28,5",
    "ED. DIGITAL": 26,
    "ED. FISICA": "26",
-   ": INTERVENÇÃO CIDADÃ": "29,5",
-   ": SOLUÇÕES MATEMÁTICAS": "22",
+   "INTERVENÇÃO CIDADÃ": "29,5",
+   "SOLUÇÕES MATEMÁTICAS": "22",
    "QUÍMICA": "26",
    "BIOLOGIA": 23,
    "INGLES": "22,9",
    "FILOSOFIA": "26,97",
    "SOCIOLOGIA": "27,97",
    "ARTE": 27,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "SOFIA RAPHAELLY DE SOUZA OLIVEIRA",
@@ -1072,15 +1072,15 @@
    "GEOGRAFIA": "18,5",
    "ED. DIGITAL": 20,
    "ED. FISICA": "20",
-   ": INTERVENÇÃO CIDADÃ": "25",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "25",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 18,
    "INGLES": "21",
    "FILOSOFIA": "23",
    "SOCIOLOGIA": "25",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "TAILLA MAYRA DA SILVA NASCIMENTO",
@@ -1091,15 +1091,15 @@
    "GEOGRAFIA": "24",
    "ED. DIGITAL": 24,
    "ED. FISICA": "23",
-   ": INTERVENÇÃO CIDADÃ": "29,5",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "29,5",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18,01",
    "BIOLOGIA": 18,
    "INGLES": "22",
    "FILOSOFIA": "28,5",
    "SOCIOLOGIA": "24,5",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "THIAGO HENRIQUE FELIX SILVA",
@@ -1110,15 +1110,15 @@
    "GEOGRAFIA": "23,5",
    "ED. DIGITAL": 18,
    "ED. FISICA": "18",
-   ": INTERVENÇÃO CIDADÃ": "25,5",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "25,5",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "11",
    "BIOLOGIA": 18,
    "INGLES": "19,5",
    "FILOSOFIA": "20",
    "SOCIOLOGIA": "21",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "VITOR GABRIEL TOMÉ DA SILVA",
@@ -1129,15 +1129,15 @@
    "GEOGRAFIA": "22",
    "ED. DIGITAL": 20,
    "ED. FISICA": "23",
-   ": INTERVENÇÃO CIDADÃ": "24",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "24",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "18",
    "BIOLOGIA": 18,
    "INGLES": "26",
    "FILOSOFIA": "23,5",
    "SOCIOLOGIA": "22,5",
    "ARTE": 27,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "YUDI JOSE DA SILVA",
@@ -1148,15 +1148,15 @@
    "GEOGRAFIA": "18",
    "ED. DIGITAL": 18,
    "ED. FISICA": "21,5",
-   ": INTERVENÇÃO CIDADÃ": "26",
-   ": SOLUÇÕES MATEMÁTICAS": "18",
+   "INTERVENÇÃO CIDADÃ": "26",
+   "SOLUÇÕES MATEMÁTICAS": "18",
    "QUÍMICA": "13",
    "BIOLOGIA": 18,
    "INGLES": "20",
    "FILOSOFIA": "24",
    "SOCIOLOGIA": "21",
    "ARTE": 18,
-   "FIELD17": 3002
+   "TURMA": 3002
  },
  {
    "ALUNO": "ÉRICK RICHARD FERREIRA DOS SANTOS LOPES",
@@ -1167,14 +1167,14 @@
    "GEOGRAFIA": "28",
    "ED. DIGITAL": 28,
    "ED. FISICA": "28",
-   ": INTERVENÇÃO CIDADÃ": "28,5",
-   ": SOLUÇÕES MATEMÁTICAS": "30",
+   "INTERVENÇÃO CIDADÃ": "28,5",
+   "SOLUÇÕES MATEMÁTICAS": "30",
    "QUÍMICA": "24,5",
    "BIOLOGIA": 23,
    "INGLES": "19,4",
    "FILOSOFIA": "24,47",
    "SOCIOLOGIA": "27,97",
    "ARTE": 28,
-   "FIELD17": 3002
+   "TURMA": 3002
  }
 ]
