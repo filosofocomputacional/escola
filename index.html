@@ -57,6 +57,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
     }
     .autocomplete-item:last-child { border-bottom: none; }
     .autocomplete-item:hover,
@@ -124,7 +125,9 @@
       gap: 10px;
       margin-bottom: 20px;
       border-bottom: 2px solid var(--border);
-      flex-wrap: wrap;
+      flex-wrap: nowrap; /* Garante que no PC fique em linha */
+      overflow-x: auto;  /* Adiciona scroll suave se as abas não couberem em telas pequenas */
+      -webkit-overflow-scrolling: touch;
     }
 
     .tab-btn {
@@ -136,6 +139,7 @@
       color: #64748b;
       border-bottom: 3px solid transparent;
       transition: all 0.2s;
+      white-space: nowrap; /* Evita quebra de texto nas abas */
     }
 
     .tab-btn:hover { color: var(--primary); }
@@ -154,7 +158,8 @@
       padding: 20px;
       box-shadow: 0 4px 6px rgba(0,0,0,.08);
       margin-bottom: 20px;
-      overflow-x: auto;
+      overflow-x: auto; /* Mantém scroll horizontal na tabela da turma */
+      -webkit-overflow-scrolling: touch;
     }
 
     .class-table {
@@ -204,6 +209,9 @@
       font-weight: 500;
       background-color: #f8fafc;
       min-width: 200px;
+      position: sticky; /* Efeito congelar coluna do nome no PC/Mobile */
+      left: 0;
+      z-index: 2;
     }
 
     .class-table td.grade-danger {
@@ -251,9 +259,10 @@
 
     .chart-label {
       font-weight: 600;
-      min-width: 120px;
+      min-width: 140px;
       font-size: 0.9rem;
       color: var(--text);
+      word-break: break-word; /* Evita estouro de texto longo */
     }
 
     .chart-bar-container {
@@ -275,7 +284,7 @@
       font-weight: 700;
       font-size: 0.95rem;
       transition: width 0.6s ease;
-      min-width: 50px;
+      min-width: 30px;
     }
 
     .chart-bar.level-low { background: linear-gradient(90deg, #86efac, #16a34a); }
@@ -300,12 +309,49 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* ==========================================================================
+       MEDIA QUERIES (Melhorias focadas em Celulares e Telas Pequenas)
+       ========================================================================== */
     @media (max-width: 768px) {
-      .container { padding: 0 0.5rem; }
-      .tabs { flex-direction: column; }
-      .tab-btn { width: 100%; text-align: left; }
-      .class-table th.vertical-header { height: 100px; font-size: 0.7rem; }
-      .chart-label { min-width: 80px; font-size: 0.8rem; }
+      body { padding: 1rem 0.5rem; }
+      
+      header h1 { font-size: 1.6rem; }
+      header p { font-size: 0.9rem; }
+
+      .search-box { padding: 1rem; margin-bottom: 1.5rem; }
+      .search-box input, .search-box select { padding: 0.75rem; font-size: 1rem; }
+
+      /* Ajuste nas abas para scroll horizontal suave (estilo aplicativo) */
+      .tabs { 
+        flex-wrap: nowrap; 
+        gap: 5px; 
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 2px;
+      }
+      .tab-btn { 
+        padding: 10px 14px; 
+        font-size: 0.9rem; 
+        flex: 1 0 auto; 
+        text-align: center;
+      }
+
+      /* Painel de Alerta Crítico */
+      .alert-critical { flex-direction: column; text-align: center; padding: 1rem; margin: 1rem; gap: 0.5rem; }
+      
+      /* Ajustes nos gráficos de barras */
+      .chart-row { flex-direction: column; align-items: flex-start; gap: 6px; background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid var(--border); }
+      .chart-label { min-width: 100%; font-size: 0.95rem; }
+      .chart-bar-container { width: 100%; height: 28px; }
+      .chart-value { width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+      .chart-value .percent { display: inline; margin-left: 8px; }
+
+      /* Ajuste nas tabelas de listagem individual */
+      th, td { padding: 0.6rem 0.75rem; font-size: 0.9rem; }
+      .boletim-footer { padding: 1rem; }
+
+      /* Auto-complete responsivo */
+      .autocomplete-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .autocomplete-item .class-tag { align-self: flex-end; font-size: 0.7rem; }
     }
   </style>
 </head>
@@ -323,7 +369,6 @@
       <button class="tab-btn" onclick="showTab('aba-grafico', this)">📊 Média Perdida</button>
     </div>
 
-    <!-- ABA 1: Boletim Individual -->
     <div id="aba-aluno" class="tab-content active">
       <div class="search-box">
         <label for="searchInput">Pesquisar Aluno</label>
@@ -374,7 +419,6 @@
       </div>
     </div>
 
-    <!-- ABA 2: Boletim por Turma -->
     <div id="aba-turma" class="tab-content">
       <div class="search-box">
         <label for="classSelect">Selecionar Turma</label>
@@ -399,7 +443,6 @@
       </div>
     </div>
 
-    <!-- ABA 3: Média Perdida por Disciplina -->
     <div id="aba-grafico" class="tab-content">
       <div class="search-box">
         <label for="chartClassSelect">Selecionar Turma para Análise</label>
