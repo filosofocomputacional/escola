@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Business Simulator - Imersão Total</title>
+    <style>
+        :root {
+            --wa-teal: #075e54;
+            --wa-light-teal: #128c7e;
+            --wa-green: #25d366;
+            --wa-bg: #e5ddd5;
+            --chat-bg: #efeae2;
+            --gray-text: #667781;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+            background-color: #d1d7db;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .instructions {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            max-width: 420px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 14px;
+            color: #333;
+        }
+        .instructions ul { margin: 5px 0 0 0; padding-left: 20px; }
+
+        /* Estrutura do Smartphone */
+        .smartphone {
+            width: 360px;
+            height: 720px;
+            background: white;
+            border: 12px solid #111;
+            border-radius: 36px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Indicador de elemento clicável/editável */
+        [contenteditable="true"]:hover {
+            outline: 2px dashed var(--wa-light-teal);
+            background-color: rgba(18, 140, 126, 0.05);
+            border-radius: 4px;
+        }
+        [contenteditable="true"]:focus {
+            outline: 2px solid var(--wa-green);
+            background-color: transparent;
+        }
+
+        /* Top Bar */
+        .status-bar {
+            background: #054c44;
+            color: white;
+            font-size: 12px;
+            padding: 6px 18px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .wa-header {
+            background: var(--wa-teal);
+            color: white;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+        }
+        .wa-header .biz-title { font-weight: bold; font-size: 18px; flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+
+        /* Abas de Navegação */
+        .wa-tabs {
+            background: var(--wa-teal);
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            user-select: none;
+        }
+        .wa-tabs div {
+            flex: 1;
+            padding: 12px 0;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        .wa-tabs div.active { color: white; border-bottom-color: white; }
+
+        /* Telas (Navegação) */
+        .screen { flex: 1; overflow-y: auto; background: white; display: none; }
+        .screen.active { display: block; }
+
+        /* --- TELA: PERFIL --- */
+        .profile-cover { background: #cbd5e1; height: 100px; position: relative; }
+        .profile-avatar-wrapper {
+            position: absolute;
+            bottom: -30px;
+            left: 20px;
+            width: 75px;
+            height: 75px;
+            background: #128c7e;
+            border: 3px solid white;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; display: none; }
+        .profile-avatar-wrapper .placeholder-icon { font-size: 35px; color: white; }
+
+        .profile-main { padding: 40px 20px 15px 20px; border-bottom: 8px solid #f0f2f5; }
+        .p-name { font-size: 20px; font-weight: bold; color: #000; min-height: 26px;}
+        .p-cat { color: var(--wa-light-teal); font-size: 12px; font-weight: 600; text-transform: uppercase; margin-top: 4px; }
+        .p-desc { font-size: 14px; color: #555; margin-top: 10px; line-height: 1.4; min-height: 20px;}
+
+        .info-row { display: flex; gap: 15px; padding: 12px 20px; border-bottom: 1px solid #f0f2f5; font-size: 14px; }
+        .info-row .icon { font-size: 16px; color: var(--wa-light-teal); width: 20px; text-align: center; }
+        .info-row .title { font-weight: 500; color: #000; }
+        .info-row .sub { color: #666; margin-top: 2px; min-height: 18px;}
+
+        /* --- TELA: CATÁLOGO --- */
+        .catalog-container { padding: 15px; }
+        .catalog-header { font-size: 14px; font-weight: bold; color: #666; margin-bottom: 15px; }
+        
+        /* Card de Adicionar Item Estilo WhatsApp */
+        .add-item-card {
+            display: flex;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 2px solid #f0f2f5;
+            cursor: pointer;
+            align-items: center;
+            user-select: none;
+        }
+        .add-item-card:hover { background: #f8fafc; }
+        .add-icon-slot {
+            width: 65px;
+            height: 65px;
+            background: #e1f7ec;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--wa-green);
+            font-size: 22px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .add-card-text .title { font-weight: bold; font-size: 14px; color: var(--wa-light-teal); }
+        .add-card-text .sub { font-size: 12px; color: #718096; margin-top: 2px; }
+
+        /* Itens do catálogo */
+        .catalog-item { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .item-img-slot {
+            width: 70px;
+            height: 70px;
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .item-img-slot img { width: 100%; height: 100%; object-fit: cover; display: none; }
+        .item-img-slot .placeholder-icon { font-size: 22px; color: #94a3b8; }
+        
+        .item-details { flex: 1; }
+        .item-title { font-weight: bold; font-size: 14px; color: #000; min-height: 18px;}
+        .item-price { color: var(--wa-green); font-weight: bold; font-size: 14px; margin: 2px 0; }
+        .item-desc { font-size: 12px; color: #666; line-height: 1.3; min-height: 16px;}
+
+        /* --- TELA: MENSAGENS (PAINEL DE CONFIGURAÇÃO) --- */
+        .settings-container { padding: 15px; display: flex; flex-direction: column; gap: 20px; background: #f8fafc; height: 100%; }
+        .settings-section { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        
+        .setting-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .setting-label { font-weight: bold; font-size: 14px; color: var(--wa-teal); }
+        
+        /* Switch Toggle */
+        .toggle-switch { position: relative; display: inline-block; width: 36px; height: 20px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; transition: .3s; border-radius: 20px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--wa-green); }
+        input:checked + .slider:before { transform: translateX(16px); }
+
+        .setting-meta { font-size: 11px; color: var(--gray-text); margin-bottom: 8px; font-weight: 500; }
+        .config-bubble-box { background: #efeae2; border-radius: 8px; padding: 10px; border: 1px solid #e2e8f0; position: relative; margin-top: 10px;}
+        .config-bubble-box::before { content: ""; position: absolute; top: 12px; left: -6px; border: 4px solid transparent; border-top-color: white; border-right-color: white; }
+        .config-bubble-text { background: white; padding: 8px 10px; border-radius: 0 8px 8px 8px; font-size: 13px; color: #333; box-shadow: 0 1px 1px rgba(0,0,0,0.1); min-height: 30px; }
+
+        /* Controles de Impressão */
+        .print-btn {
+            background: #e67e22; color: white; border: none; padding: 12px 30px;
+            border-radius: 25px; font-weight: bold; font-size: 15px; cursor: pointer;
+            margin-top: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: background 0.2s;
+        }
+        .print-btn:hover { background: #d35400; }
+        .file-input { display: none; }
+        #dynamicInputs { display: none; }
+
+        /* Regras de Impressão */
+        @media print {
+            .instructions, .print-btn, .wa-tabs, .add-item-card, .toggle-switch { display: none !important; }
+            body { background: white; padding: 0; }
+            .smartphone { border: none; box-shadow: none; width: 100%; height: auto; overflow: visible; }
+            .screen { display: block !important; page-break-after: always; border: 1px solid #ccc; margin-bottom: 30px; border-radius: 8px; }
+            [contenteditable="true"] { border: none !important; outline: none !important; }
+            .settings-container { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="instructions">
+        <strong>📱 Simulador 100% Nativo - WhatsApp Business:</strong>
+        <ul>
+            <li><strong>Mudar Textos:</strong> Clique diretamente sobre qualquer texto do celular.</li>
+            <li><strong>Mudar Fotos:</strong> Clique nos ícones de foto para enviar do computador.</li>
+            <li><strong>Criar Produtos:</strong> Na aba Catálogo, clique em <strong>"Adicionar item novo"</strong>.</li>
+            <li><strong>Mensagens:</strong> Ative e configure os textos na aba de mensagens.</li>
+        </ul>
+    </div>
+
+    <div class="smartphone">
+        
+        <div class="status-bar">
+            <span>09:41</span>
+            <span>📶 🛜 🔋 100%</span>
+        </div>
+
+        <div class="wa-header">
+            <span style="cursor:pointer">←</span>
+            <span class="biz-title" id="headerTitle" contenteditable="true">Nome da Sua Empresa</span>
+        </div>
+
+        <div class="wa-tabs">
+            <div id="tPerfil" class="active" onclick="switchScreen('sPerfil', 'tPerfil')">PERFIL</div>
+            <div id="tCatalogo" onclick="switchScreen('sCatalogo', 'tCatalogo')">CATÁLOGO</div>
+            <div id="tMsg" onclick="switchScreen('sMsg', 'tMsg')">MENSAGEM</div>
+        </div>
+
+        <input type="file" id="inputAvatar" class="file-input" accept="image/*" onchange="loadImg(this, 'imgAvatar', 'iconAvatar')">
+        <div id="dynamicInputs"></div>
+
+
+        <div id="sPerfil" class="screen active">
+            <div class="profile-cover">
+                <div class="profile-avatar-wrapper" onclick="triggerInput('inputAvatar')">
+                    <span class="placeholder-icon" id="iconAvatar">🏪</span>
+                    <img id="imgAvatar" alt="Avatar">
+                </div>
+            </div>
+
+            <div class="profile-main">
+                <div class="p-name" contenteditable="true" oninput="syncHeader(this)">Nome da Sua Empresa</div>
+                <div class="p-cat" contenteditable="true">CATEGORIA DO SEU NEGÓCIO</div>
+                <div class="p-desc" contenteditable="true">Escreva aqui uma breve descrição do seu negócio, missão ou proposta de valor para atrair clientes...</div>
+            </div>
+
+            <div class="info-row">
+                <span class="icon">📍</span>
+                <div class="text-wrapper">
+                    <div class="title">Endereço comercial</div>
+                    <div class="sub" contenteditable="true">Av. Principal, nº 100 - Centro</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <span class="icon">🕒</span>
+                <div class="text-wrapper">
+                    <div class="title">Horário de funcionamento</div>
+                    <div class="sub" contenteditable="true">Segunda a Sexta: 09h às 18h</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <span class="icon">📧</span>
+                <div class="text-wrapper">
+                    <div class="title">E-mail</div>
+                    <div class="sub" contenteditable="true">contato@suaempresa.com.br</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="sCatalogo" class="screen">
+            <div class="catalog-container">
+                
+                <div class="add-item-card" onclick="addCatalogItem()">
+                    <div class="add-icon-slot">＋</div>
+                    <div class="add-card-text">
+                        <div class="title">Adicionar item novo</div>
+                        <div class="sub">Inclua um produto ou serviço à vitrine</div>
+                    </div>
+                </div>
+
+                <div class="catalog-header" style="margin-top:15px;">Itens do seu catálogo</div>
+
+                <div id="catalogItemsList">
+                    <div class="catalog-item">
+                        <div class="item-img-slot" onclick="triggerInput('inputP1')">
+                            <span class="placeholder-icon" id="iconP1">📦</span>
+                            <img id="imgP1" alt="Produto 1">
+                        </div>
+                        <div class="item-details">
+                            <div class="item-title" contenteditable="true">Nome do Item 01</div>
+                            <div class="item-price" contenteditable="true">R$ 00,00</div>
+                            <div class="item-desc" contenteditable="true">Insira os detalhes, tamanhos, prazos de entrega ou especificações do item.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="sMsg" class="screen">
+            <div class="settings-container">
+                
+                <div class="settings-section">
+                    <div class="setting-header-row">
+                        <span class="setting-label">Mensagem de Saudação</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked onchange="toggleBubble('bubbleSaudacao', this)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-meta">Cumimente os clientes automaticamente quando eles enviarem mensagens pela primeira vez.</div>
+                    
+                    <div class="config-bubble-box" id="bubbleSaudacao">
+                        <div class="config-bubble-text" contenteditable="true">Olá! Seja muito bem-vindo à nossa empresa. Como podemos te ajudar hoje? Deixe sua dúvida! 😊</div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <div class="setting-header-row">
+                        <span class="setting-label">Mensagem de Ausência</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked onchange="toggleBubble('bubbleAusencia', this)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-meta">Responda com uma mensagem automática quando você estiver fora do seu horário comercial.</div>
+                    
+                    <div class="config-bubble-box" id="bubbleAusencia">
+                        <div class="config-bubble-text" contenteditable="true">Obrigado pela mensagem! No momento estamos fora do horário de atendimento. Nosso expediente é de Segunda a Sexta, das 09h às 18h. Retornaremos assim que possível! 🕒</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Salvar Projeto (PDF / Imprimir)</button>
+
+    <script>
+        let catalogCount = 1;
+
+        // Inicializa o input de arquivo do primeiro produto
+        window.onload = function() {
+            createFileInput('inputP1', 'imgP1', 'iconP1');
+        };
+
+        function switchScreen(screenId, tabId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.wa-tabs div').forEach(t => t.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        function syncHeader(element) {
+            document.getElementById('headerTitle').innerText = element.innerText;
+        }
+
+        function triggerInput(inputId) {
+            document.getElementById(inputId).click();
+        }
+
+        function createFileInput(id, imgId, iconId) {
+            const container = document.getElementById('dynamicInputs');
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.id = id;
+            input.className = 'file-input';
+            input.accept = 'image/*';
+            input.onchange = function() { loadImg(this, imgId, iconId); };
+            container.appendChild(input);
+        }
+
+        function loadImg(input, imgId, iconId) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgNode = document.getElementById(imgId);
+                    const iconNode = document.getElementById(iconId);
+                    imgNode.src = e.target.result;
+                    imgNode.style.display = 'block';
+                    if (iconNode) iconNode.style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // CRIAÇÃO INFINITA DE PRODUTOS DIRETO NA VITRINE
+        function addCatalogItem() {
+            catalogCount++;
+            const currentId = catalogCount;
+            
+            const inputId = `inputP${currentId}`;
+            const imgId = `imgP${currentId}`;
+            const iconId = `iconP${currentId}`;
+
+            // Cria o canal de upload de imagem para o novo produto
+            createFileInput(inputId, imgId, iconId);
+
+            // Adiciona o produto na lista com design idêntico ao original
+            const list = document.getElementById('catalogItemsList');
+            const item = document.createElement('div');
+            item.className = 'catalog-item';
+            item.innerHTML = `
+                <div class="item-img-slot" onclick="triggerInput('${inputId}')">
+                    <span class="placeholder-icon" id="${iconId}">📦</span>
+                    <img id="${imgId}" alt="Produto ${currentId}">
+                </div>
+                <div class="item-details">
+                    <div class="item-title" contenteditable="true">Nome do Item 0${currentId}</div>
+                    <div class="item-price" contenteditable="true">R$ 00,00</div>
+                    <div class="item-desc" contenteditable="true">Clique aqui para descrever as características deste novo produto inserido na vitrine.</div>
+                </div>
+            `;
+            list.appendChild(item);
+        }
+
+        function toggleBubble(bubbleId, toggleElement) {
+            const bubble = document.getElementById(bubbleId);
+            if(toggleElement.checked) {
+                bubble.style.opacity = "1";
+                bubble.querySelector('.config-bubble-text').setAttribute('contenteditable', 'true');
+            } else {
+                bubble.style.opacity = "0.3";
+                bubble.querySelector('.config-bubble-text').setAttribute('contenteditable', 'false');
+            }
+        }
+    </script>
+</body>
+</html>
