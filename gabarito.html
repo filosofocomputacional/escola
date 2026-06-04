@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Correção de Gabarito em Tempo Real</title>
+<!-- OpenCV.js para visão computacional -->
+<script async src="https://docs.opencv.org/4.8.0/opencv.js" onload="onOpenCvReady()"></script>
+<!-- jsPDF para gerar o gabarito -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root { --primary: #2563eb; --bg: #f8fafc; --text: #1e293b; }
+body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+h1, h2 { margin-bottom: 10px; }
+.container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 1200px; }
+.panel { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); flex: 1; min-width: 300px; }
+.controls { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; align-items: center; }
+input[type="number"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 80px; }
+button { padding: 8px 16px; background: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+button:hover { opacity: 0.9; }
+button.secondary { background: #64748b; }
+
+/* Grid do Gabarito Configuração */
+.answer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 10px; }
+.question-row { display: flex; align-items: center; gap: 5px; background: #f1f5f9; padding: 5px; border-radius: 4px; }
+.q-num { font-weight: bold; width: 30px; }
+.options { display: flex; gap: 5px; }
+.opt-btn { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ccc; background: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+.opt-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* Área da Câmera */
+.camera-container { position: relative; width: 100%; max-width: 640px; margin: 0 auto; background: #000; border-radius: 8px; overflow: hidden; }
+video { width: 100%; display: block; }
+canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.overlay-stats { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: #fff; padding: 10px; border-radius: 4px; font-family: monospace; }
+
+.status { margin-top: 10px; font-weight: bold; text-align: center; }
+.success { color: green; }
+.error { color: red; }
+
+#loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.9); display: flex; justify-content: center; align-items: center; z-index: 1000; font-size: 1.5rem; }
+</style>
+</head>
+<body>
+
+<div id="loading">Carregando motor de visão computacional...</div>
+
+<h1>Corretor de Gabarito em Tempo Real</h1>
+<p>Sem banco de dados. Tudo roda no seu navegador.</p>
+
+<div class="container">
+<!-- Painel de Configuração -->
+<div class="panel">
+<h2>1. Configurar Prova</h2>
+<div class="controls">
+<label>Nº Questões: <input type="number" id="numQuestions" value="10" min="1" max="50"></label>
+<button onclick="setupGrid()">Gerar Grid de Respostas</button>
+</div>
+
+<h3>Definir Gabarito Oficial</h3>
+<p style="font-size: 0.9em; color: #666;">Clique nas bolinhas abaixo para marcar a resposta correta de cada questão.</p>
+<div id="configGrid" class="answer-grid"></div>
+
+<div class="controls" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px;">
+<button onclick="generatePDF()">Baixar Gabarito em PDF</button>
+<button class="secondary" onclick="startCamera()">2. Iniciar Câmera</button>
+</div>
+<div id="statusMsg" class="status"></div>
+</div>
+
+<!-- Painel de Correção -->
+<div class="panel">
+<h2>3. Correção ao Vivo</h2>
+<p style="font-size: 0.9em;">Aponte a câmera para o gabarito impresso. Mantenha os 4 quadrados pretos nos cantos visíveis.</p>
+<div class="camera-container">
+<video id="videoInput" playsinline></video>
+<canvas id="canvasOutput"></canvas>
+<div class="overlay-stats" id="statsDisplay">
+Aguardando imagem...<br>
+Acertos: --<br>
+Total: --
+</div>
+</div>
+</div>
+</div>
+
+<script>
+let cvReady = false;
+let video = document.getElementById('videoInput');
+let canvas = document.getElementById('canvasOutput');
+let ctx = canvas.getContext('2d');
+let correctAnswers = {}; // { 1: 'A', 2: 'C',... }
+let animationFrame;
+let stream = null;
+
+function onOpenCvReady() {
+cvReady = true;
+document.getElementById('loading').style.display = 'none';
+console.log('OpenCV.js pronto');
+}
+
+// 1. Configuração do Grid de Respostas
+function setupGrid() {
+const numQ = parseInt(document.getElementById('numQuestions').value);
+const grid = document.getElementById('configGrid');
+grid.innerHTML = '';
+correctAnswers = {};
+
+const options = ['A', 'B', 'C', 'D', 'E'];
+
+for (let i = 1; i <= numQ; i++) {
+const row = document.createElement('div');
+row.className = 'question-row';
+
+const numSpan = document.createElement('span');
+numSpan.className = 'q-num';
+numSpan.innerText = i;
+row.appendChild(numSpan);
+
+const optsDiv = document.createElement('div');
+optsDiv.className = 'options';
+
+options.forEach(opt => {
+const btn = document.createElement('div');
+btn.className = 'opt-btn';
+btn.innerText = opt;
+btn.onclick = () => {
+// Remove seleção anterior dessa questão
+const existing = row.querySelector('.selected');
+if (existing) existing.classList.remove('selected');
+
+// Seleciona nova
+btn.classList.add('selected');
+correctAnswers[i] = opt;
+};
+optsDiv.appendChild(btn);
+});
+
+row.appendChild(optsDiv);
+grid.appendChild(row);
+
+// Define padrão A como inicial
+correctAnswers[i] = 'A';
+row.querySelector('.opt-btn').classList.add('selected');
+}
+updateStatus('Gabarito configurado. Defina as respostas clicando acima.');
+}
+
+// 2. Gerar PDF
+async function generatePDF() {
+if (!window.jspdf) { alert('Biblioteca PDF não carregada'); return; }
+const { jsPDF } = window.jspdf;
+const doc = new jsPDF();
+
+const numQ = parseInt(document.getElementById('numQuestions').value);
+const margin = 20;
+let y = 30;
+const lineHeight = 10;
+const options = ['A', 'B', 'C', 'D', 'E'];
+
+doc.setFontSize(16);
+doc.text("GABARITO DE RESPOSTAS", margin, 20);
+doc.setFontSize(12);
+doc.text("Preencha completamente a bolinha correspondente.", margin, 28);
+
+// Desenhar marcadores fiduciais (cantos) para a IA encontrar a folha
+const pageSize = { w: doc.internal.pageSize.getWidth(), h: doc.internal.pageSize.getHeight() };
+const markerSize = 10;
+
+// Cantos
+doc.setFillColor(0, 0, 0);
+doc.rect(markerSize, markerSize, markerSize, markerSize, 'F'); // Top-Left
+doc.rect(pageSize.w - markerSize*2, markerSize, markerSize, markerSize, 'F'); // Top-Right
+doc.rect(markerSize, pageSize.h - markerSize*2, markerSize, markerSize, 'F'); // Bottom-Left
+doc.rect(pageSize.w - markerSize*2, pageSize.h - markerSize*2, markerSize, markerSize, 'F'); // Bottom-Right
+
+y = 50;
+
+for (let i = 1; i <= numQ; i++) {
+if (y > pageSize.h - 30) { doc.addPage(); y = 30; }
+
+doc.text(`${i}.`, margin, y);
+
+let xOpt = margin + 15;
+options.forEach(opt => {
+// Círculo
+doc.circle(xOpt, y - 2, 3, 'S');
+// Letra
+doc.text(opt, xOpt + 5, y);
+xOpt += 20;
+});
+y += lineHeight;
+}
+
+doc.save(`gabarito_${numQ}_questoes.pdf`);
+updateStatus('PDF gerado! Imprima e use a câmera para corrigir.', 'success');
+}
+
+// 3. Lógica da Câmera e OpenCV
+async function startCamera() {
+if (!cvReady) { alert('OpenCV ainda carregando...'); return; }
+if (Object.keys(correctAnswers).length === 0) { alert('Configure o número de questões primeiro.'); return; }
+
+try {
+stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } } });
+video.srcObject = stream;
+video.play();
+updateStatus('Câmera ativa. Aponte para o gabarito.', 'success');
+requestAnimationFrame(processFrame);
+} catch (err) {
+updateStatus('Erro ao acessar câmera: ' + err.message, 'error');
+}
+}
+
+function processFrame() {
+if (video.readyState!== 4 ||!cvReady) {
+requestAnimationFrame(processFrame);
+return;
+}
+
+try {
+let src = cv.imread(video);
+let dst = new cv.Mat();
+let gray = new cv.Mat();
+let thresh = new cv.Mat();
+let contours = new cv.MatVector();
+let hierarchy = new cv.Mat();
+
+// 1. Pré-processamento
+cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY, 0);
+cv.threshold(gray, thresh, 150, 255, cv.THRESH_BINARY_INV);
+
+// 2. Encontrar contornos para localizar os 4 marcadores de canto
+cv.findContours(thresh, contours, hierarchy, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE);
+
+let corners = [];
+for (let i = 0; i < contours.size(); ++i) {
+let cnt = contours.get(i);
+let area = cv.contourArea(cnt);
+// Filtrar por área (ajustar conforme resolução da câmera)
+if (area > 1000 && area < 50000) {
+let peri = cv.arcLength(cnt, true);
+let approx = new cv.Mat();
+cv.approxPolyDP(cnt, approx, 0.04 * peri, true);
+
+if (approx.rows === 4) {
+// Encontramos um quadrado potencial
+let pts = [];
+for(let j=0; j<4; j++) {
+pts.push({ x: approx.data32S[j*2], y: approx.data32S[j*2+1] });
+}
+corners.push(pts);
+}
+approx.delete();
+}
+}
+
+// Se encontrou 4 cantos, faz a transformação de perspectiva
+if (corners.length === 4) {
+// Ordenar cantos: Top-Left, Top-Right, Bottom-Right, Bottom-Left
+// Lógica simples de ordenação baseada em coordenadas
+corners.sort((a, b) => a.y + a.y - (b.y + b.<span class="citation-group" data-sources="%5B%7B%22url%22%3A%22https%3A%2F%2Fmarketplace.microsoft.com%2Fpt-pt%2Fproduct%2Fweb-apps%2Fgabaritech.gabaritech_startando%3Ftab%3DOverview%22%2C%22title%22%3A%22Gabaritech%22%2C%22domain%22%3A%22marketplace.microsoft.com%22%2C%22label%22%3A%22marketplace.microsoft%22%2C%22description%22%3A%22Atrav%C3%A9s%20da%20aplica%C3%A7%C3%A3o%2C%20totalmente%20web%2C%20o%20usu%C3%A1rio%20poder%C3%A1%20importar%20todos%20os%20cadastros%20da%20escola%2C%20turma%20e%20aluno%2C%20evitando%20retrabalho%20na%20atividade.%20Poder%C3%A1%20tamb%C3%A9m%2C%20cadastrar%20os%20usu%C3%A1rios%22%7D%5D" data-index="0"><a class="citation-pill" href="https://marketplace.microsoft.com/pt-pt/product/web-apps/gabaritech.gabaritech_startando?tab=Overview" target="_blank" rel="noopener noreferrer" title="Gabaritech · marketplace.microsoft.com">marketplace.microsoft</a></span>y)); // Top 2 first
+let top = corners.slice(0, 2).sort((a, b) => a.x - b.x);
+let bottom = corners.slice(2, 4).sort((a, b) => a.x - b.x);
+
+let srcTri = cv.matFromArray(4, 1, cv.CV_32FC2, [
+top.x, top.y,
+top.x, top.y,
+bottom.x, bottom.[<span class="citation-group" data-sources="%5B%7B%22url%22%3A%22https%3A%2F%2Fmarketplace.microsoft.com%2Fpt-pt%2Fproduct%2Fweb-apps%2Fgabaritech.gabaritech_startando%3Ftab%3DOverview%22%2C%22title%22%3A%22Gabaritech%22%2C%22domain%22%3A%22marketplace.microsoft.com%22%2C%22label%22%3A%22marketplace.microsoft%22%2C%22description%22%3A%22Atrav%C3%A9s%20da%20aplica%C3%A7%C3%A3o%2C%20totalmente%20web%2C%20o%20usu%C3%A1rio%20poder%C3%A1%20importar%20todos%20os%20cadastros%20da%20escola%2C%20turma%20e%20aluno%2C%20evitando%20retrabalho%20na%20atividade.%20Poder%C3%A1%20tamb%C3%A9m%2C%20cadastrar%20os%20usu%C3%A1rios%22%7D%5D" data-index="0"><a class="citation-pill" href="https://marketplace.microsoft.com/pt-pt/product/web-apps/gabaritech.gabaritech_startando?tab=Overview" target="_blank" rel="noopener noreferrer" title="Gabaritech · marketplace.microsoft.com">marketplace.microsoft</a></span>](https://marketplace.microsoft.com/pt-pt/product/web-apps/gabaritech.gabaritech_startando?tab=Overview "Gabaritech · marketplace.microsoft.com")y,
+bottom.x, bottom.y,
+]);
+
+// Tamanho fixo do gabarito "virtual" para leitura (ex: 600x800)
+let w = 600, h = 800;
+let dstTri = cv.matFromArray(4, 1, cv.CV_32FC2, [
+0, 0, w, 0, w, h, 0, h
+]);
+
+let M = cv.getPerspectiveTransform(srcTri, dstTri);
+cv.warpPerspective(src, dst, M, new cv.Size(w, h));
+
+// 3. Analisar as bolinhas na imagem retificada (dst)
+analyzeSheet(dst, w, h);
+
+// Desenhar retângulo verde na tela original para feedback
+cv.rectangle(src, new cv.Point(top.x, top.y), new cv.Point(bottom.x, bottom.[<span class="citation-group" data-sources="%5B%7B%22url%22%3A%22https%3A%2F%2Fmarketplace.microsoft.com%2Fpt-pt%2Fproduct%2Fweb-apps%2Fgabaritech.gabaritech_startando%3Ftab%3DOverview%22%2C%22title%22%3A%22Gabaritech%22%2C%22domain%22%3A%22marketplace.microsoft.com%22%2C%22label%22%3A%22marketplace.microsoft%22%2C%22description%22%3A%22Atrav%C3%A9s%20da%20aplica%C3%A7%C3%A3o%2C%20totalmente%20web%2C%20o%20usu%C3%A1rio%20poder%C3%A1%20importar%20todos%20os%20cadastros%20da%20escola%2C%20turma%20e%20aluno%2C%20evitando%20retrabalho%20na%20atividade.%20Poder%C3%A1%20tamb%C3%A9m%2C%20cadastrar%20os%20usu%C3%A1rios%22%7D%5D" data-index="0"><a class="citation-pill" href="https://marketplace.microsoft.com/pt-pt/product/web-apps/gabaritech.gabaritech_startando?tab=Overview" target="_blank" rel="noopener noreferrer" title="Gabaritech · marketplace.microsoft.com">marketplace.microsoft</a></span>](https://marketplace.microsoft.com/pt-pt/product/web-apps/gabaritech.gabaritech_startando?tab=Overview "Gabaritech · marketplace.microsoft.com")y), [0, 255, 0], 2);
+
+srcTri.delete(); dstTri.delete(); M.delete();
+} else {
+document.getElementById('statsDisplay').innerHTML = "Procurando gabarito...<br>(Mostre os 4 cantos pretos)";
+}
+
+// Exibir resultado
+cv.imshow(canvas, src);
+
+// Limpeza de memória
+src.delete(); dst.delete(); gray.delete(); thresh.delete(); contours.delete(); hierarchy.delete();
+if(corners) corners.forEach(c => c.forEach(pt => {})); // dummy cleanup logic for array items if needed
+
+} catch (err) {
+console.error(err);
+}
+
+requestAnimationFrame(processFrame);
+}
+
+function analyzeSheet(mat, width, height) {
+const numQ = parseInt(document.getElementById('numQuestions').value);
+const options = ['A', 'B', 'C', 'D', 'E'];
+const numRows = numQ;
+const numCols = options.length;
+
+// Margens estimadas (ajustar conforme o PDF gerado)
+const startX = width * 0.15;
+const endX = width * 0.85;
+const startY = height * 0.15;
+const endY = height * 0.85;
+
+const cellWidth = (endX - startX) / numCols;
+const cellHeight = (endY - startY) / numRows;
+
+let correctCount = 0;
+let details = [];
+
+for (let q = 0; q < numRows; q++) {
+let maxDarkness = 0;
+let chosenOptIndex = -1;
+
+for (let opt = 0; opt < numCols; opt++) {
+// Definir ROI da bolinha
+let cx = startX + (opt * cellWidth) + (cellWidth / 2);
+let cy = startY + (q * cellHeight) + (cellHeight / 2);
+let radius = Math.min(cellWidth, cellHeight) * 0.3;
+
+// Criar máscara circular para amostrar apenas o centro da bolinha
+let mask = new cv.Mat(mat.rows, mat.cols, mat.type(), [0, 0, 0, 255]);
+cv.circle(mask, new cv.Point(cx, cy), radius, [255, 255, 255, 255], -1);
+
+let mean = cv.mean(mat, mask);
+// Calcula brilho médio (quanto menor, mais preenchido)
+// Considerando canal Vermelho (0) ou cinza
+let brightness = (mean + mean<span class="citation-group" data-sources="%5B%7B%22url%22%3A%22https%3A%2F%2Fmarketplace.microsoft.com%2Fpt-pt%2Fproduct%2Fweb-apps%2Fgabaritech.gabaritech_startando%3Ftab%3DOverview%22%2C%22title%22%3A%22Gabaritech%22%2C%22domain%22%3A%22marketplace.microsoft.com%22%2C%22label%22%3A%22marketplace.microsoft%22%2C%22description%22%3A%22Atrav%C3%A9s%20da%20aplica%C3%A7%C3%A3o%2C%20totalmente%20web%2C%20o%20usu%C3%A1rio%20poder%C3%A1%20importar%20todos%20os%20cadastros%20da%20escola%2C%20turma%20e%20aluno%2C%20evitando%20retrabalho%20na%20atividade.%20Poder%C3%A1%20tamb%C3%A9m%2C%20cadastrar%20os%20usu%C3%A1rios%22%7D%5D" data-index="0"><a class="citation-pill" href="https://marketplace.microsoft.com/pt-pt/product/web-apps/gabaritech.gabaritech_startando?tab=Overview" target="_blank" rel="noopener noreferrer" title="Gabaritech · marketplace.microsoft.com">marketplace.microsoft</a></span>+ mean<span class="citation-group" data-sources="%5B%7B%22url%22%3A%22https%3A%2F%2Fblog.fabricadeprovas.com.br%2Feducacional%2Favaliacao-e-desempenho%2Fgestao-de-provas%2F%22%2C%22title%22%3A%22Gest%C3%A3o%20de%20provas%3A%20o%20que%20%C3%A9%20e%20quais%20os%20benef%C3%ADcios%3F%22%2C%22domain%22%3A%22blog.fabricadeprovas.com.br%22%2C%22label%22%3A%22blog.fabricadeprovas%22%2C%22description%22%3A%22Entenda%20como%20funciona%20um%20sistema%20de%20gest%C3%A3o%20de%20provas%20e%20quais%20as%20principais%20vantagens%20para%20institui%C3%A7%C3%B5es%20e%20educadores!%22%7D%5D" data-index="0"><a class="citation-pill" href="https://blog.fabricadeprovas.com.br/educacional/avaliacao-e-desempenho/gestao-de-provas/" target="_blank" rel="noopener noreferrer" title="Gestão de provas: o que é e quais os benefícios? · blog.fabricadeprovas.com.br">blog.fabricadeprovas</a></span>) / 3;
+
+// Se a bolinha estiver escura (preenchida), a brilho será baixo (< 100 em escala 0-255)
+if (brightness < 120) {
+if (brightness < maxDarkness || maxDarkness === 0) {
+maxDarkness = brightness;
+chosenOptIndex = opt;
+}
+}
+mask.delete();
+}
+
+// Validar resposta
+const questionNum = q + 1;
+const officialAns = correctAnswers[questionNum];
+const userAns = chosenOptIndex!== -1? options[chosenOptIndex]: null;
+
+if (userAns === officialAns) {
+correctCount++;
+}
+
+// Feedback visual simples no console ou overlay se necessário
+// Aqui apenas acumulamos para o display
+}
+
+const total = numRows;
+const percentage = Math.round((correctCount / total) * 100);
+document.getElementById('statsDisplay').innerHTML = `
+<span style="color:${percentage >= 60? '#4ade80': '#f87171'}">
+ACERTOS: ${correctCount}/${total} (${percentage}%)
+</span>
+`;
+}
+
+function updateStatus(msg, type = '') {
+const el = document.getElementById('statusMsg');
+el.innerText = msg;
+el.className = 'status ' + type;
+}
+
+// Inicializa grid ao carregar
+window.onload = () => {
+setupGrid();
+};
+</script>
+</body>
+</html>
