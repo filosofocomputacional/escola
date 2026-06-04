@@ -2,12 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;text y='24' font-size='27'&gt;💣&lt;/text&gt;&lt;/svg&gt;">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;text y='24' font-size='27'&gt;📋&lt;/text&gt;&lt;/svg&gt;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>📋 Boletim Escolar Integrado</title>
   <style>
     :root {
       --primary: #1e40af;
+      --primary-hover: #1d4ed8;
       --bg: #f8fafc;
       --card: #ffffff;
       --text: #1e293b;
@@ -26,6 +27,44 @@
     header { text-align: center; margin-bottom: 2rem; }
     header h1 { color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem; }
     header p { color: #64748b; }
+
+    /* Tela de Seleção Inicial Responsiva */
+    .selection-card {
+      background: var(--card);
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+      margin: 4rem auto;
+    }
+    .selection-card h2 { color: var(--primary); margin-bottom: 1rem; font-size: 1.8rem; }
+    .selection-card p { color: #64748b; margin-bottom: 2rem; }
+    .btn-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .btn-turno {
+      background: var(--card);
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      padding: 1.5rem 2rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 220px;
+    }
+    .btn-turno:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+    }
 
     .search-box { background: var(--card); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 2rem; position: relative; }
     .search-box label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
@@ -64,39 +103,15 @@
     .autocomplete-item:hover,
     .autocomplete-item.highlighted { background: #eff6ff; }
     .autocomplete-item .name { font-weight: 500; color: var(--text); }
-    .autocomplete-item .name mark {
-      background: #fef08a;
-      color: var(--text);
-      padding: 0 2px;
-      border-radius: 2px;
-    }
-    .autocomplete-item .class-tag {
-      font-size: 0.75rem;
-      background: var(--primary);
-      color: white;
-      padding: 2px 8px;
-      border-radius: 10px;
-      white-space: nowrap;
-    }
-    .autocomplete-empty {
-      padding: 1rem;
-      text-align: center;
-      color: #94a3b8;
-      font-style: italic;
-    }
-    .autocomplete-footer {
-      padding: 0.5rem 1rem;
-      background: #f1f5f9;
-      font-size: 0.75rem;
-      color: #64748b;
-      text-align: right;
-      border-top: 1px solid var(--border);
-    }
+    .autocomplete-item .name mark { background: #fef08a; color: var(--text); padding: 0 2px; border-radius: 2px; }
+    .autocomplete-item .class-tag { font-size: 0.75rem; background: var(--primary); color: white; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+    .autocomplete-empty { padding: 1rem; text-align: center; color: #94a3b8; font-style: italic; }
+    .autocomplete-footer { padding: 0.5rem 1rem; background: #f1f5f9; font-size: 0.75rem; color: #64748b; text-align: right; border-top: 1px solid var(--border); }
 
     .boletim { background: var(--card); border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); overflow: hidden; display: none; border: 1px solid var(--border); }
     .boletim.active { display: block; animation: fadeIn 0.4s ease; }
     
-    .boletim-header { background: var(--primary); color: white; padding: 1.5rem; text-align: center; }
+    .boletim-header { background: var(--primary); color: white; padding: 1.5rem; text-align: center; position: relative; }
     .boletim-header h2 { font-size: 1.8rem; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 1px; }
     .boletim-header p { font-size: 1.1rem; opacity: 0.9; }
 
@@ -121,14 +136,16 @@
     .stat-label { font-size: 0.8rem; color: #64748b; text-transform: uppercase; font-weight: 600; }
     .stat-value { font-size: 1.2rem; font-weight: 700; }
 
+    /* Barra de navegação responsiva */
     .tabs {
       display: flex;
       gap: 10px;
       margin-bottom: 20px;
       border-bottom: 2px solid var(--border);
-      flex-wrap: nowrap; /* Garante que no PC fique em linha */
-      overflow-x: auto;  /* Adiciona scroll suave se as abas não couberem em telas pequenas */
+      flex-wrap: nowrap;
+      overflow-x: auto;
       -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
     }
 
     .tab-btn {
@@ -140,15 +157,24 @@
       color: #64748b;
       border-bottom: 3px solid transparent;
       transition: all 0.2s;
-      white-space: nowrap; /* Evita quebra de texto nas abas */
+      white-space: nowrap;
     }
-
     .tab-btn:hover { color: var(--primary); }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
 
-    .tab-btn.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
+    .btn-voltar {
+      background: #e2e8f0;
+      color: #475569;
+      border: none;
+      padding: 8px 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: auto;
+      transition: background 0.2s;
+      white-space: nowrap;
     }
+    .btn-voltar:hover { background: #cbd5e1; color: #1e293b; }
 
     .tab-content { display: none; }
     .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
@@ -159,305 +185,243 @@
       padding: 20px;
       box-shadow: 0 4px 6px rgba(0,0,0,.08);
       margin-bottom: 20px;
-      overflow-x: auto; /* Mantém scroll horizontal na tabela da turma */
+    }
+
+    .class-table-wrapper {
+      overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-    }
-
-    .class-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-
-    .class-table th {
-      background-color: var(--primary);
-      color: white;
-      padding: 12px 8px;
-      text-align: center;
-      vertical-align: bottom;
-      height: 120px;
-      border: 1px solid #1e3a8a;
-    }
-
-    .class-table th.vertical-header {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      white-space: nowrap;
-      text-align: left;
-      height: 120px;
-      padding: 8px 4px;
-      font-size: 0.75rem;
-    }
-
-    .class-table th:first-child {
-      writing-mode: horizontal-tb;
-      transform: none;
-      text-align: left;
-      height: auto;
-      padding: 12px;
-      min-width: 200px;
-    }
-
-    .class-table td {
-      padding: 10px 8px;
-      text-align: center;
+      margin-top: 1rem;
       border: 1px solid var(--border);
-      font-weight: 600;
+      border-radius: 8px;
     }
 
+    .class-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .class-table th { background-color: var(--primary); color: white; padding: 12px 8px; text-align: center; vertical-align: bottom; height: 120px; border: 1px solid #1e3a8a; }
+    .class-table th.vertical-header { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; text-align: left; height: 120px; padding: 8px 4px; font-size: 0.75rem; }
+    .class-table th:first-child { writing-mode: horizontal-tb; transform: none; text-align: left; height: auto; padding: 12px; min-width: 200px; }
+    .class-table td { padding: 10px 8px; text-align: center; border: 1px solid var(--border); font-weight: 600; }
+    
     .class-table td:first-child {
       text-align: left;
       font-weight: 500;
       background-color: #f8fafc;
       min-width: 200px;
-      position: sticky; /* Efeito congelar coluna do nome no PC/Mobile */
+      position: sticky;
       left: 0;
       z-index: 2;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
     }
 
-    .class-table td.grade-danger {
-      background-color: var(--danger-bg);
-      color: var(--danger);
-    }
-
-    .class-table td.grade-ok {
-      background-color: #f0fdf4;
-      color: var(--success);
-    }
-
+    .class-table td.grade-danger { background-color: var(--danger-bg); color: var(--danger); }
+    .class-table td.grade-ok { background-color: #f0fdf4; color: var(--success); }
     .class-table tr:hover td { background-color: #e0e7ff; }
     .class-table tr:hover td:first-child { background-color: #c7d2fe; }
 
-    .chart-card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,.08);
-      margin-bottom: 20px;
-    }
-
-    .chart-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 8px;
-      text-align: center;
-    }
-
-    .chart-subtitle {
-      text-align: center;
-      color: #64748b;
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-    }
-
-    .chart-row {
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .chart-label {
-      font-weight: 600;
-      min-width: 140px;
-      font-size: 0.9rem;
-      color: var(--text);
-      word-break: break-word; /* Evita estouro de texto longo */
-    }
-
-    .chart-bar-container {
-      flex: 1;
-      background: #f1f5f9;
-      border-radius: 6px;
-      overflow: hidden;
-      height: 36px;
-      position: relative;
-    }
-
-    .chart-bar {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 12px;
-      color: white;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: width 0.6s ease;
-      min-width: 30px;
-    }
-
+    .chart-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,.08); margin-bottom: 20px; }
+    .chart-title { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; text-align: center; }
+    .chart-subtitle { text-align: center; color: #64748b; font-size: 0.9rem; margin-bottom: 24px; }
+    .chart-row { margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .chart-label { font-weight: 600; min-width: 140px; font-size: 0.9rem; color: var(--text); word-break: break-word; }
+    .chart-bar-container { flex: 1; background: #f1f5f9; border-radius: 6px; overflow: hidden; height: 36px; position: relative; }
+    .chart-bar { height: 100%; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 0.95rem; transition: width 0.6s ease; min-width: 30px; }
     .chart-bar.level-low { background: linear-gradient(90deg, #86efac, #16a34a); }
     .chart-bar.level-mid { background: linear-gradient(90deg, #fcd34d, #f59e0b); }
     .chart-bar.level-high { background: linear-gradient(90deg, #fca5a5, #dc2626); }
-
-    .chart-value {
-      min-width: 100px;
-      text-align: right;
-      font-weight: 700;
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    .chart-value .percent {
-      display: block;
-      font-size: 0.75rem;
-      color: #64748b;
-      font-weight: 500;
-    }
+    .chart-value { min-width: 100px; text-align: right; font-weight: 700; color: var(--text); font-size: 0.95rem; }
+    .chart-value .percent { display: block; font-size: 0.75rem; color: #64748b; font-weight: 500; }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ==========================================================================
-       MEDIA QUERIES (Melhorias focadas em Celulares e Telas Pequenas)
-       ========================================================================== */
+    /* Customizações extras de Responsividade Extrema (Celulares) */
     @media (max-width: 768px) {
       body { padding: 1rem 0.5rem; }
-      
       header h1 { font-size: 1.6rem; }
       header p { font-size: 0.9rem; }
-
+      .selection-card { margin: 2rem auto; padding: 2rem 1rem; }
+      .btn-turno { min-width: 100%; padding: 1.2rem; }
       .search-box { padding: 1rem; margin-bottom: 1.5rem; }
       .search-box input, .search-box select { padding: 0.75rem; font-size: 1rem; }
-
-      /* Ajuste nas abas para scroll horizontal suave (estilo aplicativo) */
-      .tabs { 
-        flex-wrap: nowrap; 
-        gap: 5px; 
-        border-bottom: 2px solid var(--border);
-        padding-bottom: 2px;
-      }
-      .tab-btn { 
-        padding: 10px 14px; 
-        font-size: 0.9rem; 
-        flex: 1 0 auto; 
-        text-align: center;
-      }
-
-      /* Painel de Alerta Crítico */
+      .tabs { flex-wrap: nowrap; gap: 5px; border-bottom: 2px solid var(--border); padding-bottom: 5px; }
+      .tab-btn { padding: 10px 12px; font-size: 0.85rem; flex: 1 0 auto; text-align: center; }
+      .btn-voltar { margin-left: 10px; padding: 10px; font-size: 0.85rem; }
       .alert-critical { flex-direction: column; text-align: center; padding: 1rem; margin: 1rem; gap: 0.5rem; }
-      
-      /* Ajustes nos gráficos de barras */
       .chart-row { flex-direction: column; align-items: flex-start; gap: 6px; background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid var(--border); }
       .chart-label { min-width: 100%; font-size: 0.95rem; }
       .chart-bar-container { width: 100%; height: 28px; }
       .chart-value { width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
       .chart-value .percent { display: inline; margin-left: 8px; }
-
-      /* Ajuste nas tabelas de listagem individual */
-      th, td { padding: 0.6rem 0.75rem; font-size: 0.9rem; }
-      .boletim-footer { padding: 1rem; }
-
-      /* Auto-complete responsivo */
+      th, td { padding: 0.6rem 0.75rem; font-size: 0.85rem; }
+      .boletim-footer { padding: 1rem; flex-direction: column; gap: 15px; text-align: center; }
       .autocomplete-item { flex-direction: column; align-items: flex-start; gap: 4px; }
       .autocomplete-item .class-tag { align-self: flex-end; font-size: 0.7rem; }
     }
+    /* Ajustes na classe base para suportar a animação lenta */
+.btn-turno {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  /* Mudança na cor e borda acompanham o ritmo lento de 0.8s */
+  transition: color 0.8s ease, transform 0.3s ease, border-color 0.8s ease, box-shadow 0.3s ease;
+}
+
+/* Garante que o texto e os emojis fiquem sempre visíveis acima do fundo */
+.btn-turno * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Base da camada de fundo com transição suavizada (0.8 segundos) */
+.btn-turno::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.8s ease; /* Transição mais lenta e elegante */
+}
+
+/* Efeito Manhã: Filtro azul sutil + sua imagem dia.jpg */
+.btn-manha::before {
+  background-image: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(14, 165, 233, 0.5)), 
+                    url('dia.jpg');
+}
+
+/* Efeito Noite: Filtro escuro translúcido + sua imagem noite.jpg */
+.btn-noite::before {
+  background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.5), rgba(30, 41, 59, 0.6)), 
+                    url('noite.jpg');
+}
+
+/* Revela o fundo suavemente ao passar o mouse */
+.btn-turno:hover::before {
+  opacity: 1;
+}
+
+/* Transição do texto para branco */
+.btn-turno:hover {
+  color: #ffffff !important;
+  border-color: transparent;
+}
   </style>
 </head>
 <body>
 
   <div class="container">
-    <header>
-      <h1>📋 Boletim Integrado</h1>
-      <p>Visualize notas individuais, por turma ou análise de desempenho</p>
-    </header>
-
-    <div class="tabs">
-      <button class="tab-btn active" onclick="showTab('aba-aluno', this)">🔍 Boletim Individual</button>
-      <button class="tab-btn" onclick="showTab('aba-turma', this)">📋 Boletim por Turma</button>
-      <button class="tab-btn" onclick="showTab('aba-grafico', this)">📊 Média Perdida</button>
+    
+    <div id="selectionScreen" class="selection-card">
+      <h2>📋 Sistema de Boletins Integrados</h2>
+      <p>Selecione o turno desejado para filtrar e gerenciar as turmas correspondentes:</p>
+      <div class="btn-grid">
+       <button onclick="selectTurno('manha')" class="btn-turno btn-manha">☀️ 1º Turno<span style="font-size:0.9rem; font-weight:normal; opacity:0.8;">Manhã</span></button>
+       <button onclick="selectTurno('noite')" class="btn-turno btn-noite">🌙 3º Turno<span style="font-size:0.9rem; font-weight:normal; opacity:0.8;">Noite</span></button>      </div>
     </div>
 
-    <div id="aba-aluno" class="tab-content active">
-      <div class="search-box">
-        <label for="searchInput">Pesquisar Aluno</label>
-        <div class="autocomplete-wrapper">
-          <input type="text" id="searchInput" placeholder="Digite o nome..." disabled autocomplete="off">
-          <div id="autocompleteDropdown" class="autocomplete-dropdown"></div>
-        </div>
-        <div id="loadingStatus" class="loading-indicator">⏳ Sincronizando dados de todas as turmas...</div>
+    <div id="mainContent" style="display: none;">
+      
+      <header>
+        <h1 id="mainTitle">📋 Boletim Escolar Integrado</h1>
+        <p id="mainSubtitle">Painel de Controle</p>
+      </header>
+
+      <div class="tabs">
+        <button id="btnTabSearch" class="tab-btn active" onclick="showTab('tabSearch', this)">🔍 Buscar Aluno</button>
+        <button id="btnTabClass" class="tab-btn" onclick="showTab('tabClass', this)">📋 Boletim por Turma</button>
+        <button id="btnTabChart" class="tab-btn" onclick="showTab('tabChart', this)">📊 Médias Perdidas</button>
+        <button class="btn-voltar" onclick="backToSelection()">🔄 Trocar Turno</button>
       </div>
 
-      <div id="boletimCard" class="boletim">
-        <div class="boletim-header">
-          <h2 id="studentName">Nome do Aluno</h2>
-          <p id="studentClass">Turma / Nível</p>
+      <div id="tabSearch" class="tab-content active">
+        <div class="search-box">
+          <label for="searchInput">Digite o nome do aluno:</label>
+          <div class="autocomplete-wrapper">
+            <input type="text" id="searchInput" placeholder="Ex: Digite o nome para pesquisar..." disabled>
+            <div id="autocompleteDropdown" class="autocomplete-dropdown"></div>
+          </div>
+          <div id="loadingStatus" class="loading-indicator">🔄 Sincronizando dados escolares...</div>
         </div>
 
-        <div id="criticalAlert" class="alert-critical" style="display: none;">
-          <div class="icon">⚠️</div>
-          <div class="text">
-            <h4>SITUAÇÃO CRÍTICA</h4>
-            <p id="criticalText">O aluno possui X matérias com notas abaixo de 18.</p>
+        <div id="boletimCard" class="boletim">
+          <div class="boletim-header">
+            <h2 id="studentName">Nome do Aluno</h2>
+            <p id="studentClass">Turma</p>
+          </div>
+          <div id="criticalAlert" class="alert-critical" style="display: none;">
+            <div class="icon">⚠️</div>
+            <div class="text">
+              <h4>Atenção Crítica!</h4>
+              <p id="criticalText"></p>
+            </div>
+          </div>
+          <div class="grades-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Disciplina</th>
+                  <th>Nota obtida</th>
+                  <th>Situação</th>
+                </tr>
+              </thead>
+              <tbody id="gradesBody"></tbody>
+            </table>
+          </div>
+          <div class="boletim-footer">
+            <div class="stat">
+              <span class="stat-label">Média Geral</span>
+              <span id="studentAvg" class="stat-value">0.0</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Disciplinas Abaixo (Média 18)</span>
+              <span id="studentBelowCount" class="stat-value" style="color: var(--danger);">0</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="grades-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Disciplina</th>
-                <th>Nota</th>
-                <th>Situação</th>
-              </tr>
-            </thead>
-            <tbody id="gradesBody"></tbody>
-          </table>
+      <div id="tabClass" class="tab-content">
+        <div class="search-box">
+          <label for="classSelect">Selecione uma Turma para Visualização:</label>
+          <select id="classSelect" disabled>
+            <option value="">Carregando turmas...</option>
+          </select>
+          <div id="classLoadingStatus" class="loading-indicator">Aguardando definição do turno...</div>
         </div>
 
-        <div class="boletim-footer">
-          <div class="stat">
-            <span class="stat-label">Média Geral</span>
-            <span class="stat-value" id="studentAvg">0.0</span>
+        <div id="classBoletimCard" class="class-table-card boletim">
+          <div class="boletim-header" style="border-radius: 12px 12px 0 0;">
+            <h2 id="classTitle">Boletim da Turma</h2>
+            <p id="classSubtitle"></p>
           </div>
-          <div class="stat" style="text-align: right;">
-            <span class="stat-label">Abaixo de 18</span>
-            <span class="stat-value" id="studentBelowCount" style="color: var(--danger)">0</span>
+          <div class="class-table-wrapper">
+            <table class="class-table">
+              <thead id="classTableHead"></thead>
+              <tbody id="classTableBody"></tbody>
+            </table>
           </div>
         </div>
       </div>
-    </div>
 
-    <div id="aba-turma" class="tab-content">
-      <div class="search-box">
-        <label for="classSelect">Selecionar Turma</label>
-        <select id="classSelect" disabled>
-          <option value="">Carregando turmas...</option>
-        </select>
-        <div id="classLoadingStatus" class="loading-indicator">⏳ Aguardando dados...</div>
-      </div>
-
-      <div id="classBoletimCard" class="boletim">
-        <div class="boletim-header">
-          <h2 id="classTitle">Boletim da Turma</h2>
-          <p id="classSubtitle">Notas de todos os alunos</p>
+      <div id="tabChart" class="tab-content">
+        <div class="search-box">
+          <label for="chartClassSelect">Selecione a Turma para Análise Estatística:</label>
+          <select id="chartClassSelect" disabled>
+            <option value="">Carregando turmas...</option>
+          </select>
+          <div id="chartLoadingStatus" class="loading-indicator">Aguardando definição do turno...</div>
         </div>
 
-        <div class="class-table-card">
-          <table class="class-table" id="classTable">
-            <thead id="classTableHead"></thead>
-            <tbody id="classTableBody"></tbody>
-          </table>
+        <div id="chartCard" class="chart-card" style="display: none;">
+          <div class="chart-title">Análise Quanti-Qualitativa de Rendimento</div>
+          <div id="chartSubtitle" class="chart-subtitle"></div>
+          <div id="chartContainer"></div>
         </div>
       </div>
-    </div>
 
-    <div id="aba-grafico" class="tab-content">
-      <div class="search-box">
-        <label for="chartClassSelect">Selecionar Turma para Análise</label>
-        <select id="chartClassSelect" disabled>
-          <option value="">Carregando turmas...</option>
-        </select>
-        <div id="chartLoadingStatus" class="loading-indicator">⏳ Aguardando dados...</div>
-      </div>
-
-      <div id="chartCard" class="chart-card" style="display: none;">
-        <h3 class="chart-title">📊 Alunos com Média Perdida por Disciplina</h3>
-        <p class="chart-subtitle" id="chartSubtitle">Quantidade de alunos com nota abaixo de 18 em cada disciplina</p>
-        <div id="chartContainer"></div>
-      </div>
     </div>
   </div>
 
@@ -471,16 +435,44 @@
       { name: "Ensino Técnico", url: "https://raw.githubusercontent.com/filosofocomputacional/escola/main/tec.json" }
     ];
 
+    const NOITE_CLASSES = ["1006", "1007", "2004", "2005", "2006", "2007", "2008", "3003", "3004", "3005", "3006", "3007"];
+
     let allStudents = [];
     let allClasses = {};
     let highlightedIndex = -1;
     let currentMatches = [];
+    let currentTurno = "";
 
     function showTab(tabId, btn) {
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
       btn.classList.add('active');
+    }
+
+    function selectTurno(turno) {
+      currentTurno = turno;
+      const turnoTexto = turno === 'noite' ? "3º Turno (Noite)" : "1º Turno (Manhã / Integral)";
+      document.getElementById("mainSubtitle").textContent = `Filtro Ativo: ${turnoTexto}`;
+      
+      document.getElementById("selectionScreen").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+      
+      if (allStudents.length > 0) {
+        populateClassSelects();
+      }
+    }
+
+    function backToSelection() {
+      document.getElementById("mainContent").style.display = "none";
+      document.getElementById("selectionScreen").style.display = "block";
+      
+      document.getElementById("searchInput").value = "";
+      document.getElementById("boletimCard").classList.remove("active");
+      document.getElementById("classSelect").value = "";
+      document.getElementById("classBoletimCard").classList.remove("active");
+      document.getElementById("chartClassSelect").value = "";
+      document.getElementById("chartCard").style.display = "none";
     }
 
     async function fetchAllData() {
@@ -511,23 +503,24 @@
           allClasses[student.turma].push(student);
         });
 
-        populateClassSelects();
+        if (currentTurno) {
+          populateClassSelects();
+        }
         
-        loadingStatus.textContent = `✅ Base atualizada: ${allStudents.length} alunos em ${Object.keys(allClasses).length} turmas.`;
+        loadingStatus.textContent = `✅ Base sincronizada com sucesso.`;
         loadingStatus.style.color = "var(--success)";
         searchInput.disabled = false;
-        searchInput.focus();
 
         classSelect.disabled = false;
         chartClassSelect.disabled = false;
-        document.getElementById("classLoadingStatus").textContent = "✅ Selecione uma turma";
+        document.getElementById("classLoadingStatus").textContent = "✅ Selecione uma turma listada abaixo:";
         document.getElementById("classLoadingStatus").style.color = "var(--success)";
-        document.getElementById("chartLoadingStatus").textContent = "✅ Selecione uma turma";
+        document.getElementById("chartLoadingStatus").textContent = "✅ Selecione uma turma listada abaixo:";
         document.getElementById("chartLoadingStatus").style.color = "var(--success)";
 
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
-        loadingStatus.textContent = "❌ Erro ao carregar o banco de dados. Recarregue a página.";
+        loadingStatus.textContent = "❌ Erro ao conectar com o banco de dados escolar. Recarregue a página.";
         loadingStatus.style.color = "var(--danger)";
       }
     }
@@ -540,8 +533,12 @@
         }
 
         const nome = norm.aluno || norm.nome || norm.name || "Sem nome";
-        const turmaOriginal = norm.turma || norm.classe || "";
+        const turmaOriginal = (norm.turma || norm.classe || "").toString().trim();
         const turma = turmaOriginal ? `${turmaOriginal} (${levelName})` : levelName;
+
+        const numeroTurmaPuro = turmaOriginal.replace(/\D/g, ''); 
+        const ehNoite = NOITE_CLASSES.includes(numeroTurmaPuro);
+        const turnoAluno = ehNoite ? 'noite' : 'manha';
 
         const ignore = ['aluno','nome','name','turma','classe','id','matricula','recuperações'];
         
@@ -557,7 +554,7 @@
         const validGrades = grades.filter(g => g.grade > 0);
         const avg = validGrades.length ? validGrades.reduce((s,g) => s+g.grade, 0) / validGrades.length : 0;
 
-        return { nome, turma, grades, countBelow18, avg };
+        return { nome, turma, grades, countBelow18, avg, turno: turnoAluno };
       });
     }
 
@@ -569,6 +566,9 @@
       chartClassSelect.innerHTML = '<option value="">Selecione uma turma...</option>';
 
       Object.keys(allClasses).sort().forEach(className => {
+        const amostraEstudante = allClasses[className][0];
+        if (!amostraEstudante || amostraEstudante.turno !== currentTurno) return;
+
         const count = allClasses[className].length;
         const label = `${className} (${count} alunos)`;
         
@@ -584,7 +584,6 @@
       });
     }
 
-    // ===== AUTOCOMPLETE CUSTOMIZADO =====
     function escapeHtml(str) {
       return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     }
@@ -609,18 +608,18 @@
       }
 
       currentMatches = allStudents
-        .filter(s => s.nome.toLowerCase().includes(trimmed))
+        .filter(s => s.turno === currentTurno && s.nome.toLowerCase().includes(trimmed))
         .slice(0, MAX_AUTOCOMPLETE);
 
       highlightedIndex = -1;
 
       if (currentMatches.length === 0) {
-        dropdown.innerHTML = `<div class="autocomplete-empty">Nenhum aluno encontrado para "<strong>${escapeHtml(query)}</strong>"</div>`;
+        dropdown.innerHTML = `<div class="autocomplete-empty">Nenhum aluno deste turno encontrado para "<strong>${escapeHtml(query)}</strong>"</div>`;
         dropdown.classList.add('open');
         return;
       }
 
-      const totalMatches = allStudents.filter(s => s.nome.toLowerCase().includes(trimmed)).length;
+      const totalMatches = allStudents.filter(s => s.turno === currentTurno && s.nome.toLowerCase().includes(trimmed)).length;
 
       let html = currentMatches.map((s, i) => `
         <div class="autocomplete-item" data-index="${i}" data-name="${escapeHtml(s.nome)}">
@@ -630,7 +629,7 @@
       `).join('');
 
       if (totalMatches > MAX_AUTOCOMPLETE) {
-        html += `<div class="autocomplete-footer">Mostrando ${MAX_AUTOCOMPLETE} de ${totalMatches} resultados. Refine sua busca.</div>`;
+        html += `<div class="autocomplete-footer">Mostrando ${MAX_AUTOCOMPLETE} de ${totalMatches} resultados.</div>`;
       }
 
       dropdown.innerHTML = html;
@@ -665,7 +664,7 @@
       const searchInput = document.getElementById("searchInput");
       searchInput.value = name;
       closeAutocomplete();
-      const student = allStudents.find(s => s.nome.toLowerCase() === name.toLowerCase());
+      const student = allStudents.find(s => s.turno === currentTurno && s.nome.toLowerCase() === name.toLowerCase());
       if (student) renderBoletim(student);
     }
 
@@ -710,7 +709,6 @@
       }
     });
 
-    // ===== RENDERIZAÇÃO =====
     function renderBoletim(student) {
       document.getElementById("studentName").textContent = student.nome;
       document.getElementById("studentClass").textContent = student.turma;
@@ -719,7 +717,7 @@
 
       const alertBox = document.getElementById("criticalAlert");
       if (student.countBelow18 >= 3) {
-        document.getElementById("criticalText").textContent = `O aluno está em situação crítica, possuindo ${student.countBelow18} disciplinas com nota abaixo da média exigida (18).`;
+        document.getElementById("criticalText").textContent = `O aluno está em situação crítica, possuindo ${student.countBelow18} disciplinas com nota abaixo da média regulamentar exigida (18.0).`;
         alertBox.style.display = "flex";
       } else {
         alertBox.style.display = "none";
@@ -760,8 +758,8 @@
       const students = allClasses[className];
       if (!students || students.length === 0) return;
 
-      document.getElementById("classTitle").textContent = `Boletim: ${className}`;
-      document.getElementById("classSubtitle").textContent = `${students.length} alunos matriculados`;
+      document.getElementById("classTitle").textContent = `Boletim de Turma: ${className}`;
+      document.getElementById("classSubtitle").textContent = `${students.length} Alunos Listados`;
 
       const allSubjects = new Set();
       students.forEach(s => s.grades.forEach(g => allSubjects.add(g.subject)));
@@ -772,7 +770,7 @@
       const headerRow = document.createElement("tr");
       
       const thNome = document.createElement("th");
-      thNome.textContent = "Aluno";
+      thNome.textContent = "Nome Completo do Aluno";
       headerRow.appendChild(thNome);
 
       subjects.forEach(subj => {
@@ -811,7 +809,6 @@
       document.getElementById("classBoletimCard").classList.add("active");
     }
 
-    // ===== ABA 3: CONTAGEM DE ALUNOS COM MÉDIA PERDIDA =====
     document.getElementById("chartClassSelect").addEventListener("change", function(e) {
       const className = e.target.value;
       if (!className) {
@@ -826,8 +823,6 @@
       if (!students || students.length === 0) return;
 
       const totalStudents = students.length;
-
-      // Contar quantos alunos têm nota < 18 em cada disciplina
       const subjectFailedCount = {};
 
       students.forEach(student => {
@@ -839,25 +834,23 @@
         });
       });
 
-      // Ordenar do maior para o menor número de alunos reprovados
       const sortedSubjects = Object.entries(subjectFailedCount)
         .filter(([_, count]) => count > 0)
         .sort((a, b) => b[1] - a[1]);
 
       const maxCount = sortedSubjects.length > 0 ? sortedSubjects[0][1] : 1;
-
       const container = document.getElementById("chartContainer");
       container.innerHTML = "";
 
       document.getElementById("chartSubtitle").textContent = 
-        `Turma ${className} • ${totalStudents} alunos no total`;
+        `Turma ${className} • Análise baseada em ${totalStudents} matriculados`;
 
       if (sortedSubjects.length === 0) {
         container.innerHTML = `
           <div style="text-align:center; padding:2rem; color:var(--success);">
             <div style="font-size:3rem;">🎉</div>
             <p style="font-size:1.1rem; font-weight:600; margin-top:0.5rem;">
-              Nenhum aluno com média perdida nesta turma!
+              Nenhum aluno com nota abaixo da média nesta turma! Parabéns!
             </p>
           </div>
         `;
@@ -869,7 +862,6 @@
         const percentage = (failedCount / maxCount) * 100;
         const percentOfTotal = ((failedCount / totalStudents) * 100).toFixed(1);
 
-        // Define a cor da barra conforme a gravidade
         let levelClass = "level-low";
         if (failedCount / totalStudents >= 0.5) levelClass = "level-high";
         else if (failedCount / totalStudents >= 0.25) levelClass = "level-mid";
