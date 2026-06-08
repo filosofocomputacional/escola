@@ -240,7 +240,7 @@ Importante: Traga códigos reais das habilidades da BNCC. Não adicione textos e
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        model: "llama3-8b-8192",
+                        model: "llama-3-3-70b-versatile", // ALTERADO PARA O MODELO MAIS ATUAL E SUPORTADO
                         messages: [
                             { role: "user", content: prompt }
                         ],
@@ -255,7 +255,6 @@ Importante: Traga códigos reais das habilidades da BNCC. Não adicione textos e
 
                 const data = await response.json();
                 
-                // Correção essencial na leitura do objeto da API
                 if (data.choices && data.choices[0] && data.choices[0].message) {
                     const textoGerado = data.choices[0].message.content;
                     processarResposta(textoGerado, materia);
