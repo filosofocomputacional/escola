@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0.1Gerador de Planejamento Mensal - Gemini BNCC</title>
+    <title>0.9Gerador de Planejamento Mensal - Gemini BNCC</title>
     <style>
         :root {
             --primary: #1a73e8;
             --accent: #11734b;
             --bg: #f8f9fa;
             --card: #ffffff;
-        } 
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -241,8 +241,8 @@ Importante: Traga códigos reais das habilidades da BNCC pertinentes ao ano e te
 (coloque aqui a bibliografia básica sugerida)`;
 
             try {
-                // Rota alterada para o modelo gemini-1.5-pro contornar a fila lotada do Flash
-                const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key=${GEMINI_API_KEY}`;
+                // Utilizando a rota v1 (estável) casada com o modelo robusto gemini-2.5-pro
+                const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-pro:generateContent?key=${GEMINI_API_KEY}`;
 
                 const response = await fetch(url, {
                     method: "POST",
