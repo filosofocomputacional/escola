@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4.0Gerador de Planejamento Mensal - Gemini BNCC</title>
+    <title>Gerador de Planejamento Mensal - Gemini BNCC</title>
     <style>
         :root {
-            --primary: #1a73e8; /* Azul padrão do Google */
+            --primary: #1a73e8;
             --accent: #11734b;
             --bg: #f8f9fa;
             --card: #ffffff;
@@ -100,7 +100,6 @@
             margin-top: 20px;
         }
 
-        /* Área de Resultado */
         .result-container {
             margin-top: 30px;
             display: none;
@@ -144,6 +143,10 @@
             width: auto;
             padding: 8px 15px;
             font-size: 14px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
         .print-btn:hover {
             background-color: #2c3e50;
@@ -163,7 +166,6 @@
     <div class="container">
         <h1>📝 Gerador de Planejamento Mensal (Gemini)</h1>
         
-        <!-- Formulário de Entrada -->
         <div class="form-group">
             <label for="materia">Disciplina / Ano Escolar:</label>
             <input type="text" id="materia" placeholder="Ex: História - 7º Ano do Ensino Fundamental">
@@ -178,7 +180,6 @@
         
         <div class="loading" id="loadingState">🤖 Consultando o Gemini e a estrutura da BNCC... Aguarde.</div>
 
-        <!-- Layout do Documento Gerado -->
         <div class="result-container" id="resultContainer">
             <div class="result-header">
                 <h2 style="margin:0; color: #202124;" id="docTitulo">Planejamento de Aula</h2>
@@ -208,7 +209,6 @@
     </div>
 
     <script>
-        // Sua chave ativa do Gemini
         const GEMINI_API_KEY = "AQ.Ab8RN6KGxINhUUjyjO_9PQttX8onnVMNt2UuHHBJ4fAF6xfAkQ";
 
         async function gerarPlanejamento() {
@@ -241,8 +241,8 @@ Importante: Traga códigos reais das habilidades da BNCC pertinentes ao ano e te
 (coloque aqui a bibliografia básica sugerida)`;
 
             try {
-                // Endpoint oficial correto do Google Gemini 1.5 Flash
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+                // Atualizado para a API estável v1 e o modelo padrão atual gemini-2.5-flash
+                const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
                 const response = await fetch(url, {
                     method: "POST",
@@ -270,7 +270,6 @@ Importante: Traga códigos reais das habilidades da BNCC pertinentes ao ano e te
 
                 const data = await response.json();
                 
-                // Mapeamento exato do retorno do Google
                 if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
                     const textoGerado = data.candidates[0].content.parts[0].text;
                     processarResposta(textoGerado, materia);
