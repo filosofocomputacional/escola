@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capturar e Enviar Foto</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background: #f4f4f9; }
+        video, canvas { max-width: 100%; border-radius: 8px; background: #000; }
+        button { padding: 12px 24px; font-size: 16px; margin: 10px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn-capture { background: #007bff; color: white; }
+        .btn-send { background: #28a745; color: white; display: none; }
+        #status { margin-top: 15px; font-weight: bold; color: #555; }
+    </style>
+</head>
+<body>
+
+    <h2>Capturar e Enviar Foto para o PocketBase</h2>
+
+    <video id="video" autoplay playsinline width="400" height="300"></video>
+    
+    <canvas id="canvas" width="400" height="300" style="display:none;"></canvas>
+
+    <br>
+    <button class="btn-capture" id="btn-tirar">Tirar Foto</button>
+    <button class="btn-send" id="btn-enviar">Enviar para o Banco</button>
+
+    <div id="status">Ative a câmera para começar.</div>
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const btnTirar = document.getElementById('btn-tirar');
+        const btnEnviar = document.getElementById('btn-enviar');
+        const statusDiv = document.getElementById('status');
+        
+        let fotoBlob = null; // Guardará o arquivo da foto
+
+        // 1. Ligar a câmera automaticamente ao abrir a página
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: false })
+            .then(stream => {
+                video.srcObject = stream;
+                statusDiv.innerText = "Câmera pronta!";
+            })
+            .catch(err => {
+                statusDiv.innerText = "Erro ao acessar a câmera: " + err.message;
+            });
+
+        // 2. Tirar a foto (Capturar o frame do vídeo)
+        btnTirar.addEventListener('click', () => {
+            const context = canvas.getContext('2d');
+            // Desenha o frame atual do vídeo no canvas
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            // Transforma o canvas em um arquivo do tipo Blob (JPEG)
+            canvas.toBlob((blob) => {
+                fotoBlob = blob;
+                statusDiv.innerText = "Foto capturada com sucesso! Pronto para enviar.";
+                btnEnviar.style.display = 'inline-block'; // Mostra botão de enviar
+            }, 'image/jpeg', 0.9);
+        });
+
+        // 3. Enviar a foto para a API do PocketBase
+        btnEnviar.addEventListener('click', async () => {
+            if (!fotoBlob) return;
+
+            statusDiv.innerText = "Enviando para o PocketBase...";
+            btnEnviar.disabled = true;
+
+            // O PocketBase recebe arquivos via FormData (multipart/form-data)
+            const formData = new FormData();
+            formData.append('foto', fotoBlob, `captura_${Date.now()}.jpg`);
+
+            try {
+                // Rota padrão do PocketBase para criar registros em uma coleção
+                const response = await fetch('http://127.0.0.1:8090/api/collections/capturas/records', {
+                    method: 'POST',
+                    body: formData // O navegador configura o Content-Type automaticamente aqui
+                });
+
+                if (response.ok) {
+                    const dados = await response.json();
+                    statusDiv.innerHTML = `✅ Enviado com sucesso! <br> ID do Registro: ${dados.id}`;
+                    btnEnviar.style.display = 'none';
+                } else {
+                    const erro = await response.json();
+                    statusDiv.innerText = "❌ Erro no servidor: " + JSON.stringify(erro.data);
+                    btnEnviar.disabled = false;
+                }
+            } catch (error) {
+                statusDiv.innerText = "❌ Erro de conexão: " + error.message;
+                btnEnviar.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
