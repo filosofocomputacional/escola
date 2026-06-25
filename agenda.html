@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Telefônica - E.E Nova Contagem</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+        }
+        .login-screen { padding: 60px 40px; text-align: center; }
+        .login-screen h1 { color: #667eea; margin-bottom: 10px; font-size: 2em; }
+        .login-screen i { font-size: 4em; color: #667eea; margin-bottom: 20px; }
+        .login-form { max-width: 400px; margin: 30px auto; }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 6px; color: #333; font-weight: 600; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 15px; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #667eea; }
+        .btn-login {
+            width: 100%; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s;
+        }
+        .btn-login:hover { transform: translateY(-2px); }
+        .app-screen { display: none; position: relative; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; }
+        .header i { font-size: 2.5em; margin-bottom: 15px; }
+        .tabs { display: flex; background: #f5f5f5; border-bottom: 2px solid #e0e0e0; }
+        .tab { flex: 1; padding: 15px; text-align: center; cursor: pointer; font-weight: 600; color: #666; transition: all 0.3s; border: none; background: none; }
+        .tab.active { background: white; color: #667eea; border-bottom: 3px solid #667eea; }
+        .tab-content { display: none; padding: 30px; }
+        .tab-content.active { display: block; }
+        .search-box { position: relative; max-width: 600px; margin: 0 auto 30px; }
+        .search-box input { width: 100%; padding: 15px 50px 15px 20px; border: 2px solid #e0e0e0; border-radius: 50px; font-size: 16px; }
+        .search-box i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #999; font-size: 1.2em; }
+        
+        .autocomplete-list {
+            position: relative; width: 100%; background: white; border: 1px solid #e0e0e0; border-radius: 10px;
+            margin-top: 5px; max-height: 250px; overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1000; display: none;
+        }
+        .autocomplete-item { padding: 12px 20px; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
+        .autocomplete-item:hover { background: #f5f5f5; }
+        
+        .student-card { background: #f9f9f9; border-radius: 15px; padding: 25px; margin-bottom: 20px; border-left: 5px solid #667eea; }
+        .student-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e0e0e0; }
+        .student-name { font-size: 1.5em; color: #333; font-weight: 600; }
+        .student-turma { background: #667eea; color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; }
+        
+        .info-section { margin-bottom: 20px; background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .info-title { color: #667eea; font-size: 1.1em; margin-bottom: 12px; font-weight: 600; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .info-item { background: #fdfdfd; padding: 10px; border-radius: 8px; display: flex; flex-direction: column; gap: 3px; border: 1px solid #f0f0f0; }
+        .info-item label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; }
+        .info-item span { color: #333; font-size: 15px; font-weight: 500; word-break: break-all; }
+        
+        .btn-action { padding: 10px 18px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
+        .btn-edit { background: #e0e6ff; color: #4461f2; }
+        .btn-edit:hover { background: #cbd5ff; }
+        .btn-save { background: #22c55e; color: white; }
+        .btn-save:hover { background: #16a34a; }
+        .btn-cancel { background: #ef4444; color: white; }
+        .btn-cancel:hover { background: #dc2626; }
+        
+        .birthday-card { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border-radius: 15px; padding: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 20px; }
+        .birthday-icon { font-size: 3em; }
+        .birthday-info h3 { font-size: 1.3em; margin-bottom: 5px; }
+        .no-results { text-align: center; padding: 40px; color: #999; }
+        .no-results i { font-size: 4em; margin-bottom: 20px; opacity: 0.3; }
+        .logout-btn { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-screen" id="loginScreen">
+            <i class="fas fa-school"></i>
+            <h1>Agenda Telefônica</h1>
+            <p>E.E Nova Contagem</p>
+            <form class="login-form" onsubmit="return login(event)">
+                <div class="form-group"><label for="username">Usuário</label><input type="text" id="username" value="E.E Nova Contagem" readonly></div>
+                <div class="form-group"><label for="password">Senha</label><input type="password" id="password" placeholder="Digite a senha" required></div>
+                <button type="submit" class="btn-login"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+            </form>
+        </div>
+
+        <div class="app-screen" id="appScreen">
+            <div class="header">
+                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                <i class="fas fa-address-book"></i>
+                <h1>Agenda Telefônica</h1>
+                <p>E.E Nova Contagem</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('search')"><i class="fas fa-search"></i> Buscar Aluno</button>
+                <button class="tab" onclick="switchTab('birthdays')"><i class="fas fa-birthday-cake"></i> Aniversariantes do Dia</button>
+            </div>
+
+            <div class="tab-content active" id="searchTab">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Digite o nome do aluno ou turma..." oninput="handleSearchInput()">
+                    <i class="fas fa-search"></i>
+                    <div class="autocomplete-list" id="autocompleteList"></div>
+                </div>
+                <div id="searchResults"></div>
+            </div>
+
+            <div class="tab-content" id="birthdaysTab">
+                <div id="birthdayResults"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========================================
+        // CONFIGURAÇÕES DO SUPABASE
+        // ========================================
+         const SUPABASE_URL = "https://hnmozbiqshunrdgpsort.supabase.co"; 
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhubW96Ymlxc2h1bnJkZ3Bzb3J0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjcxNzksImV4cCI6MjA5NzkwMzE3OX0.xh8u28xRN_H1pKZmK4FfQxPec9XSJMXouAAcBeQPrrU";
+            
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        let todosAlunos = [];
+
+        function login(e) {
+            if (e) e.preventDefault();
+            if(document.getElementById('password').value === '8605') {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('appScreen').style.display = 'block';
+                fetchAlunos();
+            } else { alert('Senha incorreta!'); }
+            return false;
+        }
+
+        function logout() {
+            document.getElementById('loginScreen').style.display = 'block';
+            document.getElementById('appScreen').style.display = 'none';
+            document.getElementById('password').value = '';
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            if(tabName === 'search') {
+                document.querySelectorAll('.tab')[0].classList.add('active');
+                document.getElementById('searchTab').classList.add('active');
+            } else {
+                document.querySelectorAll('.tab')[1].classList.add('active');
+                document.getElementById('birthdaysTab').classList.add('active');
+                renderBirthdays();
+            }
+        }
+
+        async function fetchAlunos() {
+                const { data, error } = await supabaseClient.from('alunos').select('*').order('nome_completo', { ascending: true });
+                if (error) { 
+                    console.error('Erro ao buscar dados:', error); 
+                } else { 
+                    // Garantimos que a lista local começa totalmente vazia
+                    todosAlunos = [];
+                    
+                    // Usamos um Set temporário para ignorar linhas idênticas vindas do banco
+                    const idsVistos = new Set();
+                    
+                    data.forEach(aluno => {
+                        if (aluno && aluno.id && !idsVistos.has(aluno.id)) {
+                            idsVistos.add(aluno.id);
+                            todosAlunos.push(aluno);
+                        }
+                    });
+                    
+                    console.log(`Dados carregados com sucesso. Total de alunos únicos: ${todosAlunos.length}`);
+                }
+            }
+
+        // AUTOCOMPLETE AJUSTADO: Remove estritamente as triplicações usando Map por ID único
+        // SUBSTITUA APENAS A FUNÇÃO handleSearchInput POR ESTA:
+function handleSearchInput() {
+        const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        const list = document.getElementById('autocompleteList');
+        
+        if (!query) { 
+            list.style.display = 'none'; 
+            return; 
+        }
+
+        const filtradosUnicos = [];
+        const idsInseridos = new Set();
+
+        for (let i = 0; i < todosAlunos.length; i++) {
+            const aluno = todosAlunos[i];
+            if (!aluno || !aluno.id) continue;
+
+            // Evita processar se o ID já foi incluído nesta busca
+            if (idsInseridos.has(aluno.id)) continue;
+
+            const nome = aluno.nome_completo ? aluno.nome_completo.toLowerCase() : '';
+            const turma = aluno.turma ? aluno.turma.toLowerCase() : '';
+
+            if (nome.includes(query) || turma.includes(query)) {
+                idsInseridos.add(aluno.id);
+                filtradosUnicos.push(aluno);
+            }
+
+            // Limita a exibição a no máximo 8 sugestões para não travar a tela
+            if (filtradosUnicos.length >= 8) break;
+        }
+
+        if (filtradosUnicos.length > 0) {
+            list.innerHTML = filtradosUnicos.map(a => `
+                <div class="autocomplete-item" onclick="selectStudent(${a.id})">
+                    <strong>${a.nome_completo}</strong> (${a.turma || 'Sem Turma'})
+                </div>
+            `).join('');
+            list.style.display = 'block';
+        } else { 
+            list.innerHTML = '<div class="autocomplete-item" style="color:#999; cursor:default;">Nenhum aluno encontrado</div>';
+            list.style.display = 'block'; 
+        }
+    }
+                function selectStudent(id) {
+            document.getElementById('autocompleteList').style.display = 'none';
+            const aluno = todosAlunos.find(a => a.id === id);
+            if(aluno) renderStudentCard(aluno);
+        }
+
+        // CARD SIMPLIFICADO: Foco no Aluno, Telefones e em TODOS OS RESPONSÁVEIS
+        function renderStudentCard(aluno) {
+            const formatData = (d) => d ? d.split('-').reverse().join('/') : '-';
+
+            document.getElementById('searchResults').innerHTML = `
+                <div class="student-card" id="card-${aluno.id}">
+                    <div class="student-header">
+                        <div>
+                            <div class="student-name">${aluno.nome_completo}</div>
+                            <small style="color: #666;">Data de Nascimento: ${formatData(aluno.data_nascimento)}</small>
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items:center;">
+                            <span class="student-turma">Turma ${aluno.turma || '-'}</span>
+                            <button class="btn-action btn-edit" onclick="editStudentForm(${aluno.id})"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title"><i class="fas fa-phone-alt"></i> Contatos do Aluno</div>
+                        <div class="info-grid">
+                            <div class="info-item"><label>Celular Aluno</label><span>${aluno.celular || '-'}</span></div>
+                            <div class="info-item"><label>Telefone Fixo Aluno</label><span>${aluno.telefone_fixo || '-'}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title"><i class="fas fa-user-friends"></i> Filiação 1</div>
+                        <div class="info-grid">
+                            <div class="info-item" style="grid-column: span 2;"><label>Nome da Filiação 1</label><span>${aluno.filiacao_1_nome_completo || '-'}</span></div>
+                            <div class="info-item"><label>Celular Filiação 1</label><span>${aluno.filiacao_1_celular || '-'}</span></div>
+                            <div class="info-item"><label>Fixo Filiação 1</label><span>${aluno.filiacao_1_telefone_fixo || '-'}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title"><i class="fas fa-user-friends"></i> Filiação 2</div>
+                        <div class="info-grid">
+                            <div class="info-item" style="grid-column: span 2;"><label>Nome da Filiação 2</label><span>${aluno.filiacao_2_nome_completo || '-'}</span></div>
+                            <div class="info-item"><label>Celular Filiação 2</label><span>${aluno.filiacao_2_celular || '-'}</span></div>
+                            <div class="info-item"><label>Fixo Filiação 2</label><span>${aluno.filiacao_2_telefone_fixo || '-'}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title"><i class="fas fa-user-shield"></i> Responsável Legal</div>
+                        <div class="info-grid">
+                            <div class="info-item" style="grid-column: span 2;"><label>Nome do Responsável</label><span>${aluno.responsavel_nome_completo || '-'}</span></div>
+                            <div class="info-item"><label>Celular Responsável</label><span>${aluno.responsavel_celular || '-'}</span></div>
+                            <div class="info-item"><label>Fixo Responsável</label><span>${aluno.responsavel_telefone_fixo || '-'}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title"><i class="fas fa-comment-alt"></i> Observações Gerais</div>
+                        <p style="font-size:14px; background:#fafafa; padding:12px; border-radius:8px; border:1px solid #eee; line-height:1.5; color:#444;">
+                            ${aluno.observacoes || 'Nenhuma observação cadastrada.'}
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // FORMULÁRIO DE EDIÇÃO: Inclui campos para todos os responsáveis e contatos
+        function editStudentForm(id) {
+            const aluno = todosAlunos.find(a => a.id === id);
+            if(!aluno) return;
+
+            document.getElementById(`searchResults`).innerHTML = `
+                <form class="student-card" onsubmit="saveStudentChanges(event, ${aluno.id})">
+                    <div class="student-header">
+                        <h2 style="color:#667eea;"><i class="fas fa-user-edit"></i> Alterar Contatos e Responsáveis</h2>
+                        <div style="display:flex; gap:10px;">
+                            <button type="button" class="btn-action btn-cancel" onclick="selectStudent(${aluno.id})">Cancelar</button>
+                            <button type="submit" class="btn-action btn-save"><i class="fas fa-save"></i> Salvar</button>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">Identificação Básica</div>
+                        <div class="info-grid">
+                            <div class="form-group"><label>Nome do Aluno *</label><input type="text" id="edit_nome_completo" value="${aluno.nome_completo || ''}" required></div>
+                            <div class="form-group"><label>Turma</label><input type="text" id="edit_turma" value="${aluno.turma || ''}"></div>
+                            <div class="form-group"><label>Data Nascimento</label><input type="date" id="edit_data_nascimento" value="${aluno.data_nascimento || ''}"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">Telefones do Aluno</div>
+                        <div class="info-grid">
+                            <div class="form-group"><label>Celular Aluno</label><input type="text" id="edit_celular" value="${aluno.celular || ''}"></div>
+                            <div class="form-group"><label>Telefone Fixo</label><input type="text" id="edit_telefone_fixo" value="${aluno.telefone_fixo || ''}"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">Dados Filiação 1</div>
+                        <div class="info-grid">
+                            <div class="form-group" style="grid-column: span 2;"><label>Nome Filiação 1</label><input type="text" id="edit_f1_nome" value="${aluno.filiacao_1_nome_completo || ''}"></div>
+                            <div class="form-group"><label>Celular Filiação 1</label><input type="text" id="edit_f1_celular" value="${aluno.filiacao_1_celular || ''}"></div>
+                            <div class="form-group"><label>Fixo Filiação 1</label><input type="text" id="edit_f1_fixo" value="${aluno.filiacao_1_telefone_fixo || ''}"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">Dados Filiação 2</div>
+                        <div class="info-grid">
+                            <div class="form-group" style="grid-column: span 2;"><label>Nome Filiação 2</label><input type="text" id="edit_f2_nome" value="${aluno.filiacao_2_nome_completo || ''}"></div>
+                            <div class="form-group"><label>Celular Filiação 2</label><input type="text" id="edit_f2_celular" value="${aluno.filiacao_2_celular || ''}"></div>
+                            <div class="form-group"><label>Fixo Filiação 2</label><input type="text" id="edit_f2_fixo" value="${aluno.filiacao_2_telefone_fixo || ''}"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">Dados do Responsável Legal</div>
+                        <div class="info-grid">
+                            <div class="form-group" style="grid-column: span 2;"><label>Nome do Responsável</label><input type="text" id="edit_resp_nome" value="${aluno.responsavel_nome_completo || ''}"></div>
+                            <div class="form-group"><label>Celular Responsável</label><input type="text" id="edit_resp_celular" value="${aluno.responsavel_celular || ''}"></div>
+                            <div class="form-group"><label>Fixo Responsável</label><input type="text" id="edit_resp_fixo" value="${aluno.responsavel_telefone_fixo || ''}"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">Observações</div>
+                        <div class="form-group"><textarea id="edit_observacoes" rows="3">${aluno.observacoes || ''}</textarea></div>
+                    </div>
+                </form>
+            `;
+        }
+
+        async function saveStudentChanges(event, id) {
+            event.preventDefault();
+            
+            const dadosAtualizados = {
+                nome_completo: document.getElementById('edit_nome_completo').value,
+                turma: document.getElementById('edit_turma').value,
+                data_nascimento: document.getElementById('edit_data_nascimento').value || null,
+                celular: document.getElementById('edit_celular').value,
+                telefone_fixo: document.getElementById('edit_telefone_fixo').value,
+                filiacao_1_nome_completo: document.getElementById('edit_f1_nome').value,
+                filiacao_1_celular: document.getElementById('edit_f1_celular').value,
+                filiacao_1_telefone_fixo: document.getElementById('edit_f1_fixo').value,
+                filiacao_2_nome_completo: document.getElementById('edit_f2_nome').value,
+                filiacao_2_celular: document.getElementById('edit_f2_celular').value,
+                filiacao_2_telefone_fixo: document.getElementById('edit_f2_fixo').value,
+                responsavel_nome_completo: document.getElementById('edit_resp_nome').value,
+                responsavel_celular: document.getElementById('edit_resp_celular').value,
+                responsavel_telefone_fixo: document.getElementById('edit_resp_fixo').value,
+                observacoes: document.getElementById('edit_observacoes').value
+            };
+
+            const { data, error } = await supabaseClient.from('alunos').update(dadosAtualizados).eq('id', id).select();
+
+            if (error) {
+                alert('Erro ao salvar as alterações!');
+                console.error(error);
+            } else {
+                alert('Alterações salvas com sucesso!');
+                await fetchAlunos(); 
+                selectStudent(id);    
+            }
+        }
+
+        // ANIVERSARIANTES: Compara rigorosamente apenas o Dia e o Mês, ignorando o Ano
+        function renderBirthdays() {
+            const hoje = new Date();
+            const diaHoje = String(hoje.getDate()).padStart(2, '0');
+            const mesHoje = String(hoje.getMonth() + 1).padStart(2, '0');
+
+            const aniversariantes = todosAlunos.filter(a => {
+                if (!a.data_nascimento) return false;
+                
+                const partes = a.data_nascimento.split('-');
+                if(partes.length < 3) return false;
+
+                const mesAluno = partes[1];
+                const diaAluno = partes[2];
+
+                return diaAluno === diaHoje && mesAluno === mesHoje;
+            });
+
+            // Evita duplicados na renderização dos cartões de aniversário
+            const mapeadosUnicos = [];
+            const idsVistos = new Set();
+            aniversariantes.forEach(a => {
+                if(!idsVistos.has(a.id)) {
+                    idsVistos.add(a.id);
+                    mapeadosUnicos.push(a);
+                }
+            });
+
+            const divResults = document.getElementById('birthdayResults');
+            if(mapeadosUnicos.length === 0) {
+                divResults.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-birthday-cake"></i>
+                        <h3>Nenhum aniversariante hoje</h3>
+                        <p>Não há registros fazendo aniversário na data de hoje (${diaHoje}/${mesHoje}).</p>
+                    </div>`;
+            } else {
+                divResults.innerHTML = mapeadosUnicos.map(a => `
+                    <div class="birthday-card" onclick="switchTab('search'); selectStudent(${a.id});" style="cursor:pointer;">
+                        <div class="birthday-icon">🎂</div>
+                        <div class="birthday-info">
+                            <h3>${a.nome_completo}</h3>
+                            <p><i class="fas fa-users"></i> Turma: ${a.turma || 'Não informada'}</p>
+                            <p><i class="fas fa-phone-alt"></i> Contato: ${a.celular || a.responsavel_celular || 'Sem telefone'}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-box')) { document.getElementById('autocompleteList').style.display = 'none'; }
+        });
+    </script>
+</body>
+</html>
+ 
