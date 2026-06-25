@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Escolar - EE Nova Contagem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* TELA DE LOGIN */
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            color: #1a73e8;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #1557b0;
+        }
+
+        .error-msg {
+            color: #d93025;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* PAINEL DE FUNCIONALIDADES (Escondido inicialmente) */
+        .dashboard {
+            display: none;
+            width: 100%;
+            max-width: 1000px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .dashboard h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        /* Estilização dos ícones/imagens temporárias em SVG */
+        .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+
+        .card h3 {
+            color: #444;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container" id="loginScreen">
+        <h2>Acesso ao Painel</h2>
+        <div class="input-group">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" placeholder="Ex: escola estadual...">
+        </div>
+        <div class="input-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="••••">
+        </div>
+        <button class="btn-login" onclick="validarLogin()">Entrar</button>
+        <div class="error-msg" id="errorMsg">Usuário ou senha incorretos!</div>
+    </div>
+
+    <div class="dashboard" id="dashboardScreen">
+        <h1>EE Nova Contagem - Funcionalidades</h1>
+        
+        <div class="grid-container">
+            <a href="https://filosofocomputacional.github.io/escola/agenda" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3059/3059502.png" alt="Agenda Telefônica">
+                <h3>Agenda Telefônica</h3>
+            </a>
+
+            <a href="https://filosofocomputacional.github.io/escola/boletim.html" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2641/2641409.png" alt="Boletim">
+                <h3>Boletim</h3>
+            </a>
+
+            <a href="#" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Agenda de Funcionários">
+                <h3>Agenda de Funcionários</h3>
+            </a>
+
+            <a href="#" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1091/1091916.png" alt="Arquivos">
+                <h3>Arquivos</h3>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function validarLogin() {
+            // Captura os valores digitados tirando espaços extras
+            const usuarioDigitado = document.getElementById('username').value.trim().toLowerCase();
+            const senhaDigitada = document.getElementById('password').value.trim();
+
+            const usuarioCorreto = "escola estadual nova contagem";
+            const senhaCorreta = "8605";
+
+            if (usuarioDigitado === usuarioCorreto && senhaDigitada === senhaCorreta) {
+                // Esconde a tela de login e mostra o painel
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('dashboardScreen').style.display = 'block';
+            } else {
+                // Mostra a mensagem de erro
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        }
+
+        // Permite apertar "Enter" para logar
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                validarLogin();
+            }
+        });
+    </script>
+</body>
+</html>
