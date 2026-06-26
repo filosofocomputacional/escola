@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Agenda Funcionários - CRUD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --brand: #2563eb;
+            --brand-hover: #1d4ed8;
+            --danger: #ef4444;
+            --danger-hover: #dc2626;
+            --success: #22c55e;
+            --success-hover: #16a34a;
+            --border: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #fff;
+            padding: 24px 16px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        /* Abas Estilo Pílula */
+        .tabs {
+            display: flex;
+            background: #e2e8f0;
+            padding: 4px;
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+        }
+
+        .tabs button {
+            flex: 1;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border: none;
+            background: transparent;
+            border-radius: calc(var(--radius-md) - 2px);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tabs button.active {
+            background: var(--surface);
+            color: var(--brand);
+            box-shadow: var(--shadow);
+        }
+
+        /* Caixa de Pesquisa Container */
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            font-size: 16px;
+            font-family: inherit;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text-main);
+            box-shadow: var(--shadow);
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--brand);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+
+        /* Lista de Sugestões */
+        #suggestions {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-top: 8px;
+            max-height: 240px;
+            overflow-y: auto;
+            box-shadow: var(--shadow-hover);
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+            box-sizing: border-box;
+        }
+
+        #suggestions:empty {
+            display: none;
+        }
+
+        .item {
+            padding: 14px 16px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 1px solid #f1f5f9;
+            transition: background 0.15s ease;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item:hover {
+            background: #f1f5f9;
+            color: var(--brand);
+        }
+
+        /* Cartões de Exibição e Formulários */
+        .card, .birthdays, .form-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-top: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .card-empty {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 40px 20px;
+        }
+
+        .card-empty i {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #cbd5e1;
+            display: block;
+        }
+
+        /* Detalhes do Funcionário */
+        .employee-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            color: var(--text-main);
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .info-row i {
+            width: 28px;
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .info-row b {
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-right: 6px;
+            min-width: 65px;
+        }
+
+        .info-row a, .info-row span {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .info-row a {
+            color: var(--brand);
+        }
+
+        .info-row a:hover {
+            text-decoration: underline;
+        }
+
+        /* Ações do CRUD (Botões) */
+        .actions-wrapper {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-edit { background: #e2e8f0; color: #334155; }
+        .btn-edit:hover { background: #cbd5e1; }
+        
+        .btn-delete { background: #fee2e2; color: var(--danger); }
+        .btn-delete:hover { background: #fecaca; }
+
+        .btn-primary { background: var(--brand); color: white; width: 100%; margin-top: 12px;}
+        .btn-primary:hover { background: var(--brand-hover); }
+
+        /* Estilização dos inputs dentro dos formulários de CRUD */
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        .form-group input {
+            padding: 12px 14px;
+        }
+
+        /* Lista de Aniversariantes */
+        .birthdays h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            color: var(--text-main);
+        }
+
+        .bday-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            background: #f8fafc;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .bday-item.today {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+        }
+
+        .bday-day {
+            background: #e2e8f0;
+            color: var(--text-main);
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-right: 12px;
+        }
+
+        .today .bday-day {
+            background: #fef08a;
+            color: #854d0e;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2><i class="fa-solid fa-address-book" style="margin-right: 10px; opacity: 0.9;"></i>Agenda dos Funcionários</h2>
+</header>
+
+<div class="container">
+    <div class="tabs">
+        <button id="btn-agenda" class="active" onclick="show('agenda')">Pesquisar</button>
+        <button id="btn-novo" onclick="show('novo')">Adicionar</button>
+        <button id="btn-aniv" onclick="show('aniv')">Aniversariantes</button>
+    </div>
+
+    <div id="agenda">
+        <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="search" placeholder="Buscar por nome do funcionário...">
+            <div id="suggestions"></div>
+        </div>
+        
+        <div class="card" id="card">
+            <div class="card-empty">
+                <i class="fa-solid fa-user-astronaut"></i>
+                Pesquise um funcionário para ver os detalhes ou editar.
+            </div>
+        </div>
+    </div>
+
+    <div id="novo" class="hidden">
+        <div class="form-card">
+            <h3 class="employee-title" style="border:none; margin-bottom:10px;">Cadastrar Novo Funcionário</h3>
+            <form id="createForm" onsubmit="createEmployee(event)">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="add_nome" placeholder="Ex: Maria Silva" required>
+                </div>
+                <div class="form-group">
+                    <label>MASP</label>
+                    <input type="text" id="add_masp" placeholder="Ex: 123456-7" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="tel" id="add_telefone" placeholder="Ex: (31) 99999-9999">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="add_email" placeholder="Ex: maria@escola.com">
+                </div>
+                <div class="form-group">
+                    <label>Data de Nascimento</label>
+                    <input type="date" id="add_data_nascimento">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Salvar Cadastro</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="aniv" class="hidden">
+        <div class="birthdays" id="birthdays"></div>
+    </div>
+</div>
+
+<script>
+
+const SUPABASE_URL = "https://hnmozbiqshunrdgpsort.supabase.co"; 
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhubW96Ymlxc2h1bnJkZ3Bzb3J0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjcxNzksImV4cCI6MjA5NzkwMzE3OX0.xh8u28xRN_H1pKZmK4FfQxPec9XSJMXouAAcBeQPrrU";
+
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+let funcionarios=[];
+let selectedEmployeeId = null;
+
+function norm(t){return (t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();}
+
+function show(id){
+    agenda.classList.toggle("hidden", id != "agenda");
+    novo.classList.toggle("hidden", id != "novo");
+    aniv.classList.toggle("hidden", id != "aniv");
+    
+    document.getElementById("btn-agenda").classList.toggle("active", id == "agenda");
+    document.getElementById("btn-novo").classList.toggle("active", id == "novo");
+    document.getElementById("btn-aniv").classList.toggle("active", id == "aniv");
+    
+    if(id == "agenda") resetCard();
+}
+
+function resetCard() {
+    card.innerHTML = `
+        <div class="card-empty">
+            <i class="fa-solid fa-user-astronaut"></i>
+            Pesquise um funcionário para ver os detalhes ou editar.
+        </div>`;
+    search.value = "";
+}
+
+async function load(){
+    let {data,error}=await sb.from("funcionarios").select("*").order("nome");
+    if(error){card.innerHTML=`<div style="color:red; text-align:center;">${error.message}</div>`;return;}
+    funcionarios=data||[];
+    renderBirthdays();
+}
+
+search.oninput=()=>{
+    let q=norm(search.value); suggestions.innerHTML="";
+    if(!q)return;
+    funcionarios.filter(f=>norm(f.nome).includes(q)).slice(0,10).forEach(f=>{
+        let d=document.createElement("div"); d.className="item"; d.textContent=f.nome;
+        d.onclick=()=>select(f); suggestions.appendChild(d);
+    });
+}
+
+// READ - Exibe Ficha com Ações
+function select(f){
+    suggestions.innerHTML="";
+    selectedEmployeeId = f.id;
+    card.innerHTML = `
+        <h2 class="employee-title">${f.nome}</h2>
+        <div class="info-row">
+            <i class="fa-solid fa-id-card"></i><b>MASP:</b> <span>${f.masp || 'Não informado'}</span>
+        </div>
+        <div class="info-row">
+            <i class="fa-solid fa-phone"></i><b>Fone:</b> 
+            <a href="tel:${(f.telefone||"").replace(/\D/g,"")}">${f.telefone || 'Não informado'}</a>
+        </div>
+        <div class="info-row">
+            <i class="fa-solid fa-envelope"></i><b>Email:</b> 
+            <a href="mailto:${f.email||""}">${f.email || 'Não informado'}</a>
+        </div>
+        <div class="actions-wrapper">
+            <button class="btn btn-edit" onclick="showEditForm(${JSON.stringify(f).replace(/"/g, '&quot;')})"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+            <button class="btn btn-delete" onclick="deleteEmployee(${f.id})"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+        </div>
+    `;
+}
+
+// CREATE - Cadastrar no Supabase
+async function createEmployee(e) {
+    e.preventDefault();
+    const novoFuncionario = {
+        nome: document.getElementById('add_nome').value,
+        masp: document.getElementById('add_masp').value,
+        telefone: document.getElementById('add_telefone').value,
+        email: document.getElementById('add_email').value,
+        data_nascimento: document.getElementById('add_data_nascimento').value || null
+    };
+
+    const { error } = await sb.from('funcionarios').insert([novoFuncionario]);
+    if(error) {
+        alert('Erro ao cadastrar: ' + error.message);
+    } else {
+        alert('Funcionário cadastrado com sucesso!');
+        document.getElementById('createForm').reset();
+        await load();
+        show('agenda');
+    }
+}
+
+// Form de Edição (Inline na View do Card)
+function showEditForm(f) {
+    // Formata data de nascimento para o input do tipo date (AAAA-MM-DD)
+    let formattedDate = "";
+    if (f.data_nascimento) {
+        formattedDate = new Date(f.data_nascimento).toISOString().split('T')[0];
+    }
+
+    card.innerHTML = `
+        <h2 class="employee-title">Editar Cadastro</h2>
+        <form onsubmit="updateEmployee(event, ${f.id})">
+            <div class="form-group">
+                <label>Nome Completo</label>
+                <input type="text" id="edit_nome" value="${f.nome}" required>
+            </div>
+            <div class="form-group">
+                <label>MASP</label>
+                <input type="text" id="edit_masp" value="${f.masp || ''}" required>
+            </div>
+            <div class="form-group">
+                <label>Telefone</label>
+                <input type="tel" id="edit_telefone" value="${f.telefone || ''}">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="edit_email" value="${f.email || ''}">
+            </div>
+            <div class="form-group">
+                <label>Data de Nascimento</label>
+                <input type="date" id="edit_data_nascimento" value="${formattedDate}">
+            </div>
+            <div class="actions-wrapper">
+                <button type="button" class="btn btn-edit" onclick="resetCard()">Cancelar</button>
+                <button type="submit" class="btn btn-primary" style="margin:0; flex:1;"><i class="fa-solid fa-circle-check"></i> Atualizar</button>
+            </div>
+        </form>
+    `;
+}
+
+// UPDATE - Gravar alterações no Supabase
+async function updateEmployee(e, id) {
+    e.preventDefault();
+    const dadosAtualizados = {
+        nome: document.getElementById('edit_nome').value,
+        masp: document.getElementById('edit_masp').value,
+        telefone: document.getElementById('edit_telefone').value,
+        email: document.getElementById('edit_email').value,
+        data_nascimento: document.getElementById('edit_data_nascimento').value || null
+    };
+
+    const { error } = await sb.from('funcionarios').update(dadosAtualizados).eq('id', id);
+    if(error) {
+        alert('Erro ao atualizar: ' + error.message);
+    } else {
+        alert('Dados atualizados com sucesso!');
+        await load();
+        resetCard();
+    }
+}
+
+// DELETE - Remover do Supabase com validação
+async function deleteEmployee(id) {
+    if(confirm("Tem a certeza que deseja excluir permanentemente este funcionário?")) {
+        const { error } = await sb.from('funcionarios').delete().eq('id', id);
+        if(error) {
+            alert('Erro ao remover: ' + error.message);
+        } else {
+            alert('Funcionário removido com sucesso!');
+            await load();
+            resetCard();
+        }
+    }
+}
+
+function renderBirthdays(){
+    let m=new Date().getMonth()+1;
+    let hoje=new Date().getDate();
+    let meses=funcionarios.filter(f=>{
+        if(!f.data_nascimento)return false;
+        return new Date(f.data_nascimento).getMonth()+1===m;
+    }).sort((a,b)=>new Date(a.data_nascimento).getDate()-new Date(b.data_nascimento).getDate());
+    
+    birthdays.innerHTML="<h3>Aniversariantes do Mês</h3>";
+    
+    meses.forEach(f=>{
+        let dia=new Date(f.data_nascimento).getDate();
+        let isToday = dia === hoje;
+        
+        birthdays.innerHTML+=`
+            <div class="bday-item ${isToday ? 'today' : ''}">
+                <span class="bday-day">${String(dia).padStart(2,"0")}/${String(m).padStart(2,"0")}</span>
+                <span class="bday-name">${isToday ? '🎉 ' : ''}${f.nome}</span>
+            </div>
+        `;
+    });
+    if(!meses.length) birthdays.innerHTML+="<p style='color: var(--text-muted); font-size: 14px;'>Nenhum aniversariante registrado este mês.</p>";
+}
+
+// Fecha sugestões ao clicar fora
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-wrapper')) { document.getElementById('suggestions').innerHTML = ''; }
+});
+
+load();
+</script>
+</body>
+</html>
