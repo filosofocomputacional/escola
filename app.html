@@ -360,7 +360,6 @@ async function startCamera() {
 async function initFFmpeg() {
   if (ffmpeg && ffmpeg.isLoaded()) return ffmpeg;
   
-  // Se já está carregando, aguarda
   if (ffmpegLoading) {
     await ffmpegLoading;
     return ffmpeg;
@@ -371,9 +370,9 @@ async function initFFmpeg() {
   ffmpegLoading = (async () => {
     ffmpeg = createFFmpeg({
       log: true,
-      corePath: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core-st@0.11.1/dist/ffmpeg-core.js',
+      // Usa versão mais estável do core single-threaded
+      corePath: 'https://unpkg.com/@ffmpeg/core-st@0.11.1/dist/ffmpeg-core.js',
       progress: ({ ratio }) => {
-        // ratio vai de 0 a 1 durante a conversão
         if (ratio >= 0) {
           progressFill.style.width = Math.round(ratio * 100) + '%';
         }
@@ -387,6 +386,150 @@ async function initFFmpeg() {
   ffmpegLoading = null;
   
   return ffmpeg;
+}
+
+// Verifica se o navegador suporta gravação nativa em H.264/MP4
+function getNativeH264MimeType() {
+  const types = [
+    'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
+    'video/mp4;codecs=avc1.42E01E',
+    'video/mp4',
+    'video/webm;codecs=h264,opus',
+    'video/webm;codecs=h264'
+  ];
+  for (const type of types) {
+    if (MediaRecorder.isTypeSupported(type)) return type;
+  }
+  return null;
+}
+
+function startRecording() {
+  recordedChunks = [];
+  
+  // Tenta usar H.264 nativo (evita FFmpeg completamente)
+  const nativeType = getNativeH264MimeType();
+  const options = nativeType 
+    ? { mimeType: nativeType }
+    : { mimeType: 'video/webm;codecs=vp8,opus' };
+  
+  if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+    options.mimeType = 'video/webm';
+  }
+  
+  try {
+    mediaRecorder = new MediaRecorder(stream, options);
+    // Guarda o tipo usado para sabermos se precisa compactar
+    mediaRecorder._usedNativeH264 = !!nativeType;
+    mediaRecorder._recordedMimeType = options.mimeType;
+  } catch (e) {
+    showStatus('Formato de gravação não suportado', 'error');
+    return;
+  }
+
+  mediaRecorder.ondataavailable = e => { 
+    if (e.data.size > 0) recordedChunks.push(e.data); 
+  };
+  
+  mediaRecorder.onstop = () => {
+    recordedBlob = new Blob(recordedChunks, { type: options.mimeType });
+  };
+
+  mediaRecorder.start();
+  recordingStart = Date.now();
+  shutterBtn.classList.add('recording');
+  recLed.classList.add('active');
+  timerEl.classList.add('show');
+
+  timerInterval = setInterval(() => {
+    const elapsed = Math.floor((Date.now() - recordingStart) / 1000);
+    const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
+    const ss = String(elapsed % 60).padStart(2, '0');
+    timerEl.textContent = `${mm}:${ss}`;
+    if (elapsed >= 30) stopRecording();
+  }, 500);
+}
+
+async function stopRecording(name, cls) {
+  if (!mediaRecorder || mediaRecorder.state === 'inactive') return;
+  clearInterval(timerInterval);
+  mediaRecorder.stop();
+  shutterBtn.classList.remove('recording');
+  recLed.classList.remove('active');
+  timerEl.classList.remove('show');
+
+  await new Promise(r => setTimeout(r, 500));
+  if (!recordedBlob) return;
+
+  name = name || document.getElementById('studentName').value.trim();
+  cls = cls || document.getElementById('studentClass').value;
+
+  // Se gravou em H.264 nativo, não precisa compactar!
+  if (mediaRecorder._usedNativeH264) {
+    showStatus('Vídeo já está em H.264, enviando...', 'info');
+    progressBar.classList.add('show');
+    progressFill.style.width = '50%';
+    const file = new File([recordedBlob], `${cls} - ${name}.mp4`, { 
+      type: recordedBlob.type 
+    });
+    await uploadFile(file, name, cls);
+    return;
+  }
+
+  // Precisa compactar com FFmpeg
+  showStatus('Compactando vídeo com FFmpeg...', 'info');
+  progressBar.classList.add('show');
+  progressFill.style.width = '10%';
+
+  let file;
+  let ffmpegFailed = false;
+
+  try {
+    const ff = await initFFmpeg();
+
+    if (!ff.isLoaded()) {
+      throw new Error('FFmpeg não foi carregado corretamente');
+    }
+
+    progressFill.style.width = '30%';
+    ff.FS('writeFile', 'input.webm', await fetchFile(recordedBlob));
+
+    progressFill.style.width = '50%';
+    
+    await ff.run(
+      '-i', 'input.webm',
+      '-c:v', 'libx264',
+      '-preset', 'ultrafast',
+      '-crf', '28',
+      '-vf', 'scale=-2:720',
+      '-c:a', 'aac',
+      '-b:a', '96k',
+      '-movflags', '+faststart',
+      'output.mp4'
+    );
+
+    progressFill.style.width = '80%';
+    const data = ff.FS('readFile', 'output.mp4');
+    const compressedBlob = new Blob([data.buffer], { type: 'video/mp4' });
+    file = new File([compressedBlob], `${cls} - ${name}.mp4`, { type: 'video/mp4' });
+    
+    try {
+      ff.FS('unlink', 'input.webm');
+      ff.FS('unlink', 'output.mp4');
+    } catch (e) { /* ignora */ }
+    
+  } catch (err) {
+    console.error('Erro FFmpeg:', err);
+    ffmpegFailed = true;
+    showStatus('FFmpeg falhou, enviando vídeo original...', 'info');
+    
+    // FALLBACK: envia o webm original sem compactar
+    file = new File([recordedBlob], `${cls} - ${name}.webm`, { 
+      type: 'video/webm' 
+    });
+  }
+
+  progressFill.style.width = '90%';
+  await uploadFile(file, name, cls);
 }
 
 // Seleção de modo
