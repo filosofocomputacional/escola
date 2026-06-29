@@ -7,7 +7,7 @@
 
 <!-- FFmpeg.wasm para compactar vídeos no navegador -->
  <!-- FFmpeg.wasm versão 0.11.x (mais compatível, sem Worker externo) -->
-<script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.10.1/dist/ffmpeg.min.js"></script>
 
 
 <style>
@@ -340,7 +340,6 @@ const fileUploadArea = document.getElementById('fileUploadArea');
 const fileInput = document.getElementById('fileInput');
 const fileNameEl = document.getElementById('fileName');
 
-// Inicializa câmera
 async function startCamera() {
   try {
     if (stream) stream.getTracks().forEach(t => t.stop());
@@ -356,7 +355,6 @@ async function startCamera() {
   }
 }
 
-// Inicializa FFmpeg 0.11.x - COMPATÍVEL COM GITHUB PAGES
 async function initFFmpeg() {
   if (ffmpeg && ffmpeg.isLoaded()) return ffmpeg;
   
@@ -370,8 +368,7 @@ async function initFFmpeg() {
   ffmpegLoading = (async () => {
     ffmpeg = createFFmpeg({
       log: true,
-      // Usa versão mais estável do core single-threaded
-      corePath: 'https://unpkg.com/@ffmpeg/core-st@0.11.1/dist/ffmpeg-core.js',
+      corePath: 'https://unpkg.com/@ffmpeg/core@0.10.0/dist/ffmpeg-core.js',
       progress: ({ ratio }) => {
         if (ratio >= 0) {
           progressFill.style.width = Math.round(ratio * 100) + '%';
@@ -388,7 +385,6 @@ async function initFFmpeg() {
   return ffmpeg;
 }
 
-// Verifica se o navegador suporta gravação nativa em H.264/MP4
 function getNativeH264MimeType() {
   const types = [
     'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
@@ -403,10 +399,90 @@ function getNativeH264MimeType() {
   return null;
 }
 
+document.querySelectorAll('.mode-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentMode = btn.dataset.mode;
+    resetCapture();
+    fileUploadArea.classList.toggle('show', currentMode === 'file');
+    if (currentMode !== 'file') startCamera();
+  });
+});
+
+document.getElementById('switchCamera').addEventListener('click', () => {
+  facingMode = facingMode === 'user' ? 'environment' : 'user';
+  startCamera();
+});
+
+document.getElementById('resetBtn').addEventListener('click', resetCapture);
+
+fileInput.addEventListener('change', (e) => {
+  const f = e.target.files[0];
+  if (f) {
+    recordedFile = f;
+    fileNameEl.textContent = '✓ ' + f.name + ' (' + (f.size/1024/1024).toFixed(2) + ' MB)';
+  }
+});
+
+function resetCapture() {
+  recordedBlob = null;
+  recordedFile = null;
+  fileInput.value = '';
+  fileNameEl.textContent = '';
+  photoPreview.style.display = 'none';
+  if (currentMode !== 'file') {
+    video.style.display = 'block';
+    startCamera();
+  }
+  shutterBtn.classList.remove('recording');
+  recLed.classList.remove('active');
+  timerEl.classList.remove('show');
+  hideStatus();
+}
+
+shutterBtn.addEventListener('click', async () => {
+  const name = document.getElementById('studentName').value.trim();
+  const cls = document.getElementById('studentClass').value;
+  if (!name || !cls) {
+    showStatus('Preencha nome e turma!', 'error');
+    return;
+  }
+
+  if (currentMode === 'photo') {
+    capturePhoto(name, cls);
+  } else if (currentMode === 'video') {
+    if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+      startRecording();
+    } else {
+      stopRecording(name, cls);
+    }
+  } else if (currentMode === 'file') {
+    if (!recordedFile) {
+      showStatus('Selecione um arquivo!', 'error');
+      return;
+    }
+    await uploadFile(recordedFile, name, cls);
+  }
+});
+
+function capturePhoto(name, cls) {
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  canvas.toBlob(async (blob) => {
+    const file = new File([blob], `${cls} - ${name}.jpg`, { type: 'image/jpeg' });
+    photoPreview.src = URL.createObjectURL(blob);
+    photoPreview.style.display = 'block';
+    video.style.display = 'none';
+    await uploadFile(file, name, cls);
+  }, 'image/jpeg', 0.9);
+}
+
 function startRecording() {
   recordedChunks = [];
   
-  // Tenta usar H.264 nativo (evita FFmpeg completamente)
   const nativeType = getNativeH264MimeType();
   const options = nativeType 
     ? { mimeType: nativeType }
@@ -418,7 +494,6 @@ function startRecording() {
   
   try {
     mediaRecorder = new MediaRecorder(stream, options);
-    // Guarda o tipo usado para sabermos se precisa compactar
     mediaRecorder._usedNativeH264 = !!nativeType;
     mediaRecorder._recordedMimeType = options.mimeType;
   } catch (e) {
@@ -463,7 +538,6 @@ async function stopRecording(name, cls) {
   name = name || document.getElementById('studentName').value.trim();
   cls = cls || document.getElementById('studentClass').value;
 
-  // Se gravou em H.264 nativo, não precisa compactar!
   if (mediaRecorder._usedNativeH264) {
     showStatus('Vídeo já está em H.264, enviando...', 'info');
     progressBar.classList.add('show');
@@ -475,13 +549,11 @@ async function stopRecording(name, cls) {
     return;
   }
 
-  // Precisa compactar com FFmpeg
   showStatus('Compactando vídeo com FFmpeg...', 'info');
   progressBar.classList.add('show');
   progressFill.style.width = '10%';
 
   let file;
-  let ffmpegFailed = false;
 
   try {
     const ff = await initFFmpeg();
@@ -503,7 +575,6 @@ async function stopRecording(name, cls) {
       '-vf', 'scale=-2:720',
       '-c:a', 'aac',
       '-b:a', '96k',
-      '-movflags', '+faststart',
       'output.mp4'
     );
 
@@ -519,10 +590,8 @@ async function stopRecording(name, cls) {
     
   } catch (err) {
     console.error('Erro FFmpeg:', err);
-    ffmpegFailed = true;
-    showStatus('FFmpeg falhou, enviando vídeo original...', 'info');
+    showStatus('Compactação falhou, enviando vídeo original...', 'info');
     
-    // FALLBACK: envia o webm original sem compactar
     file = new File([recordedBlob], `${cls} - ${name}.webm`, { 
       type: 'video/webm' 
     });
@@ -530,191 +599,6 @@ async function stopRecording(name, cls) {
 
   progressFill.style.width = '90%';
   await uploadFile(file, name, cls);
-}
-
-// Seleção de modo
-document.querySelectorAll('.mode-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentMode = btn.dataset.mode;
-    resetCapture();
-    fileUploadArea.classList.toggle('show', currentMode === 'file');
-    if (currentMode !== 'file') startCamera();
-  });
-});
-
-document.getElementById('switchCamera').addEventListener('click', () => {
-  facingMode = facingMode === 'user' ? 'environment' : 'user';
-  startCamera();
-});
-
-document.getElementById('resetBtn').addEventListener('click', resetCapture);
-
-fileInput.addEventListener('change', (e) => {
-  const f = e.target.files[0];
-  if (f) {
-    recordedFile = f;
-    fileNameEl.textContent = '✓ ' + f.name + ' (' + (f.size/1024/1024).toFixed(2) + ' MB)';
-  }
-});
-
-function resetCapture() {
-  recordedBlob = null;
-  recordedFile = null;
-  fileInput.value = '';
-  fileNameEl.textContent = '';
-  photoPreview.style.display = 'none';
-  if (currentMode !== 'file') {
-    video.style.display = 'block';
-    startCamera();
-  }
-  shutterBtn.classList.remove('recording');
-  recLed.classList.remove('active');
-  timerEl.classList.remove('show');
-  hideStatus();
-}
-
-// Disparador
-shutterBtn.addEventListener('click', async () => {
-  const name = document.getElementById('studentName').value.trim();
-  const cls = document.getElementById('studentClass').value;
-  if (!name || !cls) {
-    showStatus('Preencha nome e turma!', 'error');
-    return;
-  }
-
-  if (currentMode === 'photo') {
-    capturePhoto(name, cls);
-  } else if (currentMode === 'video') {
-    if (!mediaRecorder || mediaRecorder.state === 'inactive') {
-      startRecording();
-    } else {
-      stopRecording(name, cls);
-    }
-  } else if (currentMode === 'file') {
-    if (!recordedFile) {
-      showStatus('Selecione um arquivo!', 'error');
-      return;
-    }
-    await uploadFile(recordedFile, name, cls);
-  }
-});
-
-function capturePhoto(name, cls) {
-  const canvas = document.createElement('canvas');
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  canvas.toBlob(async (blob) => {
-    const file = new File([blob], `${cls} - ${name}.jpg`, { type: 'image/jpeg' });
-    photoPreview.src = URL.createObjectURL(blob);
-    photoPreview.style.display = 'block';
-    video.style.display = 'none';
-    await uploadFile(file, name, cls);
-  }, 'image/jpeg', 0.9);
-}
-
-function startRecording() {
-  recordedChunks = [];
-  const options = { mimeType: 'video/webm;codecs=vp8,opus' };
-  if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-    options.mimeType = 'video/webm';
-  }
-  try {
-    mediaRecorder = new MediaRecorder(stream, options);
-  } catch (e) {
-    showStatus('Formato de gravação não suportado', 'error');
-    return;
-  }
-
-  mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recordedChunks.push(e.data); };
-  mediaRecorder.onstop = () => {
-    recordedBlob = new Blob(recordedChunks, { type: 'video/webm' });
-  };
-
-  mediaRecorder.start();
-  recordingStart = Date.now();
-  shutterBtn.classList.add('recording');
-  recLed.classList.add('active');
-  timerEl.classList.add('show');
-
-  timerInterval = setInterval(() => {
-    const elapsed = Math.floor((Date.now() - recordingStart) / 1000);
-    const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
-    const ss = String(elapsed % 60).padStart(2, '0');
-    timerEl.textContent = `${mm}:${ss}`;
-    if (elapsed >= 30) stopRecording();
-  }, 500);
-}
-
-async function stopRecording(name, cls) {
-  if (!mediaRecorder || mediaRecorder.state === 'inactive') return;
-  clearInterval(timerInterval);
-  mediaRecorder.stop();
-  shutterBtn.classList.remove('recording');
-  recLed.classList.remove('active');
-  timerEl.classList.remove('show');
-
-  await new Promise(r => setTimeout(r, 500));
-  if (!recordedBlob) return;
-
-  name = name || document.getElementById('studentName').value.trim();
-  cls = cls || document.getElementById('studentClass').value;
-
-  showStatus('Compactando vídeo com FFmpeg...', 'info');
-  progressBar.classList.add('show');
-  progressFill.style.width = '10%';
-
-  try {
-    const ff = await initFFmpeg();
-
-    if (!ff.isLoaded()) {
-      throw new Error('FFmpeg não foi carregado corretamente');
-    }
-
-    progressFill.style.width = '30%';
-    
-    // Escreve o arquivo de entrada no sistema virtual do FFmpeg
-    ff.FS('writeFile', 'input.webm', await fetchFile(recordedBlob));
-
-    progressFill.style.width = '50%';
-    
-    // Executa a conversão: H.264, 720p, CRF 28, single-thread
-    await ff.run(
-      '-i', 'input.webm',
-      '-c:v', 'libx264',
-      '-preset', 'ultrafast',
-      '-crf', '28',
-      '-vf', 'scale=-2:720',
-      '-c:a', 'aac',
-      '-b:a', '96k',
-      '-movflags', '+faststart',
-      'output.mp4'
-    );
-
-    progressFill.style.width = '80%';
-    
-    // Lê o arquivo de saída
-    const data = ff.FS('readFile', 'output.mp4');
-    const compressedBlob = new Blob([data.buffer], { type: 'video/mp4' });
-    const file = new File([compressedBlob], `${cls} - ${name}.mp4`, { type: 'video/mp4' });
-    
-    // Limpa arquivos temporários do sistema virtual
-    try {
-      ff.FS('unlink', 'input.webm');
-      ff.FS('unlink', 'output.mp4');
-    } catch (e) {
-      console.warn('Não foi possível limpar arquivos temporários:', e);
-    }
-    
-    progressFill.style.width = '90%';
-    await uploadFile(file, name, cls);
-  } catch (err) {
-    console.error('Erro FFmpeg:', err);
-    showStatus('Erro ao compactar: ' + err.message, 'error');
-    progressBar.classList.remove('show');
-  }
 }
 
 async function uploadFile(file, name, cls) {
@@ -737,7 +621,6 @@ async function uploadFile(file, name, cls) {
       data: base64
     };
 
-    // Envia para o Drive
     await fetch(CONFIG.DRIVE_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -747,7 +630,6 @@ async function uploadFile(file, name, cls) {
 
     progressFill.style.width = '90%';
 
-    // Registra na planilha
     await fetch(CONFIG.SHEETS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -781,10 +663,10 @@ function hideStatus() {
   statusEl.className = 'status';
 }
 
-// Inicialização
 window.addEventListener('load', () => {
   if (currentMode !== 'file') startCamera();
-});</script>
+});
+</script>
 
 </body>
 </html>
