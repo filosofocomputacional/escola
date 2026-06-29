@@ -314,9 +314,7 @@ const CONFIG = {
 };
 /* ============================================================ */
 
-
-const { FFmpeg } = FFmpegWASM;
-const { fetchFile } = FFmpegUtil;
+const { createFFmpeg, fetchFile } = FFmpeg;
 
 let ffmpeg = null;
 let ffmpegLoading = null;
@@ -358,9 +356,9 @@ async function startCamera() {
   }
 }
 
-// Inicializa FFmpeg - CORRIGIDO
+// Inicializa FFmpeg 0.11.x - COMPATÍVEL COM GITHUB PAGES
 async function initFFmpeg() {
-  if (ffmpeg && ffmpeg.loaded) return ffmpeg;
+  if (ffmpeg && ffmpeg.isLoaded()) return ffmpeg;
   
   // Se já está carregando, aguarda
   if (ffmpegLoading) {
@@ -371,16 +369,18 @@ async function initFFmpeg() {
   showStatus('Carregando compressor de vídeo...', 'info');
   
   ffmpegLoading = (async () => {
-    ffmpeg = new FFmpeg();
-    ffmpeg.on('log', ({ message }) => console.log(message));
-    ffmpeg.on('progress', ({ progress }) => {
-      progressFill.style.width = Math.round(progress * 100) + '%';
+    ffmpeg = createFFmpeg({
+      log: true,
+      corePath: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core-st@0.11.1/dist/ffmpeg-core.js',
+      progress: ({ ratio }) => {
+        // ratio vai de 0 a 1 durante a conversão
+        if (ratio >= 0) {
+          progressFill.style.width = Math.round(ratio * 100) + '%';
+        }
+      }
     });
     
-    await ffmpeg.load({
-      coreURL: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.js',
-      wasmURL: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.wasm',
-    });
+    await ffmpeg.load();
   })();
 
   await ffmpegLoading;
@@ -521,23 +521,25 @@ async function stopRecording(name, cls) {
 
   showStatus('Compactando vídeo com FFmpeg...', 'info');
   progressBar.classList.add('show');
+  progressFill.style.width = '10%';
 
   try {
     const ff = await initFFmpeg();
-    
-    // Verifica se realmente está carregado
-    if (!ff.loaded) {
+
+    if (!ff.isLoaded()) {
       throw new Error('FFmpeg não foi carregado corretamente');
     }
 
-    const inputName = 'input.webm';
-    const outputName = 'output.mp4';
+    progressFill.style.width = '30%';
     
-    await ff.writeFile(inputName, await fetchFile(recordedBlob));
+    // Escreve o arquivo de entrada no sistema virtual do FFmpeg
+    ff.FS('writeFile', 'input.webm', await fetchFile(recordedBlob));
 
-    // Compacta: H.264, escala 720p, bitrate reduzido
-    await ff.exec([
-      '-i', inputName,
+    progressFill.style.width = '50%';
+    
+    // Executa a conversão: H.264, 720p, CRF 28, single-thread
+    await ff.run(
+      '-i', 'input.webm',
       '-c:v', 'libx264',
       '-preset', 'ultrafast',
       '-crf', '28',
@@ -545,17 +547,25 @@ async function stopRecording(name, cls) {
       '-c:a', 'aac',
       '-b:a', '96k',
       '-movflags', '+faststart',
-      outputName
-    ]);
+      'output.mp4'
+    );
 
-    const data = await ff.readFile(outputName);
+    progressFill.style.width = '80%';
+    
+    // Lê o arquivo de saída
+    const data = ff.FS('readFile', 'output.mp4');
     const compressedBlob = new Blob([data.buffer], { type: 'video/mp4' });
     const file = new File([compressedBlob], `${cls} - ${name}.mp4`, { type: 'video/mp4' });
     
-    // Limpa arquivos temporários do FFmpeg
-    await ff.deleteFile(inputName);
-    await ff.deleteFile(outputName);
+    // Limpa arquivos temporários do sistema virtual
+    try {
+      ff.FS('unlink', 'input.webm');
+      ff.FS('unlink', 'output.mp4');
+    } catch (e) {
+      console.warn('Não foi possível limpar arquivos temporários:', e);
+    }
     
+    progressFill.style.width = '90%';
     await uploadFile(file, name, cls);
   } catch (err) {
     console.error('Erro FFmpeg:', err);
@@ -585,7 +595,7 @@ async function uploadFile(file, name, cls) {
     };
 
     // Envia para o Drive
-    const driveResp = await fetch(CONFIG.DRIVE_SCRIPT_URL, {
+    await fetch(CONFIG.DRIVE_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -631,8 +641,7 @@ function hideStatus() {
 // Inicialização
 window.addEventListener('load', () => {
   if (currentMode !== 'file') startCamera();
-});
-</script>
+});</script>
 
 </body>
 </html>
