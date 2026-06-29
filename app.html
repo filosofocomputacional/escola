@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prof Leidy 📷</title>
+
+<!-- FFmpeg.wasm para compactar vídeos no navegador -->
+<script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.7/dist/umd/ffmpeg.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/umd/index.min.js"></script>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+  }
+
+  /* ===== CORPO DA CÂMERA ===== */
+  .camera-body {
+    background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow:
+      0 20px 60px rgba(0,0,0,0.6),
+      inset 0 2px 4px rgba(255,255,255,0.1);
+    border: 2px solid #333;
+    position: relative;
+  }
+
+  /* Faixa superior estilo câmera */
+  .camera-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #444;
+  }
+  .brand {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #e63946;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(230,57,70,0.5);
+  }
+  .led {
+    width: 12px; height: 12px;
+    background: #555;
+    border-radius: 50%;
+    box-shadow: inset 0 0 3px #000;
+  }
+  .led.active {
+    background: #e63946;
+    box-shadow: 0 0 12px #e63946, inset 0 0 3px #fff;
+    animation: blink 1s infinite;
+  }
+  @keyframes blink { 50% { opacity: 0.5; } }
+
+  /* Visor da câmera */
+  .viewfinder {
+    background: #000;
+    border-radius: 12px;
+    padding: 8px;
+    border: 3px solid #444;
+    margin-bottom: 15px;
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  #video, #photoPreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+  }
+  #photoPreview { display: none; }
+  .timer {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: rgba(230,57,70,0.9);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9em;
+    display: none;
+  }
+  .timer.show { display: block; }
+
+  /* Formulário de dados */
+  .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  .form-row input, .form-row select {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background: #222;
+    color: #fff;
+    font-size: 0.95em;
+  }
+  .form-row input:focus, .form-row select:focus {
+    outline: none;
+    border-color: #e63946;
+  }
+
+  /* Botões de modo */
+  .mode-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+  .mode-btn {
+    padding: 10px;
+    background: #333;
+    border: 2px solid #555;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.2s;
+  }
+  .mode-btn:hover { background: #444; }
+  .mode-btn.active {
+    background: #e63946;
+    border-color: #e63946;
+    box-shadow: 0 0 10px rgba(230,57,70,0.5);
+  }
+
+  /* Botão disparador (estilo câmera) */
+  .shutter-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    border-top: 2px solid #444;
+  }
+  .shutter {
+    width: 75px; height: 75px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #e63946, #c1121f);
+    border: 5px solid #fff;
+    box-shadow:
+      0 0 0 4px #333,
+      0 5px 15px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  .shutter:active { transform: scale(0.95); }
+  .shutter.recording {
+    background: linear-gradient(145deg, #ff0000, #8b0000);
+    animation: pulse 1s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 4px #333, 0 0 20px #ff0000; }
+    50% { box-shadow: 0 0 0 4px #333, 0 0 40px #ff0000; }
+  }
+  .secondary-btn {
+    padding: 10px 15px;
+    background: #444;
+    border: 2px solid #666;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85em;
+  }
+  .secondary-btn:hover { background: #555; }
+
+  /* Upload de arquivo */
+  .file-upload {
+    display: none;
+    margin-bottom: 15px;
+  }
+  .file-upload.show { display: block; }
+  .file-label {
+    display: block;
+    padding: 15px;
+    background: #222;
+    border: 2px dashed #555;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .file-label:hover { border-color: #e63946; background: #2a2a2a; }
+  #fileInput { display: none; }
+  .file-name {
+    margin-top: 8px;
+    font-size: 0.85em;
+    color: #aaa;
+    word-break: break-all;
+  }
+
+  /* Status */
+  .status {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9em;
+    display: none;
+  }
+  .status.show { display: block; }
+  .status.info { background: #1e3a5f; color: #8ecae6; }
+  .status.success { background: #2d5016; color: #b5e48c; }
+  .status.error { background: #5f1e1e; color: #ffb4b4; }
+
+  .progress-bar {
+    height: 6px;
+    background: #333;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+    display: none;
+  }
+  .progress-bar.show { display: block; }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #e63946, #ff6b6b);
+    width: 0%;
+    transition: width 0.3s;
+  }
+
+  @media (max-width: 480px) {
+    .camera-body { padding: 15px; }
+    .brand { font-size: 1.1em; }
+    .form-row { flex-direction: column; }
+    .shutter { width: 65px; height: 65px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="camera-body">
+  <!-- Topo da câmera -->
+  <div class="camera-top">
+    <div class="brand">PROF LEIDY</div>
+    <div class="led" id="recLed"></div>
+  </div>
+
+  <!-- Visor -->
+  <div class="viewfinder">
+    <video id="video" autoplay playsinline muted></video>
+    <img id="photoPreview" alt="preview">
+    <div class="timer" id="timer">00:00</div>
+  </div>
+
+  <!-- Dados do aluno -->
+  <div class="form-row">
+    <input type="text" id="studentName" placeholder="Nome do aluno" required>
+    <select id="studentClass" required>
+      <option value="">Turma</option>
+      <option value="ADM2">ADM2</option>
+      <option value="ADM3">ADM3</option>
+    </select>
+  </div>
+
+  <!-- Modos -->
+  <div class="mode-buttons">
+    <button class="mode-btn active" data-mode="photo">📷 Foto</button>
+    <button class="mode-btn" data-mode="video">🎥 Vídeo</button>
+    <button class="mode-btn" data-mode="file">📎 Arquivo</button>
+  </div>
+
+  <!-- Upload de arquivo -->
+  <div class="file-upload" id="fileUploadArea">
+    <label for="fileInput" class="file-label">
+      📁 Clique para selecionar um arquivo
+    </label>
+    <input type="file" id="fileInput">
+    <div class="file-name" id="fileName"></div>
+  </div>
+
+  <!-- Disparador -->
+  <div class="shutter-area">
+    <button class="secondary-btn" id="switchCamera">🔄 Trocar</button>
+    <button class="shutter" id="shutterBtn"></button>
+    <button class="secondary-btn" id="resetBtn">↺ Reset</button>
+  </div>
+
+  <!-- Status -->
+  <div class="status" id="status"></div>
+  <div class="progress-bar" id="progressBar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   ⚠️ CONFIGURAÇÃO - SUBSTITUA PELOS SEUS VALORES
+   ============================================================ */
+const CONFIG = {
+  // URL do Web App do Google Apps Script que envia arquivos para o DRIVE
+  DRIVE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzS14mncJcxjOPZ_4PA22-BEaMGOChx00ZGcL6POEUuknR99QRSeJHNJ9hugzwQPYjR/exec",
+
+  // URL do Web App do Google Apps Script que registra na PLANILHA
+  SHEETS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxSYixlMrOB-yr0QwiOIxey1iCcfCbNozqy831rn-SIJ2Oashtus581pzsiVcqYavZd/exec"
+};
+/* ============================================================ */
+
+const { FFmpeg } = FFmpegWASM;
+const { fetchFile } = FFmpegUtil;
+
+let ffmpeg = null;
+let stream = null;
+let mediaRecorder = null;
+let recordedChunks = [];
+let currentMode = 'photo';
+let recordedBlob = null;
+let recordedFile = null;
+let timerInterval = null;
+let recordingStart = 0;
+let facingMode = 'user';
+
+const video = document.getElementById('video');
+const photoPreview = document.getElementById('photoPreview');
+const shutterBtn = document.getElementById('shutterBtn');
+const recLed = document.getElementById('recLed');
+const timerEl = document.getElementById('timer');
+const statusEl = document.getElementById('status');
+const progressBar = document.getElementById('progressBar');
+const progressFill = document.getElementById('progressFill');
+const fileUploadArea = document.getElementById('fileUploadArea');
+const fileInput = document.getElementById('fileInput');
+const fileNameEl = document.getElementById('fileName');
+
+// Inicializa câmera
+async function startCamera() {
+  try {
+    if (stream) stream.getTracks().forEach(t => t.stop());
+    stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: facingMode, width: { ideal: 1280 }, height: { ideal: 720 } },
+      audio: currentMode === 'video'
+    });
+    video.srcObject = stream;
+    video.style.display = 'block';
+    photoPreview.style.display = 'none';
+  } catch (err) {
+    showStatus('Erro ao acessar câmera: ' + err.message, 'error');
+  }
+}
+
+// Inicializa FFmpeg
+async function initFFmpeg() {
+  if (ffmpeg) return ffmpeg;
+  showStatus('Carregando compressor de vídeo...', 'info');
+  ffmpeg = new FFmpeg();
+  ffmpeg.on('log', ({ message }) => console.log(message));
+  ffmpeg.on('progress', ({ progress }) => {
+    progressFill.style.width = Math.round(progress * 100) + '%';
+  });
+  await ffmpeg.load({
+    coreURL: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.js',
+    wasmURL: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.wasm',
+  });
+  return ffmpeg;
+}
+
+// Seleção de modo
+document.querySelectorAll('.mode-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentMode = btn.dataset.mode;
+    resetCapture();
+    fileUploadArea.classList.toggle('show', currentMode === 'file');
+    if (currentMode !== 'file') startCamera();
+  });
+});
+
+document.getElementById('switchCamera').addEventListener('click', () => {
+  facingMode = facingMode === 'user' ? 'environment' : 'user';
+  startCamera();
+});
+
+document.getElementById('resetBtn').addEventListener('click', resetCapture);
+
+fileInput.addEventListener('change', (e) => {
+  const f = e.target.files[0];
+  if (f) {
+    recordedFile = f;
+    fileNameEl.textContent = '✓ ' + f.name + ' (' + (f.size/1024/1024).toFixed(2) + ' MB)';
+  }
+});
+
+function resetCapture() {
+  recordedBlob = null;
+  recordedFile = null;
+  fileInput.value = '';
+  fileNameEl.textContent = '';
+  photoPreview.style.display = 'none';
+  if (currentMode !== 'file') {
+    video.style.display = 'block';
+    startCamera();
+  }
+  shutterBtn.classList.remove('recording');
+  recLed.classList.remove('active');
+  timerEl.classList.remove('show');
+  hideStatus();
+}
+
+// Disparador
+shutterBtn.addEventListener('click', async () => {
+  const name = document.getElementById('studentName').value.trim();
+  const cls = document.getElementById('studentClass').value;
+  if (!name || !cls) {
+    showStatus('Preencha nome e turma!', 'error');
+    return;
+  }
+
+  if (currentMode === 'photo') {
+    capturePhoto(name, cls);
+  } else if (currentMode === 'video') {
+    if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+      startRecording();
+    } else {
+      stopRecording(name, cls);
+    }
+  } else if (currentMode === 'file') {
+    if (!recordedFile) {
+      showStatus('Selecione um arquivo!', 'error');
+      return;
+    }
+    await uploadFile(recordedFile, name, cls);
+  }
+});
+
+function capturePhoto(name, cls) {
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  canvas.toBlob(async (blob) => {
+    const file = new File([blob], `${cls} - ${name}.jpg`, { type: 'image/jpeg' });
+    photoPreview.src = URL.createObjectURL(blob);
+    photoPreview.style.display = 'block';
+    video.style.display = 'none';
+    await uploadFile(file, name, cls);
+  }, 'image/jpeg', 0.9);
+}
+
+function startRecording() {
+  recordedChunks = [];
+  const options = { mimeType: 'video/webm;codecs=vp8,opus' };
+  if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+    options.mimeType = 'video/webm';
+  }
+  try {
+    mediaRecorder = new MediaRecorder(stream, options);
+  } catch (e) {
+    showStatus('Formato de gravação não suportado', 'error');
+    return;
+  }
+
+  mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recordedChunks.push(e.data); };
+  mediaRecorder.onstop = () => {
+    recordedBlob = new Blob(recordedChunks, { type: 'video/webm' });
+  };
+
+  mediaRecorder.start();
+  recordingStart = Date.now();
+  shutterBtn.classList.add('recording');
+  recLed.classList.add('active');
+  timerEl.classList.add('show');
+
+  timerInterval = setInterval(() => {
+    const elapsed = Math.floor((Date.now() - recordingStart) / 1000);
+    const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
+    const ss = String(elapsed % 60).padStart(2, '0');
+    timerEl.textContent = `${mm}:${ss}`;
+    if (elapsed >= 30) stopRecording();
+  }, 500);
+}
+
+async function stopRecording(name, cls) {
+  if (!mediaRecorder || mediaRecorder.state === 'inactive') return;
+  clearInterval(timerInterval);
+  mediaRecorder.stop();
+  shutterBtn.classList.remove('recording');
+  recLed.classList.remove('active');
+  timerEl.classList.remove('show');
+
+  await new Promise(r => setTimeout(r, 500));
+  if (!recordedBlob) return;
+
+  name = name || document.getElementById('studentName').value.trim();
+  cls = cls || document.getElementById('studentClass').value;
+
+  showStatus('Compactando vídeo com FFmpeg...', 'info');
+  progressBar.classList.add('show');
+
+  try {
+    const ff = await initFFmpeg();
+    const inputName = 'input.webm';
+    const outputName = 'output.mp4';
+    await ff.writeFile(inputName, await fetchFile(recordedBlob));
+
+    // Compacta: H.264, escala 720p, bitrate reduzido
+    await ff.exec([
+      '-i', inputName,
+      '-c:v', 'libx264',
+      '-preset', 'ultrafast',
+      '-crf', '28',
+      '-vf', 'scale=-2:720',
+      '-c:a', 'aac',
+      '-b:a', '96k',
+      '-movflags', '+faststart',
+      outputName
+    ]);
+
+    const data = await ff.readFile(outputName);
+    const compressedBlob = new Blob([data.buffer], { type: 'video/mp4' });
+    const file = new File([compressedBlob], `${cls} - ${name}.mp4`, { type: 'video/mp4' });
+    await uploadFile(file, name, cls);
+  } catch (err) {
+    console.error(err);
+    showStatus('Erro ao compactar: ' + err.message, 'error');
+    progressBar.classList.remove('show');
+  }
+}
+
+async function uploadFile(file, name, cls) {
+  const finalName = `${cls} - ${name}`;
+  showStatus('Enviando para o Drive...', 'info');
+  progressBar.classList.add('show');
+  progressFill.style.width = '50%';
+
+  try {
+    const reader = new FileReader();
+    const base64 = await new Promise((resolve, reject) => {
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+    const payload = {
+      fileName: finalName + getExtension(file.name),
+      mimeType: file.type,
+      data: base64
+    };
+
+    // Envia para o Drive
+    const driveResp = await fetch(CONFIG.DRIVE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+
+    progressFill.style.width = '90%';
+
+    // Registra na planilha
+    await fetch(CONFIG.SHEETS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        name: name,
+        class: cls,
+        fileName: finalName + getExtension(file.name),
+        timestamp: new Date().toISOString()
+      })
+    });
+
+    progressFill.style.width = '100%';
+    showStatus('✓ Enviado com sucesso!', 'success');
+    setTimeout(resetCapture, 2500);
+  } catch (err) {
+    showStatus('Erro no envio: ' + err.message, 'error');
+  }
+}
+
+function getExtension(filename) {
+  const ext = filename.split('.').pop().toLowerCase();
+  return ext ? '.' + ext : '';
+}
+
+function showStatus(msg, type) {
+  statusEl.textContent = msg;
+  statusEl.className = 'status show ' + type;
+}
+function hideStatus() {
+  statusEl.className = 'status';
+}
+
+// Inicialização
+window.addEventListener('load', () => {
+  if (currentMode !== 'file') startCamera();
+});
+</script>
+</body>
+</html>
