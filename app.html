@@ -308,6 +308,9 @@
 /* ============================================================
    ⚠️ CONFIGURAÇÃO - SUBSTITUA PELOS SEUS VALORES
    ============================================================ */
+/* ============================================================
+   ⚠️ CONFIGURAÇÃO - SUBSTITUA PELOS SEUS VALORES
+   ============================================================ */
 const CONFIG = {
   // URL do Web App do Google Apps Script que envia arquivos para o DRIVE
   DRIVE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzS14mncJcxjOPZ_4PA22-BEaMGOChx00ZGcL6POEUuknR99QRSeJHNJ9hugzwQPYjR/exec",
@@ -317,25 +320,14 @@ const CONFIG = {
 };
 /* ============================================================ */
 
-const { createFFmpeg, fetchFile } = FFmpeg;
-
-let ffmpeg = null;
-let ffmpegLoading = null;
 let stream = null;
-let mediaRecorder = null;
-let recordedChunks = [];
 let currentMode = 'photo';
-let recordedBlob = null;
 let recordedFile = null;
-let timerInterval = null;
-let recordingStart = 0;
 let facingMode = 'user';
 
 const video = document.getElementById('video');
 const photoPreview = document.getElementById('photoPreview');
 const shutterBtn = document.getElementById('shutterBtn');
-const recLed = document.getElementById('recLed');
-const timerEl = document.getElementById('timer');
 const statusEl = document.getElementById('status');
 const progressBar = document.getElementById('progressBar');
 const progressFill = document.getElementById('progressFill');
@@ -348,7 +340,7 @@ async function startCamera() {
     if (stream) stream.getTracks().forEach(t => t.stop());
     stream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: facingMode, width: { ideal: 1280 }, height: { ideal: 720 } },
-      audio: currentMode === 'video'
+      audio: false // Áudio desativado pois agora é só foto
     });
     video.srcObject = stream;
     video.style.display = 'block';
@@ -358,57 +350,13 @@ async function startCamera() {
   }
 }
 
-async function initFFmpeg() {
-  if (ffmpeg && ffmpeg.isLoaded()) return ffmpeg;
-  
-  if (ffmpegLoading) {
-    await ffmpegLoading;
-    return ffmpeg;
-  }
-
-  showStatus('Carregando compressor de vídeo...', 'info');
-  
-  ffmpegLoading = (async () => {
-    ffmpeg = createFFmpeg({
-      log: true,
-      corePath: 'https://unpkg.com/@ffmpeg/core@0.10.0/dist/ffmpeg-core.js',
-      progress: ({ ratio }) => {
-        if (ratio >= 0) {
-          progressFill.style.width = Math.round(ratio * 100) + '%';
-        }
-      }
-    });
-    
-    await ffmpeg.load();
-  })();
-
-  await ffmpegLoading;
-  ffmpegLoading = null;
-  
-  return ffmpeg;
-}
-
-function getNativeH264MimeType() {
-  const types = [
-    'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
-    'video/mp4;codecs=avc1.42E01E',
-    'video/mp4',
-    'video/webm;codecs=h264,opus',
-    'video/webm;codecs=h264'
-  ];
-  for (const type of types) {
-    if (MediaRecorder.isTypeSupported(type)) return type;
-  }
-  return null;
-}
-
 document.querySelectorAll('.mode-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentMode = btn.dataset.mode;
     resetCapture();
-    fileUploadArea.classList.toggle('show', currentMode === 'file');
+    if(fileUploadArea) fileUploadArea.classList.toggle('show', currentMode === 'file');
     if (currentMode !== 'file') startCamera();
   });
 });
@@ -420,48 +368,40 @@ document.getElementById('switchCamera').addEventListener('click', () => {
 
 document.getElementById('resetBtn').addEventListener('click', resetCapture);
 
-fileInput.addEventListener('change', (e) => {
-  const f = e.target.files[0];
-  if (f) {
-    recordedFile = f;
-    fileNameEl.textContent = '✓ ' + f.name + ' (' + (f.size/1024/1024).toFixed(2) + ' MB)';
-  }
-});
+if(fileInput) {
+  fileInput.addEventListener('change', (e) => {
+    const f = e.target.files[0];
+    if (f) {
+      recordedFile = f;
+      fileNameEl.textContent = '✓ ' + f.name + ' (' + (f.size/1024/1024).toFixed(2) + ' MB)';
+    }
+  });
+}
 
 function resetCapture() {
-  recordedBlob = null;
   recordedFile = null;
-  fileInput.value = '';
-  fileNameEl.textContent = '';
+  if(fileInput) fileInput.value = '';
+  if(fileNameEl) fileNameEl.textContent = '';
   photoPreview.style.display = 'none';
   if (currentMode !== 'file') {
     video.style.display = 'block';
     startCamera();
   }
-  shutterBtn.classList.remove('recording');
-  recLed.classList.remove('active');
-  timerEl.classList.remove('show');
   hideStatus();
 }
 
 shutterBtn.addEventListener('click', async () => {
   const name = document.getElementById('studentName').value.trim();
   const cls = document.getElementById('studentClass').value;
-  const meaning = document.getElementById('photoMeaning').value.trim(); // Captura o novo campo
+  const meaning = document.getElementById('photoMeaning').value.trim();
 
-  if (!name || !cls || !meaning) { // Valida se os 3 campos estão preenchidos
+  if (!name || !cls || !meaning) {
     showStatus('Preencha nome, turma e o significado!', 'error');
     return;
   }
 
   if (currentMode === 'photo') {
     capturePhoto(name, cls, meaning);
-  } else if (currentMode === 'video') {
-    if (!mediaRecorder || mediaRecorder.state === 'inactive') {
-      startRecording();
-    } else {
-      stopRecording(name, cls, meaning);
-    }
   } else if (currentMode === 'file') {
     if (!recordedFile) {
       showStatus('Selecione um arquivo!', 'error');
@@ -485,79 +425,6 @@ function capturePhoto(name, cls, meaning) {
   }, 'image/jpeg', 0.9);
 }
 
-// startRecording() não muda, mas stopRecording muda para receber o meaning
-async function stopRecording(name, cls, meaning) {
-  if (!mediaRecorder || mediaRecorder.state === 'inactive') return;
-  clearInterval(timerInterval);
-  mediaRecorder.stop();
-  shutterBtn.classList.remove('recording');
-  recLed.classList.remove('active');
-  timerEl.classList.remove('show');
-
-  await new Promise(r => setTimeout(r, 500));
-  if (!recordedBlob) return;
-
-  // Garante que pega os valores se for chamado pelo timer automático
-  name = name || document.getElementById('studentName').value.trim();
-  cls = cls || document.getElementById('studentClass').value;
-  meaning = meaning || document.getElementById('photoMeaning').value.trim();
-
-  if (mediaRecorder._usedNativeH264) {
-    showStatus('Vídeo já está em H.264, enviando...', 'info');
-    progressBar.classList.add('show');
-    progressFill.style.width = '50%';
-    const file = new File([recordedBlob], `${cls} - ${name}.mp4`, { 
-      type: recordedBlob.type 
-    });
-    await uploadFile(file, name, cls, meaning);
-    return;
-  }
-
-  showStatus('Compactando vídeo com FFmpeg...', 'info');
-  progressBar.classList.add('show');
-  progressFill.style.width = '10%';
-
-  let file;
-
-  try {
-    const ff = await initFFmpeg();
-    if (!ff.isLoaded()) throw new Error('FFmpeg não foi carregado corretamente');
-
-    progressFill.style.width = '30%';
-    ff.FS('writeFile', 'input.webm', await fetchFile(recordedBlob));
-    progressFill.style.width = '50%';
-    
-    await ff.run(
-      '-i', 'input.webm',
-      '-c:v', 'libx264',
-      '-preset', 'ultrafast',
-      '-crf', '28',
-      '-vf', 'scale=-2:720',
-      '-c:a', 'aac',
-      '-b:a', '96k',
-      'output.mp4'
-    );
-
-    progressFill.style.width = '80%';
-    const data = ff.FS('readFile', 'output.mp4');
-    const compressedBlob = new Blob([data.buffer], { type: 'video/mp4' });
-    file = new File([compressedBlob], `${cls} - ${name}.mp4`, { type: 'video/mp4' });
-    
-    try {
-      ff.FS('unlink', 'input.webm');
-      ff.FS('unlink', 'output.mp4');
-    } catch (e) { /* ignora */ }
-    
-  } catch (err) {
-    console.error('Erro FFmpeg:', err);
-    showStatus('Compactação falhou, enviando vídeo original...', 'info');
-    file = new File([recordedBlob], `${cls} - ${name}.webm`, { type: 'video/webm' });
-  }
-
-  progressFill.style.width = '90%';
-  await uploadFile(file, name, cls, meaning);
-}
-
 async function uploadFile(file, name, cls, meaning) {
   const finalName = `${cls} - ${name}`;
   showStatus('Enviando para o Drive...', 'info');
@@ -578,7 +445,7 @@ async function uploadFile(file, name, cls, meaning) {
       data: base64
     };
 
-    // 1. Envia o arquivo para o Drive
+    // 1. Envia o arquivo
     await fetch(CONFIG.DRIVE_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -588,7 +455,7 @@ async function uploadFile(file, name, cls, meaning) {
 
     progressFill.style.width = '90%';
 
-    // 2. Registra os dados na Planilha (Agora incluindo o significado)
+    // 2. Registra os dados na Planilha
     await fetch(CONFIG.SHEETS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -596,7 +463,7 @@ async function uploadFile(file, name, cls, meaning) {
       body: JSON.stringify({
         name: name,
         class: cls,
-        meaning: meaning, // NOVO CAMPO NO PAYLOAD
+        meaning: meaning,
         fileName: finalName + getExtension(file.name),
         timestamp: new Date().toISOString()
       })
@@ -605,14 +472,14 @@ async function uploadFile(file, name, cls, meaning) {
     progressFill.style.width = '100%';
     showStatus('✓ Enviado com sucesso!', 'success');
     
-    // Limpa o campo de significado para o próximo registro, mantendo nome e turma
     document.getElementById('photoMeaning').value = ''; 
     setTimeout(resetCapture, 2500);
   } catch (err) {
     showStatus('Erro no envio: ' + err.message, 'error');
   }
 }
- function getExtension(filename) {
+
+function getExtension(filename) {
   const ext = filename.split('.').pop().toLowerCase();
   return ext ? '.' + ext : '';
 }
