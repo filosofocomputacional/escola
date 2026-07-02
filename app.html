@@ -5,11 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prof. Leidy 📷</title>
 
-<!-- FFmpeg.wasm para compactar vídeos no navegador -->
- <!-- FFmpeg.wasm versão 0.11.x (mais compatível, sem Worker externo) -->
-<script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.10.1/dist/ffmpeg.min.js"></script>
-
-
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -55,16 +50,10 @@
   }
   .led {
     width: 12px; height: 12px;
-    background: #555;
+    background: #2a9d8f;
     border-radius: 50%;
-    box-shadow: inset 0 0 3px #000;
+    box-shadow: 0 0 8px #2a9d8f, inset 0 0 3px #fff;
   }
-  .led.active {
-    background: #e63946;
-    box-shadow: 0 0 12px #e63946, inset 0 0 3px #fff;
-    animation: blink 1s infinite;
-  }
-  @keyframes blink { 50% { opacity: 0.5; } }
 
   /* Visor da câmera */
   .viewfinder {
@@ -85,18 +74,6 @@
     display: block;
   }
   #photoPreview { display: none; }
-  .timer {
-    position: absolute;
-    top: 15px; right: 15px;
-    background: rgba(230,57,70,0.9);
-    color: #fff;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9em;
-    display: none;
-  }
-  .timer.show { display: block; }
 
   /* Formulário de dados */
   .form-row {
@@ -121,8 +98,8 @@
   /* Botões de modo */
   .mode-buttons {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
     margin-bottom: 15px;
   }
   .mode-btn {
@@ -142,35 +119,27 @@
     box-shadow: 0 0 10px rgba(230,57,70,0.5);
   }
 
-  /* Botão disparador (estilo câmera) */
+  /* Área dos Botões de Disparo/Ações */
   .shutter-area {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
     padding: 15px 0;
     border-top: 2px solid #444;
+    flex-wrap: wrap;
   }
   .shutter {
-    width: 75px; height: 75px;
+    width: 70px; height: 70px;
     border-radius: 50%;
     background: linear-gradient(145deg, #e63946, #c1121f);
     border: 5px solid #fff;
-    box-shadow:
-      0 0 0 4px #333,
-      0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 4px #333, 0 5px 15px rgba(0,0,0,0.5);
     cursor: pointer;
     transition: transform 0.1s;
   }
   .shutter:active { transform: scale(0.95); }
-  .shutter.recording {
-    background: linear-gradient(145deg, #ff0000, #8b0000);
-    animation: pulse 1s infinite;
-  }
-  @keyframes pulse {
-    0%,100% { box-shadow: 0 0 0 4px #333, 0 0 20px #ff0000; }
-    50% { box-shadow: 0 0 0 4px #333, 0 0 40px #ff0000; }
-  }
+
   .secondary-btn {
     padding: 10px 15px;
     background: #444;
@@ -181,6 +150,19 @@
     font-size: 0.85em;
   }
   .secondary-btn:hover { background: #555; }
+
+  .success-btn {
+    padding: 10px 20px;
+    background: #2a9d8f;
+    border: 2px solid #1d6f65;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  .success-btn:hover { background: #21867a; }
 
   /* Upload de arquivo */
   .file-upload {
@@ -241,27 +223,23 @@
     .camera-body { padding: 15px; }
     .brand { font-size: 1.1em; }
     .form-row { flex-direction: column; }
-    .shutter { width: 65px; height: 65px; }
+    .shutter { width: 60px; height: 60px; }
   }
 </style>
 </head>
 <body>
 
 <div class="camera-body">
-  <!-- Topo da câmera -->
   <div class="camera-top">
     <div class="brand">Registro Inhotim</div>
-    <div class="led" id="recLed"></div>
+    <div class="led"></div>
   </div>
 
-  <!-- Visor -->
   <div class="viewfinder">
     <video id="video" autoplay playsinline muted></video>
     <img id="photoPreview" alt="preview">
-    <div class="timer" id="timer">00:00</div>
   </div>
 
-  <!-- Dados do aluno -->
   <div class="form-row">
     <input type="text" id="studentName" placeholder="Nome do aluno" required>
     <select id="studentClass" required>
@@ -275,13 +253,11 @@
     <input type="text" id="photoMeaning" placeholder="Qual o significado deste registro?" required>
   </div>
 
-  <!-- Modos -->
   <div class="mode-buttons">
     <button class="mode-btn active" data-mode="photo">📷 Foto</button>
     <button class="mode-btn" data-mode="file">📎 Arquivo</button>
   </div>
 
-  <!-- Upload de arquivo -->
   <div class="file-upload" id="fileUploadArea">
     <label for="fileInput" class="file-label">
       📁 Clique para selecionar um arquivo
@@ -290,14 +266,13 @@
     <div class="file-name" id="fileName"></div>
   </div>
 
-  <!-- Disparador -->
   <div class="shutter-area">
     <button class="secondary-btn" id="switchCamera">🔄 Trocar</button>
-    <button class="shutter" id="shutterBtn"></button>
+    <button class="shutter" id="shutterBtn" title="Capturar Foto"></button>
+    <button class="success-btn" id="sendBtn">🚀 Enviar</button>
     <button class="secondary-btn" id="resetBtn">↺ Reset</button>
   </div>
 
-  <!-- Status -->
   <div class="status" id="status"></div>
   <div class="progress-bar" id="progressBar">
     <div class="progress-fill" id="progressFill"></div>
@@ -308,26 +283,22 @@
 /* ============================================================
    ⚠️ CONFIGURAÇÃO - SUBSTITUA PELOS SEUS VALORES
    ============================================================ */
-/* ============================================================
-   ⚠️ CONFIGURAÇÃO - SUBSTITUA PELOS SEUS VALORES
-   ============================================================ */
 const CONFIG = {
-  // URL do Web App do Google Apps Script que envia arquivos para o DRIVE
   DRIVE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzS14mncJcxjOPZ_4PA22-BEaMGOChx00ZGcL6POEUuknR99QRSeJHNJ9hugzwQPYjR/exec",
-
-  // URL do Web App do Google Apps Script que registra na PLANILHA
   SHEETS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxQm2QD0BZzCSKY9GcWnHji0TeNYjcv_n3uwcV7pBeKrC_nygD7Pv1N8V0bdOxhmdkdYQ/exec"
 };
 /* ============================================================ */
 
 let stream = null;
 let currentMode = 'photo';
-let recordedFile = null;
-let facingMode = 'user';
+let capturedBlob = null; // Armazena a foto capturada temporariamente
+let recordedFile = null; // Armazena o arquivo selecionado no modo Arquivo
+let facingMode = 'environment'; // ◄ ATUALIZADO: Começa com a câmera traseira
 
 const video = document.getElementById('video');
 const photoPreview = document.getElementById('photoPreview');
 const shutterBtn = document.getElementById('shutterBtn');
+const switchCameraBtn = document.getElementById('switchCamera');
 const statusEl = document.getElementById('status');
 const progressBar = document.getElementById('progressBar');
 const progressFill = document.getElementById('progressFill');
@@ -340,7 +311,7 @@ async function startCamera() {
     if (stream) stream.getTracks().forEach(t => t.stop());
     stream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: facingMode, width: { ideal: 1280 }, height: { ideal: 720 } },
-      audio: false // Áudio desativado pois agora é só foto
+      audio: false
     });
     video.srcObject = stream;
     video.style.display = 'block';
@@ -356,12 +327,18 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
     btn.classList.add('active');
     currentMode = btn.dataset.mode;
     resetCapture();
+    
     if(fileUploadArea) fileUploadArea.classList.toggle('show', currentMode === 'file');
+    
+    // Esconde os controles de câmera se estiver no modo arquivo
+    switchCameraBtn.style.display = currentMode === 'file' ? 'none' : 'block';
+    shutterBtn.style.display = currentMode === 'file' ? 'none' : 'block';
+    
     if (currentMode !== 'file') startCamera();
   });
 });
 
-document.getElementById('switchCamera').addEventListener('click', () => {
+switchCameraBtn.addEventListener('click', () => {
   facingMode = facingMode === 'user' ? 'environment' : 'user';
   startCamera();
 });
@@ -379,6 +356,7 @@ if(fileInput) {
 }
 
 function resetCapture() {
+  capturedBlob = null;
   recordedFile = null;
   if(fileInput) fileInput.value = '';
   if(fileNameEl) fileNameEl.textContent = '';
@@ -390,40 +368,53 @@ function resetCapture() {
   hideStatus();
 }
 
-shutterBtn.addEventListener('click', async () => {
+// O botão Shutter (vermelho) agora APENAS CAPTURA a imagem na tela
+shutterBtn.addEventListener('click', () => {
+  if (currentMode === 'photo') {
+    capturePhoto();
+  }
+});
+
+function capturePhoto() {
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  canvas.toBlob((blob) => {
+    capturedBlob = blob; // Salva o blob na memória para enviar depois
+    photoPreview.src = URL.createObjectURL(blob);
+    photoPreview.style.display = 'block';
+    video.style.display = 'none';
+    showStatus('Foto capturada! Preencha os dados e clique em Enviar.', 'info');
+  }, 'image/jpeg', 0.9);
+}
+
+// O NOVO BOTÃO ENVIAR (verde) faz a validação e envia os dados
+document.getElementById('sendBtn').addEventListener('click', async () => {
   const name = document.getElementById('studentName').value.trim();
   const cls = document.getElementById('studentClass').value;
   const meaning = document.getElementById('photoMeaning').value.trim();
 
   if (!name || !cls || !meaning) {
-    showStatus('Preencha nome, turma e o significado!', 'error');
+    showStatus('Preencha nome, turma e o significado antes de enviar!', 'error');
     return;
   }
 
   if (currentMode === 'photo') {
-    capturePhoto(name, cls, meaning);
+    if (!capturedBlob) {
+      showStatus('Tire uma foto primeiro usando o botão redondo vermelho!', 'error');
+      return;
+    }
+    const file = new File([capturedBlob], `${cls} - ${name}.jpg`, { type: 'image/jpeg' });
+    await uploadFile(file, name, cls, meaning);
   } else if (currentMode === 'file') {
     if (!recordedFile) {
-      showStatus('Selecione um arquivo!', 'error');
+      showStatus('Selecione um arquivo primeiro!', 'error');
       return;
     }
     await uploadFile(recordedFile, name, cls, meaning);
   }
 });
-
-function capturePhoto(name, cls, meaning) {
-  const canvas = document.createElement('canvas');
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  canvas.toBlob(async (blob) => {
-    const file = new File([blob], `${cls} - ${name}.jpg`, { type: 'image/jpeg' });
-    photoPreview.src = URL.createObjectURL(blob);
-    photoPreview.style.display = 'block';
-    video.style.display = 'none';
-    await uploadFile(file, name, cls, meaning);
-  }, 'image/jpeg', 0.9);
-}
 
 async function uploadFile(file, name, cls, meaning) {
   const finalName = `${cls} - ${name}`;
@@ -445,7 +436,7 @@ async function uploadFile(file, name, cls, meaning) {
       data: base64
     };
 
-    // 1. Envia o arquivo
+    // 1. Envia o arquivo para o Drive
     await fetch(CONFIG.DRIVE_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
