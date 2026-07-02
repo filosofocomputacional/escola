@@ -121,8 +121,8 @@
   /* Botões de modo */
   .mode-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Agora divide em 2 partes iguais */
-    gap: 15px; /* Aumentei um pouquinho o gap pra ficar mais bonito */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
     margin-bottom: 15px;
   }
   .mode-btn {
@@ -272,14 +272,14 @@
   </div>
   
   <div class="form-row">
-    <input type="text" id="photoMeaning" placeholder="Pq vou enviar esta foto?" required>
+    <input type="text" id="photoMeaning" placeholder="Qual o significado deste registro?" required>
   </div>
 
   <!-- Modos -->
   <div class="mode-buttons">
     <button class="mode-btn active" data-mode="photo">📷 Foto</button>
     <button class="mode-btn" data-mode="file">📎 Arquivo</button>
- 
+  </div>
 
   <!-- Upload de arquivo -->
   <div class="file-upload" id="fileUploadArea">
@@ -560,7 +560,7 @@ async function stopRecording(name, cls, meaning) {
 
 async function uploadFile(file, name, cls, meaning) {
   const finalName = `${cls} - ${name}`;
-  showStatus('Enviando para a Prof...', 'info');
+  showStatus('Enviando para o Drive...', 'info');
   progressBar.classList.add('show');
   progressFill.style.width = '50%';
 
