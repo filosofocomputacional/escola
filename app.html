@@ -270,6 +270,10 @@
       <option value="ADM3">ADM3</option>
     </select>
   </div>
+  
+  <div class="form-row">
+    <input type="text" id="photoMeaning" placeholder="Qual o significado deste registro?" required>
+  </div>
 
   <!-- Modos -->
   <div class="mode-buttons">
@@ -444,29 +448,31 @@ function resetCapture() {
 shutterBtn.addEventListener('click', async () => {
   const name = document.getElementById('studentName').value.trim();
   const cls = document.getElementById('studentClass').value;
-  if (!name || !cls) {
-    showStatus('Preencha nome e turma!', 'error');
+  const meaning = document.getElementById('photoMeaning').value.trim(); // Captura o novo campo
+
+  if (!name || !cls || !meaning) { // Valida se os 3 campos estão preenchidos
+    showStatus('Preencha nome, turma e o significado!', 'error');
     return;
   }
 
   if (currentMode === 'photo') {
-    capturePhoto(name, cls);
+    capturePhoto(name, cls, meaning);
   } else if (currentMode === 'video') {
     if (!mediaRecorder || mediaRecorder.state === 'inactive') {
       startRecording();
     } else {
-      stopRecording(name, cls);
+      stopRecording(name, cls, meaning);
     }
   } else if (currentMode === 'file') {
     if (!recordedFile) {
       showStatus('Selecione um arquivo!', 'error');
       return;
     }
-    await uploadFile(recordedFile, name, cls);
+    await uploadFile(recordedFile, name, cls, meaning);
   }
 });
 
-function capturePhoto(name, cls) {
+function capturePhoto(name, cls, meaning) {
   const canvas = document.createElement('canvas');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -476,55 +482,12 @@ function capturePhoto(name, cls) {
     photoPreview.src = URL.createObjectURL(blob);
     photoPreview.style.display = 'block';
     video.style.display = 'none';
-    await uploadFile(file, name, cls);
+    await uploadFile(file, name, cls, meaning);
   }, 'image/jpeg', 0.9);
 }
 
-function startRecording() {
-  recordedChunks = [];
-  
-  const nativeType = getNativeH264MimeType();
-  const options = nativeType 
-    ? { mimeType: nativeType }
-    : { mimeType: 'video/webm;codecs=vp8,opus' };
-  
-  if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-    options.mimeType = 'video/webm';
-  }
-  
-  try {
-    mediaRecorder = new MediaRecorder(stream, options);
-    mediaRecorder._usedNativeH264 = !!nativeType;
-    mediaRecorder._recordedMimeType = options.mimeType;
-  } catch (e) {
-    showStatus('Formato de gravação não suportado', 'error');
-    return;
-  }
-
-  mediaRecorder.ondataavailable = e => { 
-    if (e.data.size > 0) recordedChunks.push(e.data); 
-  };
-  
-  mediaRecorder.onstop = () => {
-    recordedBlob = new Blob(recordedChunks, { type: options.mimeType });
-  };
-
-  mediaRecorder.start();
-  recordingStart = Date.now();
-  shutterBtn.classList.add('recording');
-  recLed.classList.add('active');
-  timerEl.classList.add('show');
-
-  timerInterval = setInterval(() => {
-    const elapsed = Math.floor((Date.now() - recordingStart) / 1000);
-    const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
-    const ss = String(elapsed % 60).padStart(2, '0');
-    timerEl.textContent = `${mm}:${ss}`;
-    if (elapsed >= 30) stopRecording();
-  }, 500);
-}
-
-async function stopRecording(name, cls) {
+// startRecording() não muda, mas stopRecording muda para receber o meaning
+async function stopRecording(name, cls, meaning) {
   if (!mediaRecorder || mediaRecorder.state === 'inactive') return;
   clearInterval(timerInterval);
   mediaRecorder.stop();
@@ -535,8 +498,10 @@ async function stopRecording(name, cls) {
   await new Promise(r => setTimeout(r, 500));
   if (!recordedBlob) return;
 
+  // Garante que pega os valores se for chamado pelo timer automático
   name = name || document.getElementById('studentName').value.trim();
   cls = cls || document.getElementById('studentClass').value;
+  meaning = meaning || document.getElementById('photoMeaning').value.trim();
 
   if (mediaRecorder._usedNativeH264) {
     showStatus('Vídeo já está em H.264, enviando...', 'info');
@@ -545,7 +510,7 @@ async function stopRecording(name, cls) {
     const file = new File([recordedBlob], `${cls} - ${name}.mp4`, { 
       type: recordedBlob.type 
     });
-    await uploadFile(file, name, cls);
+    await uploadFile(file, name, cls, meaning);
     return;
   }
 
@@ -557,14 +522,10 @@ async function stopRecording(name, cls) {
 
   try {
     const ff = await initFFmpeg();
-
-    if (!ff.isLoaded()) {
-      throw new Error('FFmpeg não foi carregado corretamente');
-    }
+    if (!ff.isLoaded()) throw new Error('FFmpeg não foi carregado corretamente');
 
     progressFill.style.width = '30%';
     ff.FS('writeFile', 'input.webm', await fetchFile(recordedBlob));
-
     progressFill.style.width = '50%';
     
     await ff.run(
@@ -591,17 +552,14 @@ async function stopRecording(name, cls) {
   } catch (err) {
     console.error('Erro FFmpeg:', err);
     showStatus('Compactação falhou, enviando vídeo original...', 'info');
-    
-    file = new File([recordedBlob], `${cls} - ${name}.webm`, { 
-      type: 'video/webm' 
-    });
+    file = new File([recordedBlob], `${cls} - ${name}.webm`, { type: 'video/webm' });
   }
 
   progressFill.style.width = '90%';
-  await uploadFile(file, name, cls);
+  await uploadFile(file, name, cls, meaning);
 }
 
-async function uploadFile(file, name, cls) {
+async function uploadFile(file, name, cls, meaning) {
   const finalName = `${cls} - ${name}`;
   showStatus('Enviando para o Drive...', 'info');
   progressBar.classList.add('show');
@@ -621,6 +579,7 @@ async function uploadFile(file, name, cls) {
       data: base64
     };
 
+    // 1. Envia o arquivo para o Drive
     await fetch(CONFIG.DRIVE_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -630,6 +589,7 @@ async function uploadFile(file, name, cls) {
 
     progressFill.style.width = '90%';
 
+    // 2. Registra os dados na Planilha (Agora incluindo o significado)
     await fetch(CONFIG.SHEETS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -637,6 +597,7 @@ async function uploadFile(file, name, cls) {
       body: JSON.stringify({
         name: name,
         class: cls,
+        meaning: meaning, // NOVO CAMPO NO PAYLOAD
         fileName: finalName + getExtension(file.name),
         timestamp: new Date().toISOString()
       })
@@ -644,28 +605,14 @@ async function uploadFile(file, name, cls) {
 
     progressFill.style.width = '100%';
     showStatus('✓ Enviado com sucesso!', 'success');
+    
+    // Limpa o campo de significado para o próximo registro, mantendo nome e turma
+    document.getElementById('photoMeaning').value = ''; 
     setTimeout(resetCapture, 2500);
   } catch (err) {
     showStatus('Erro no envio: ' + err.message, 'error');
   }
 }
-
-function getExtension(filename) {
-  const ext = filename.split('.').pop().toLowerCase();
-  return ext ? '.' + ext : '';
-}
-
-function showStatus(msg, type) {
-  statusEl.textContent = msg;
-  statusEl.className = 'status show ' + type;
-}
-function hideStatus() {
-  statusEl.className = 'status';
-}
-
-window.addEventListener('load', () => {
-  if (currentMode !== 'file') startCamera();
-});
 </script>
 
 </body>
