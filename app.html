@@ -613,6 +613,23 @@ async function uploadFile(file, name, cls, meaning) {
     showStatus('Erro no envio: ' + err.message, 'error');
   }
 }
+ function getExtension(filename) {
+  const ext = filename.split('.').pop().toLowerCase();
+  return ext ? '.' + ext : '';
+}
+
+function showStatus(msg, type) {
+  statusEl.textContent = msg;
+  statusEl.className = 'status show ' + type;
+}
+
+function hideStatus() {
+  statusEl.className = 'status';
+}
+
+window.addEventListener('load', () => {
+  if (currentMode !== 'file') startCamera();
+});
 </script>
 
 </body>
