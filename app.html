@@ -272,14 +272,14 @@
   </div>
   
   <div class="form-row">
-    <input type="text" id="photoMeaning" placeholder="Qual o significado deste registro?" required>
+    <input type="text" id="photoMeaning" placeholder="Pq vou enviar esta foto?" required>
   </div>
 
   <!-- Modos -->
   <div class="mode-buttons">
     <button class="mode-btn active" data-mode="photo">📷 Foto</button>
     <button class="mode-btn" data-mode="file">📎 Arquivo</button>
-  </div>
+ 
 
   <!-- Upload de arquivo -->
   <div class="file-upload" id="fileUploadArea">
@@ -560,7 +560,7 @@ async function stopRecording(name, cls, meaning) {
 
 async function uploadFile(file, name, cls, meaning) {
   const finalName = `${cls} - ${name}`;
-  showStatus('Enviando para o Drive...', 'info');
+  showStatus('Enviando para a Prof...', 'info');
   progressBar.classList.add('show');
   progressFill.style.width = '50%';
 
