@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -131,14 +130,34 @@
         #dashboardScreen {
             display: none;
             justify-content: flex-start;
+            flex-direction: column;
         }
 
         .dashboard-title {
             font-size: 20px;
             color: #202124;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             text-align: center;
             font-weight: 700;
+        }
+
+        /* Botão de Sair Estilizado */
+        .btn-logout {
+            align-self: center;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1.5px solid #d93025;
+            background-color: transparent;
+            color: #d93025;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:active {
+            background-color: #fce8e6;
         }
 
         /* Grid em 2 colunas estilo App */
@@ -209,13 +228,37 @@
         <div class="screen" id="dashboardScreen">
             <h1 class="dashboard-title">Funcionalidades Ativas</h1>
             
-            <button onclick="sair()" style="margin-bottom: 20px; padding: 8px 16px; border-radius: 8px; border: none; background-color: #d93025; color: white; cursor: pointer; font-weight: bold;">Sair / Bloquear</button>
+            <button class="btn-logout" onclick="sair()">Sair / Bloquear</button>
             
             <div class="grid-menu">
+                <a href="https://filosofocomputacional.github.io/escola/agenda.html" class="app-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3059/3059502.png" alt="Agenda">
+                    <span>Agenda Telefônica</span>
+                </a>
+
+                <a href="https://filosofocomputacional.github.io/escola/boletim.html" class="app-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2641/2641409.png" alt="Boletim">
+                    <span>Boletim</span>
+                </a>
+
+                <a href="https://filosofocomputacional.github.io/escola/agendaFunc.html" class="app-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Funcionários">
+                    <span>Agenda dos Funcionários</span>
+                </a>
+
+                <a href="#" class="app-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1091/1091916.png" alt="Arquivos">
+                    <span>Arquivos</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
     <script>
-        // Função que roda automaticamente ao carregar a página
+        // Executa automaticamente ao carregar a página
         window.onload = function() {
-            // Verifica se o "cookie" (localStorage) de login existe
+            // Verifica se o usuário já tem o login salvo no navegador
             if (localStorage.getItem('logado_nova_contagem') === 'true') {
                 mostrarDashboard();
             } else {
@@ -223,12 +266,13 @@
             }
         };
 
+        // Função para validar a senha digitada
         function validarLogin() {
             const senhaDigitada = document.getElementById('password').value.trim();
             const senhaCorreta = "8605";
 
             if (senhaDigitada === senhaCorreta) {
-                // Cria o "cookie" (salva no navegador) para não pedir senha novamente
+                // Cria o registro no navegador para lembrar do usuário
                 localStorage.setItem('logado_nova_contagem', 'true');
                 mostrarDashboard();
             } else {
@@ -239,22 +283,25 @@
             }
         }
 
-        // Função separada para mostrar o painel (evita repetição de código)
+        // Altera as telas de Login para o Dashboard
         function mostrarDashboard() {
             document.getElementById('loginScreen').style.display = 'none';
             document.getElementById('dashboardScreen').style.display = 'flex';
         }
 
-        // Função para apagar o "cookie" e voltar para a tela de senha
+        // Apaga o registro do navegador e bloqueia o painel novamente
+        type = "text/javascript"
         function sair() {
             localStorage.removeItem('logado_nova_contagem');
-            location.reload(); // Recarrega a página
+            location.reload(); 
         }
 
-        // Permite validar ao apertar Enter
+        // Permite validar ao pressionar a tecla Enter no campo de senha
         document.getElementById('password').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 validarLogin();
             }
         });
     </script>
+</body>
+</html>
