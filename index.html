@@ -209,35 +209,24 @@
         <div class="screen" id="dashboardScreen">
             <h1 class="dashboard-title">Funcionalidades Ativas</h1>
             
+            <button onclick="sair()" style="margin-bottom: 20px; padding: 8px 16px; border-radius: 8px; border: none; background-color: #d93025; color: white; cursor: pointer; font-weight: bold;">Sair / Bloquear</button>
+            
             <div class="grid-menu">
-                <a href="https://filosofocomputacional.github.io/escola/agenda.html" class="app-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3059/3059502.png" alt="Agenda">
-                    <span>Agenda Telefônica</span>
-                </a>
+                ```
 
-                <a href="https://filosofocomputacional.github.io/escola/boletim.html" class="app-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2641/2641409.png" alt="Boletim">
-                    <span>Boletim</span>
-                </a>
+### 2. Substitua todo o seu `<script>` por este:
+Este novo script vai verificar se o usuário já fez login no passado assim que a página carregar. Se sim, ele pula a tela de senha.
 
-                <a href="https://filosofocomputacional.github.io/escola/agendaFunc.html" class="app-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Funcionários">
-                    <span>Agenda dos Funcionários</span>
-                </a>
-
-                <a href="#" class="app-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1091/1091916.png" alt="Arquivos">
-                    <span>Arquivos</span>
-                </a>
-            </div>
-        </div>
-
-    </div>
-
+```javascript
     <script>
-        // Foca automaticamente no campo de senha ao carregar a página
+        // Função que roda automaticamente ao carregar a página
         window.onload = function() {
-            document.getElementById('password').focus();
+            // Verifica se o "cookie" (localStorage) de login existe
+            if (localStorage.getItem('logado_nova_contagem') === 'true') {
+                mostrarDashboard();
+            } else {
+                document.getElementById('password').focus();
+            }
         };
 
         function validarLogin() {
@@ -245,14 +234,27 @@
             const senhaCorreta = "8605";
 
             if (senhaDigitada === senhaCorreta) {
-                document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('dashboardScreen').style.display = 'flex';
+                // Cria o "cookie" (salva no navegador) para não pedir senha novamente
+                localStorage.setItem('logado_nova_contagem', 'true');
+                mostrarDashboard();
             } else {
                 const errorElement = document.getElementById('errorMsg');
                 errorElement.style.display = 'block';
                 document.getElementById('password').value = '';
                 document.getElementById('password').focus();
             }
+        }
+
+        // Função separada para mostrar o painel (evita repetição de código)
+        function mostrarDashboard() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('dashboardScreen').style.display = 'flex';
+        }
+
+        // Função para apagar o "cookie" e voltar para a tela de senha
+        function sair() {
+            localStorage.removeItem('logado_nova_contagem');
+            location.reload(); // Recarrega a página
         }
 
         // Permite validar ao apertar Enter
@@ -262,5 +264,3 @@
             }
         });
     </script>
-</body>
-</html>
