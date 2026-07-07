@@ -264,31 +264,18 @@
       
        // ANIVERSARIANTES DA SEMANA SOB DEMANDA (Filtrado direto no Banco de Dados)
       // ANIVERSARIANTES DA SEMANA SOB DEMANDA (Correção nativa para campos do tipo DATE)
+        // ANIVERSARIANTES DA SEMANA SOB DEMANDA (Via RPC nativo para campos DATE)
         async function fetchAndRenderBirthdays() {
             const divResults = document.getElementById('birthdayResults');
             divResults.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-spin"></i><h3>Carregando aniversariantes...</h3></div>';
 
             const hoje = new Date();
-            
-            // Geramos uma lista com as strings de formato "MM-DD" para os próximos 7 dias
-            const diasAlvo = [];
-            for (let i = 0; i < 7; i++) {
-                const dataFutura = new Date();
-                dataFutura.setDate(hoje.getDate() + i);
-                
-                const mesStr = String(dataFutura.getMonth() + 1).padStart(2, '0');
-                const diaStr = String(dataFutura.getDate()).padStart(2, '0');
-                
-                // Formato padrão que buscaremos dentro da string da data (Ex: "%-07-15")
-                diasAlvo.push(`data_nascimento.like.%-${mesStr}-${diaStr}`);
-            }
+            const diaHoje = hoje.getDate();
+            const mesHoje = hoje.getMonth() + 1;
 
-            // Unimos os 7 dias usando o operador OR do Supabase. 
-            // O PostgREST aceita o .like se mapearmos múltiplos filtros textuais válidos.
+            // Chamar a função SQL criada no Supabase
             const { data: aniversariantes, error } = await supabaseClient
-                .from('alunos')
-                .select('id, nome_completo, turma, celular, responsavel_celular, data_nascimento')
-                .or(diasAlvo.join(','));
+                .rpc('aniversariantes_semana');
 
             if (error) {
                 console.error('Erro ao buscar aniversariantes:', error);
@@ -296,7 +283,7 @@
                 return;
             }
 
-            // Ordena os aniversariantes encontrados com base no dia/mês de aniversário para ficarem cronológicos
+            // Ordena os resultados para ficarem cronológicos (pelo dia do aniversário)
             if (aniversariantes) {
                 aniversariantes.sort((a, b) => {
                     const [, mesA, diaA] = a.data_nascimento.split('-');
@@ -316,7 +303,7 @@
             } else {
                 divResults.innerHTML = aniversariantes.map(a => {
                     const [ano, mes, dia] = a.data_nascimento.split('-');
-                    const isToday = (parseInt(dia) === hoje.getDate() && parseInt(mes) === (hoje.getMonth() + 1));
+                    const isToday = (parseInt(dia) === diaHoje && parseInt(mes) === mesHoje);
                     
                     return `
                         <div class="birthday-card" onclick="switchTab('search'); selectStudent(${a.id});" style="cursor:pointer; ${isToday ? 'border-left: 5px solid #ffcc00; background: #fffdf0;' : ''}">
