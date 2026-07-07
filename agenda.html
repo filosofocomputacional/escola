@@ -4,18 +4,23 @@
 </a><div class="container"><div class="login-screen" id="loginScreen"><i class="fas fa-school"></i><h1>Agenda Telefônica</h1><p>E.E Nova Contagem</p><form class="login-form" onsubmit="return login(event)"><div class="form-group"><label for="username">Usuário</label><input id="username" readonly="" value="E.E Nova Contagem"></div><div class="form-group"><label for="password">Senha</label><input id="password" placeholder="Digite a senha" required="" type="password"></div><button class="btn-login" type="submit"><i class="fas fa-sign-in-alt"></i> Entrar</button></form></div><div class="app-screen" id="appScreen"><div class="header"><button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</button> <i class="fas fa-address-book"></i><h1>Agenda Telefônica</h1><p>E.E Nova Contagem</p></div><div class="tabs"><button class="active tab" onclick="switchTab(&quot;search&quot;)"><i class="fas fa-search"></i> Buscar Aluno</button> <button class="tab" onclick="switchTab(&quot;birthdays&quot;)"><i class="fas fa-birthday-cake"></i> Aniversariantes</button></div><div class="active tab-content" id="searchTab"><div class="search-box"><input id="searchInput" placeholder="Digite o nome ou turma..." oninput="handleSearchInput()"> <i class="fas fa-search"></i><div class="autocomplete-list" id="autocompleteList"></div></div><div id="searchResults"></div></div><div class="tab-content" id="birthdaysTab"><div id="birthdayResults"></div></div></div></div><script>// ========================================
         // CONFIGURAÇÕES DO SUPABASE
         // ========================================
+       // ========================================
+        // CONFIGURAÇÕES DO SUPABASE
+        // ========================================
         const SUPABASE_URL = "https://hnmozbiqshunrdgpsort.supabase.co"; 
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhubW96Ymlxc2h1bnJkZ3Bzb3J0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjcxNzksImV4cCI6MjA5NzkwMzE3OX0.xh8u28xRN_H1pKZmK4FfQxPec9XSJMXouAAcBeQPrrU";
         
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        let todosAlunos = [];
+        
+        // Cache local temporário apenas para o aluno que está sendo visualizado ou editado no momento
+        let alunoAtual = null; 
 
         function login(e) {
             if (e) e.preventDefault();
             if(document.getElementById('password').value === '8605') {
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('appScreen').style.display = 'block';
-                fetchAlunos();
+                // Não chama mais fetchAlunos() aqui para não expor a tabela inteira de uma vez.
             } else { alert('Senha incorreta!'); }
             return false;
         }
@@ -24,6 +29,7 @@
             document.getElementById('loginScreen').style.display = 'block';
             document.getElementById('appScreen').style.display = 'none';
             document.getElementById('password').value = '';
+            alunoAtual = null;
         }
 
         function switchTab(tabName) {
@@ -35,53 +41,34 @@
             } else {
                 document.querySelectorAll('.tab')[1].classList.add('active');
                 document.getElementById('birthdaysTab').classList.add('active');
-                renderBirthdays();
+                fetchAndRenderBirthdays(); // Busca aniversariantes sob demanda apenas ao abrir a aba
             }
         }
 
-        async function fetchAlunos() {
-            const { data, error } = await supabaseClient.from('alunos').select('*').order('nome_completo', { ascending: true });
-            if (error) { console.error('Erro ao buscar dados:', error); } 
-            else { todosAlunos = data; }
-        }
-
-        function handleSearchInput() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        // BUSCA SOB DEMANDA (Autocomplete): Disparada enquanto o usuário digita
+        async function handleSearchInput() {
+            const query = document.getElementById('searchInput').value.trim();
             const list = document.getElementById('autocompleteList');
             
-            if (!query) { 
+            if (!query || query.length < 2) { 
                 list.style.display = 'none'; 
                 return; 
             }
 
-            const filtradosUnicos = [];
-            const nomesVistos = new Set();
-            const idsVistos = new Set();
+            // Busca no banco apenas ID, Nome e Turma limitando a 8 resultados. Dados sensíveis ficam protegidos.
+            const { data: filtrados, error } = await supabaseClient
+                .from('alunos')
+                .select('id, nome_completo, turma')
+                .or(`nome_completo.ilike.%${query}%,turma.ilike.%${query}%`)
+                .limit(8);
 
-            for (let i = 0; i < todosAlunos.length; i++) {
-                const aluno = todosAlunos[i];
-                if (!aluno || !aluno.id || !aluno.nome_completo) continue;
-
-                const nomeNormalizado = aluno.nome_completo.toLowerCase().trim();
-
-                if (idsVistos.has(aluno.id) || nomesVistos.has(nomeNormalizado)) {
-                    continue;
-                }
-
-                const nome = aluno.nome_completo.toLowerCase();
-                const turma = aluno.turma ? aluno.turma.toLowerCase() : '';
-
-                if (nome.includes(query) || turma.includes(query)) {
-                    idsVistos.add(aluno.id);
-                    nomesVistos.add(nomeNormalizado);
-                    filtradosUnicos.push(aluno);
-                }
-
-                if (filtradosUnicos.length >= 8) break;
+            if (error) {
+                console.error('Erro na busca autocomplete:', error);
+                return;
             }
 
-            if (filtradosUnicos.length > 0) {
-                list.innerHTML = filtradosUnicos.map(a => `
+            if (filtrados && filtrados.length > 0) {
+                list.innerHTML = filtrados.map(a => `
                     <div class="autocomplete-item" onclick="selectStudent(${a.id})">
                         <strong>${a.nome_completo}</strong> (${a.turma || 'Sem Turma'})
                     </div>
@@ -93,10 +80,25 @@
             }
         }
 
-        function selectStudent(id) {
+        // CONSULTA DETALHADA SOB DEMANDA: Traz a ficha completa apenas do aluno escolhido
+        async function selectStudent(id) {
             document.getElementById('autocompleteList').style.display = 'none';
-            const aluno = todosAlunos.find(a => a.id === id);
-            if(aluno) renderStudentCard(aluno);
+            
+            // Requisita todas as colunas exclusivamente para o registro desejado
+            const { data, error } = await supabaseClient
+                .from('alunos')
+                .select('*')
+                .eq('id', id)
+                .single();
+
+            if (error) {
+                alert('Erro ao carregar detalhes do aluno!');
+                console.error(error);
+                return;
+            }
+
+            alunoAtual = data;
+            renderStudentCard(alunoAtual);
         }
 
         function renderStudentCard(aluno) {
@@ -111,7 +113,7 @@
                         </div>
                         <div>
                             <span class="student-turma">Turma ${aluno.turma || '-'}</span>
-                            <button class="btn-action btn-edit" onclick="editStudentForm(${aluno.id})"><i class="fas fa-edit"></i> Editar Contatos</button>
+                            <button class="btn-action btn-edit" onclick="editStudentForm()"><i class="fas fa-edit"></i> Editar Contatos</button>
                         </div>
                     </div>
 
@@ -160,16 +162,16 @@
             `;
         }
 
-        function editStudentForm(id) {
-            const aluno = todosAlunos.find(a => a.id === id);
-            if(!aluno) return;
+        function editStudentForm() {
+            if(!alunoAtual) return;
+            const aluno = alunoAtual;
 
             document.getElementById(`searchResults`).innerHTML = `
                 <form class="student-card" onsubmit="saveStudentChanges(event, ${aluno.id})">
                     <div class="student-header">
                         <h2 style="color:#667eea; font-size:1.3em;"><i class="fas fa-user-edit"></i> Alterar Registros</h2>
                         <div style="display:flex; gap:10px; width: 100%;">
-                            <button type="button" class="btn-action btn-cancel" onclick="selectStudent(${aluno.id})">Cancelar</button>
+                            <button type="button" class="btn-action btn-cancel" onclick="renderStudentCard(alunoAtual)">Cancelar</button>
                             <button type="submit" class="btn-action btn-save"><i class="fas fa-save"></i> Salvar</button>
                         </div>
                     </div>
@@ -247,46 +249,42 @@
                 observacoes: document.getElementById('edit_observacoes').value
             };
 
-            const { data, error } = await supabaseClient.from('alunos').update(dadosAtualizados).eq('id', id).select();
+            const { data, error } = await supabaseClient.from('alunos').update(dadosAtualizados).eq('id', id).select().single();
 
             if (error) {
                 alert('Erro ao salvar as alterações!');
                 console.error(error);
             } else {
                 alert('Alterações salvas com sucesso!');
-                await fetchAlunos(); 
-                selectStudent(id);    
+                alunoAtual = data; // Atualiza o objeto na memória
+                renderStudentCard(alunoAtual);    
             }
         }
 
-        function renderBirthdays() {
+        // ANIVERSARIANTES SOB DEMANDA: Filtragem delegada diretamente ao banco Postgres (via RPC ou abstração de String)
+        async function fetchAndRenderBirthdays() {
             const hoje = new Date();
             const diaHoje = String(hoje.getDate()).padStart(2, '0');
             const mesHoje = String(hoje.getMonth() + 1).padStart(2, '0');
-
-            const aniversariantes = todosAlunos.filter(a => {
-                if (!a.data_nascimento) return false;
-                
-                const partes = a.data_nascimento.split('-');
-                if(partes.length < 3) return false;
-
-                const mesAluno = partes[1];
-                const diaAluno = partes[2];
-
-                return diaAluno === diaHoje && mesAluno === mesHoje;
-            });
-
-            const mapeadosUnicos = [];
-            const idsVistos = new Set();
-            aniversariantes.forEach(a => {
-                if(!idsVistos.has(a.id)) {
-                    idsVistos.add(a.id);
-                    mapeadosUnicos.push(a);
-                }
-            });
+            const padraoData = `%-${mesHoje}-${diaHoje}`; // Filtro SQL para formato YYYY-MM-DD
 
             const divResults = document.getElementById('birthdayResults');
-            if(mapeadosUnicos.length === 0) {
+            divResults.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-spin"></i><h3>Carregando aniversariantes...</h3></div>';
+
+            // O Supabase filtra no servidor usando 'like' apenas quem faz aniversário hoje.
+            // Traz apenas colunas cruciais para a listagem visual imediata.
+            const { data: aniversariantes, error } = await supabaseClient
+                .from('alunos')
+                .select('id, nome_completo, turma, celular, responsavel_celular')
+                .like('data_nascimento', padraoData);
+
+            if (error) {
+                console.error('Erro ao buscar aniversariantes:', error);
+                divResults.innerHTML = '<div class="no-results"><h3>Erro ao carregar aniversariantes</h3></div>';
+                return;
+            }
+
+            if(!aniversariantes || aniversariantes.length === 0) {
                 divResults.innerHTML = `
                     <div class="no-results">
                         <i class="fas fa-birthday-cake"></i>
@@ -294,7 +292,7 @@
                         <p>Não há registros para o dia de hoje (${diaHoje}/${mesHoje}).</p>
                     </div>`;
             } else {
-                divResults.innerHTML = mapeadosUnicos.map(a => `
+                divResults.innerHTML = aniversariantes.map(a => `
                     <div class="birthday-card" onclick="switchTab('search'); selectStudent(${a.id});" style="cursor:pointer;">
                         <div class="birthday-icon">🎂</div>
                         <div class="birthday-info">
@@ -309,5 +307,6 @@
 
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.search-box')) { document.getElementById('autocompleteList').style.display = 'none'; }
-        });</script>
+        });
+</script>
 </body></html>
