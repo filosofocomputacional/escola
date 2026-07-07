@@ -263,40 +263,32 @@
 
       
        // ANIVERSARIANTES DA SEMANA SOB DEMANDA (Filtrado direto no Banco de Dados)
+      // ANIVERSARIANTES DA SEMANA SOB DEMANDA (Correção nativa para campos do tipo DATE)
         async function fetchAndRenderBirthdays() {
             const divResults = document.getElementById('birthdayResults');
             divResults.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-spin"></i><h3>Carregando aniversariantes...</h3></div>';
 
-            // 1. Descobre o dia e mês de hoje e de daqui a 7 dias
             const hoje = new Date();
-            const dHoje = hoje.getDate();
-            const mHoje = hoje.getMonth() + 1;
-
-            const dFim = new Date();
-            dFim.setDate(hoje.getDate() + 7);
-            const dDaqui7Dias = dFim.getDate();
-            const mDaqui7Dias = dFim.getMonth() + 1;
-
-            let query = supabaseClient
-                .from('alunos')
-                .select('id, nome_completo, turma, celular, responsavel_celular, data_nascimento');
-
-            // 2. Monta a lógica SQL direto no servidor para o tipo 'date'
-            if (mHoje === mDaqui7Dias) {
-                // Caso simples: o intervalo de 7 dias cai dentro do mesmo mês
-                query = query
-                    .filter('data_nascimento', 'raw', `to_char(data_nascimento, 'MM')::int = ${mHoje}`)
-                    .filter('data_nascimento', 'raw', `to_char(data_nascimento, 'DD')::int >= ${dHoje}`)
-                    .filter('data_nascimento', 'raw', `to_char(data_nascimento, 'DD')::int <= ${dDaqui7Dias}`);
-            } else {
-                // Caso de virada de mês (ex: final de Julho entrando em Agosto)
-                query = query.or(
-                    `and(data_nascimento.raw.to_char(data_nascimento, 'MM')::int = ${mHoje}, data_nascimento.raw.to_char(data_nascimento, 'DD')::int >= ${dHoje}),` +
-                    `and(data_nascimento.raw.to_char(data_nascimento, 'MM')::int = ${mDaqui7Dias}, data_nascimento.raw.to_char(data_nascimento, 'DD')::int <= ${dDaqui7Dias})`
-                );
+            
+            // Geramos uma lista com as strings de formato "MM-DD" para os próximos 7 dias
+            const diasAlvo = [];
+            for (let i = 0; i < 7; i++) {
+                const dataFutura = new Date();
+                dataFutura.setDate(hoje.getDate() + i);
+                
+                const mesStr = String(dataFutura.getMonth() + 1).padStart(2, '0');
+                const diaStr = String(dataFutura.getDate()).padStart(2, '0');
+                
+                // Formato padrão que buscaremos dentro da string da data (Ex: "%-07-15")
+                diasAlvo.push(`data_nascimento.like.%-${mesStr}-${diaStr}`);
             }
 
-            const { data: aniversariantes, error } = await query;
+            // Unimos os 7 dias usando o operador OR do Supabase. 
+            // O PostgREST aceita o .like se mapearmos múltiplos filtros textuais válidos.
+            const { data: aniversariantes, error } = await supabaseClient
+                .from('alunos')
+                .select('id, nome_completo, turma, celular, responsavel_celular, data_nascimento')
+                .or(diasAlvo.join(','));
 
             if (error) {
                 console.error('Erro ao buscar aniversariantes:', error);
@@ -304,17 +296,17 @@
                 return;
             }
 
-            // 3. Ordena os aniversariantes do mais próximo para o mais distante
+            // Ordena os aniversariantes encontrados com base no dia/mês de aniversário para ficarem cronológicos
             if (aniversariantes) {
                 aniversariantes.sort((a, b) => {
-                    const [,, diaA] = a.data_nascimento.split('-');
-                    const [,, diaB] = b.data_nascimento.split('-');
-                    return parseInt(diaA) - parseInt(diaB);
+                    const [, mesA, diaA] = a.data_nascimento.split('-');
+                    const [, mesB, diaB] = b.data_nascimento.split('-');
+                    return parseInt(mesA + diaA) - parseInt(mesB + diaB);
                 });
             }
 
-            // 4. Renderiza em tela
-            if(!aniversariantes || aniversariantes.length === 0) {
+            // Renderização na Tela
+            if (!aniversariantes || aniversariantes.length === 0) {
                 divResults.innerHTML = `
                     <div class="no-results">
                         <i class="fas fa-birthday-cake"></i>
@@ -323,7 +315,6 @@
                     </div>`;
             } else {
                 divResults.innerHTML = aniversariantes.map(a => {
-                    // Formata a data de AAAA-MM-DD para DD/MM
                     const [ano, mes, dia] = a.data_nascimento.split('-');
                     const isToday = (parseInt(dia) === hoje.getDate() && parseInt(mes) === (hoje.getMonth() + 1));
                     
@@ -334,7 +325,7 @@
                                 <h3>${a.nome_completo} ${isToday ? '<span style="color:#e6b800; font-size:12px; font-weight:bold; background:#fff3cd; padding:2px 6px; border-radius:4px; margin-left:5px;">HOJE!</span>' : ''}</h3>
                                 <p><i class="fas fa-calendar-day"></i> Data: <strong>${dia}/${mes}</strong></p>
                                 <p><i class="fas fa-users"></i> Turma: ${a.turma || 'Não informada'}</p>
-                                <p><i class="fas fa-phone-alt"></i> Contato: ${a.celular || a.responsavel_celular || 'Sem telefone'}</p>
+                                <p><i class="fas fa-phone-alt"></i> Contatos: ${a.celular || a.responsavel_celular || 'Sem telefone'}</p>
                             </div>
                         </div>
                     `;
