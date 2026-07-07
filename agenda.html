@@ -261,22 +261,42 @@
             }
         }
 
-        // ANIVERSARIANTES SOB DEMANDA: Filtragem delegada diretamente ao banco Postgres (via RPC ou abstração de String)
+      
+       // ANIVERSARIANTES DA SEMANA SOB DEMANDA (Filtrado direto no Banco de Dados)
         async function fetchAndRenderBirthdays() {
-            const hoje = new Date();
-            const diaHoje = String(hoje.getDate()).padStart(2, '0');
-            const mesHoje = String(hoje.getMonth() + 1).padStart(2, '0');
-            const padraoData = `%-${mesHoje}-${diaHoje}`; // Filtro SQL para formato YYYY-MM-DD
-
             const divResults = document.getElementById('birthdayResults');
             divResults.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-spin"></i><h3>Carregando aniversariantes...</h3></div>';
 
-            // O Supabase filtra no servidor usando 'like' apenas quem faz aniversário hoje.
-            // Traz apenas colunas cruciais para a listagem visual imediata.
-            const { data: aniversariantes, error } = await supabaseClient
+            // 1. Descobre o dia e mês de hoje e de daqui a 7 dias
+            const hoje = new Date();
+            const dHoje = hoje.getDate();
+            const mHoje = hoje.getMonth() + 1;
+
+            const dFim = new Date();
+            dFim.setDate(hoje.getDate() + 7);
+            const dDaqui7Dias = dFim.getDate();
+            const mDaqui7Dias = dFim.getMonth() + 1;
+
+            let query = supabaseClient
                 .from('alunos')
-                .select('id, nome_completo, turma, celular, responsavel_celular')
-                .like('data_nascimento', padraoData);
+                .select('id, nome_completo, turma, celular, responsavel_celular, data_nascimento');
+
+            // 2. Monta a lógica SQL direto no servidor para o tipo 'date'
+            if (mHoje === mDaqui7Dias) {
+                // Caso simples: o intervalo de 7 dias cai dentro do mesmo mês
+                query = query
+                    .filter('data_nascimento', 'raw', `to_char(data_nascimento, 'MM')::int = ${mHoje}`)
+                    .filter('data_nascimento', 'raw', `to_char(data_nascimento, 'DD')::int >= ${dHoje}`)
+                    .filter('data_nascimento', 'raw', `to_char(data_nascimento, 'DD')::int <= ${dDaqui7Dias}`);
+            } else {
+                // Caso de virada de mês (ex: final de Julho entrando em Agosto)
+                query = query.or(
+                    `and(data_nascimento.raw.to_char(data_nascimento, 'MM')::int = ${mHoje}, data_nascimento.raw.to_char(data_nascimento, 'DD')::int >= ${dHoje}),` +
+                    `and(data_nascimento.raw.to_char(data_nascimento, 'MM')::int = ${mDaqui7Dias}, data_nascimento.raw.to_char(data_nascimento, 'DD')::int <= ${dDaqui7Dias})`
+                );
+            }
+
+            const { data: aniversariantes, error } = await query;
 
             if (error) {
                 console.error('Erro ao buscar aniversariantes:', error);
@@ -284,29 +304,42 @@
                 return;
             }
 
+            // 3. Ordena os aniversariantes do mais próximo para o mais distante
+            if (aniversariantes) {
+                aniversariantes.sort((a, b) => {
+                    const [,, diaA] = a.data_nascimento.split('-');
+                    const [,, diaB] = b.data_nascimento.split('-');
+                    return parseInt(diaA) - parseInt(diaB);
+                });
+            }
+
+            // 4. Renderiza em tela
             if(!aniversariantes || aniversariantes.length === 0) {
                 divResults.innerHTML = `
                     <div class="no-results">
                         <i class="fas fa-birthday-cake"></i>
-                        <h3>Nenhum aniversariante hoje</h3>
-                        <p>Não há registros para o dia de hoje (${diaHoje}/${mesHoje}).</p>
+                        <h3>Nenhum aniversariante na semana</h3>
+                        <p>Não há registros para os próximos 7 dias.</p>
                     </div>`;
             } else {
-                divResults.innerHTML = aniversariantes.map(a => `
-                    <div class="birthday-card" onclick="switchTab('search'); selectStudent(${a.id});" style="cursor:pointer;">
-                        <div class="birthday-icon">🎂</div>
-                        <div class="birthday-info">
-                            <h3>${a.nome_completo}</h3>
-                            <p><i class="fas fa-users"></i> Turma: ${a.turma || 'Não informada'}</p>
-                            <p><i class="fas fa-phone-alt"></i> Contato: ${a.celular || a.responsavel_celular || 'Sem telefone'}</p>
+                divResults.innerHTML = aniversariantes.map(a => {
+                    // Formata a data de AAAA-MM-DD para DD/MM
+                    const [ano, mes, dia] = a.data_nascimento.split('-');
+                    const isToday = (parseInt(dia) === hoje.getDate() && parseInt(mes) === (hoje.getMonth() + 1));
+                    
+                    return `
+                        <div class="birthday-card" onclick="switchTab('search'); selectStudent(${a.id});" style="cursor:pointer; ${isToday ? 'border-left: 5px solid #ffcc00; background: #fffdf0;' : ''}">
+                            <div class="birthday-icon">${isToday ? '🎉' : '🎂'}</div>
+                            <div class="birthday-info">
+                                <h3>${a.nome_completo} ${isToday ? '<span style="color:#e6b800; font-size:12px; font-weight:bold; background:#fff3cd; padding:2px 6px; border-radius:4px; margin-left:5px;">HOJE!</span>' : ''}</h3>
+                                <p><i class="fas fa-calendar-day"></i> Data: <strong>${dia}/${mes}</strong></p>
+                                <p><i class="fas fa-users"></i> Turma: ${a.turma || 'Não informada'}</p>
+                                <p><i class="fas fa-phone-alt"></i> Contato: ${a.celular || a.responsavel_celular || 'Sem telefone'}</p>
+                            </div>
                         </div>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
             }
         }
-
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.search-box')) { document.getElementById('autocompleteList').style.display = 'none'; }
-        });
 </script>
 </body></html>
