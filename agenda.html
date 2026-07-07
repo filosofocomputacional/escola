@@ -21,17 +21,34 @@
         // Cache local temporário apenas para o aluno que está sendo visualizado ou editado no momento
         let alunoAtual = null; 
 
+        // Executa automaticamente ao carregar o arquivo para verificar se já está logado
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("usuario_autenticado") === "true") {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('appScreen').style.display = 'block';
+                // Se a aba inicial for a de aniversariantes, já pode carregar automaticamente:
+                // fetchAndRenderBirthdays();
+            }
+        });
+
         function login(e) {
             if (e) e.preventDefault();
             if(document.getElementById('password').value === '8605') {
+                // Salva o estado de login no navegador do usuário
+                localStorage.setItem("usuario_autenticado", "true");
+                
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('appScreen').style.display = 'block';
-                // Não chama mais fetchAlunos() aqui para não expor a tabela inteira de uma vez.
-            } else { alert('Senha incorreta!'); }
+            } else { 
+                alert('Senha incorreta!'); 
+            }
             return false;
         }
 
         function logout() {
+            // Remove o "cookie" do localStorage para que peça a senha na próxima vez
+            localStorage.removeItem("usuario_autenticado");
+            
             document.getElementById('loginScreen').style.display = 'block';
             document.getElementById('appScreen').style.display = 'none';
             document.getElementById('password').value = '';
