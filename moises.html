@@ -412,82 +412,92 @@
 
     // 6. O NOVO PIPELINE DE TRATAMENTO DE IMAGEM DA FOLHA
     function processarPerspectivaCompleta(src) {
-        let gray = new cv.Mat();
-        let blurred = new cv.Mat();
-        let thresh = new cv.Mat();
-        let contours = new cv.MatVector();
-        let hierarchy = new cv.Mat();
+    let gray = new cv.Mat();
+    let blurred = new cv.Mat();
+    let thresh = new cv.Mat();
+    let morphed = new cv.Mat(); // <--- 1. Nova Mat para a imagem morfológica
+    let kernel = null;          // <--- Elemento estruturante
+    let contours = new cv.MatVector();
+    let hierarchy = new cv.Mat();
 
-        try {
-            // [1] Converter para escala de cinza
-            cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY, 0);
+    try {
+        // [1] Converter para escala de cinza
+        cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY, 0);
 
-            // [2] Aplicar Desfoque Gaussiano para eliminar ruídos de impressão/câmera
-            let ksize = new cv.Size(5, 5);
-            cv.GaussianBlur(gray, blurred, ksize, 0, 0, cv.BORDER_DEFAULT);
+        // [2] Desfoque Gaussiano para eliminar ruídos de poeira/câmera
+        let ksize = new cv.Size(5, 5);
+        cv.GaussianBlur(gray, blurred, ksize, 0, 0, cv.BORDER_DEFAULT);
 
-            // [3] Threshold Adaptativo (Crucial para variações de luz e sombras)
-            cv.adaptiveThreshold(blurred, thresh, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY_INV, 11, 2);
+        // [3] Threshold Adaptativo (Gera a imagem Binarizada)
+        cv.adaptiveThreshold(blurred, thresh, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY_INV, 11, 2);
 
-            // Localizando os contornos das âncoras da página
-            cv.findContours(thresh, contours, hierarchy, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE);
-            
-            let anchors = [];
-            for (let i = 0; i < contours.size(); i++) {
-                let cnt = contours.get(i);
-                let peri = cv.arcLength(cnt, true);
-                let approx = new cv.Mat();
-                cv.approxPolyDP(cnt, approx, 0.04 * peri, true);
+        // 🔥 [4] O AJUSTE DE OURO: FECHAMENTO MORFOLÓGICO (MORPH_CLOSE)
+        // Cria uma matriz 3x3 retangular para reparar bordas quebradas por compressão
+        kernel = cv.getStructuringElement(cv.MORPH_RECT, new cv.Size(3, 3));
+        cv.morphologyEx(thresh, morphed, cv.MORPH_CLOSE, kernel);
 
-                if (approx.rows === 4) {
-                    let rect = cv.boundingRect(approx);
-                    let area = rect.width * rect.height;
-                    let ar = rect.width / rect.height;
+        // [5] Busca Contornos na Imagem REPARADA (morphed em vez de thresh)
+        cv.findContours(morphed, contours, hierarchy, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE);
+        
+        let anchors = [];
+        for (let i = 0; i < contours.size(); i++) {
+            let cnt = contours.get(i);
+            let peri = cv.arcLength(cnt, true);
+            let approx = new cv.Mat();
+            cv.approxPolyDP(cnt, approx, 0.04 * peri, true);
 
-                    if (area > 300 && area < 60000 && ar > 0.7 && ar < 1.3) {
-                        let M = cv.moments(cnt);
-                        if (M.m00 !== 0) {
-                            anchors.push({ x: Math.round(M.m10 / M.m00), y: Math.round(M.m01 / M.m00) });
-                        }
+            if (approx.rows === 4) {
+                let rect = cv.boundingRect(approx);
+                let area = rect.width * rect.height;
+                let ar = rect.width / rect.height;
+
+                if (area > 300 && area < 60000 && ar > 0.7 && ar < 1.3) {
+                    let M = cv.moments(cnt);
+                    if (M.m00 !== 0) {
+                        anchors.push({ x: Math.round(M.m10 / M.m00), y: Math.round(M.m01 / M.m00) });
                     }
                 }
-                approx.delete(); cnt.delete();
             }
-
-            if (anchors.length !== 4) return null;
-
-            // Ordenando os 4 cantos mapeados matematicamente
-            let sum = anchors.map(p => p.x + p.y);
-            let diff = anchors.map(p => p.y - p.x);
-
-            let tl = anchors[sum.indexOf(Math.min(...sum))];
-            let br = anchors[sum.indexOf(Math.max(...sum))];
-            let tr = anchors[diff.indexOf(Math.min(...diff))];
-            let bl = anchors[diff.indexOf(Math.max(...diff))];
-
-            // Criando feedback visual imediato para o usuário na foto original
-            let srcComPontos = src.clone();
-            [tl, tr, br, bl].forEach((p, idx) => {
-                cv.circle(srcComPontos, new cv.Point(p.x, p.y), 12, new cv.Scalar(0, 255, 0, 255), -1);
-                cv.putText(srcComPontos, `${idx+1}`, new cv.Point(p.x - 4, p.y + 4), cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(0, 0, 0, 255), 2);
-            });
-
-            // Aplica a Transformação de Perspectiva (Gera a folha 600x450 reta)
-            let dW = 600, dH = 450;
-            let srcTri = cv.matFromArray(4, 1, cv.CV_32FC2, [tl.x, tl.y, tr.x, tr.y, bl.x, bl.y, br.x, br.y]);
-            let dstTri = cv.matFromArray(4, 1, cv.CV_32FC2, [0, 0, dW, 0, 0, dH, dW, dH]);
-            let M_warp = cv.getPerspectiveTransform(srcTri, dstTri);
-
-            let warped = new cv.Mat();
-            cv.warpPerspective(src, warped, M_warp, new cv.Size(dW, dH));
-
-            srcTri.delete(); dstTri.delete(); M_warp.delete();
-            return { warped, srcComPontos };
-
-        } finally {
-            gray.delete(); blurred.delete(); thresh.delete(); contours.delete(); hierarchy.delete();
+            approx.delete(); cnt.delete();
         }
+
+        if (anchors.length !== 4) return null;
+
+        // [6] Ordenando os 4 cantos mapeados matematicamente
+        let sum = anchors.map(p => p.x + p.y);
+        let diff = anchors.map(p => p.y - p.x);
+
+        let tl = anchors[sum.indexOf(Math.min(...sum))];
+        let br = anchors[sum.indexOf(Math.max(...sum))];
+        let tr = anchors[diff.indexOf(Math.min(...diff))];
+        let bl = anchors[diff.indexOf(Math.max(...diff))];
+
+        // Criando feedback visual com os 4 cantos em verde
+        let srcComPontos = src.clone();
+        [tl, tr, br, bl].forEach((p, idx) => {
+            cv.circle(srcComPontos, new cv.Point(p.x, p.y), 12, new cv.Scalar(0, 255, 0, 255), -1);
+            cv.putText(srcComPontos, `${idx+1}`, new cv.Point(p.x - 4, p.y + 4), cv.FONT_HERSHEY_SIMPLEX, 0.5, new cv.Scalar(0, 0, 0, 255), 2);
+        });
+
+        // [7] Transformação de Perspectiva
+        let dW = 600, dH = 450;
+        let srcTri = cv.matFromArray(4, 1, cv.CV_32FC2, [tl.x, tl.y, tr.x, tr.y, bl.x, bl.y, br.x, br.y]);
+        let dstTri = cv.matFromArray(4, 1, cv.CV_32FC2, [0, 0, dW, 0, 0, dH, dW, dH]);
+        let M_warp = cv.getPerspectiveTransform(srcTri, dstTri);
+
+        let warped = new cv.Mat();
+        cv.warpPerspective(src, warped, M_warp, new cv.Size(dW, dH));
+
+        srcTri.delete(); dstTri.delete(); M_warp.delete();
+        return { warped, srcComPontos };
+
+    } finally {
+        // 🔥 Limpeza OBRIGATÓRIA das variáveis para não travar a memória do celular
+        gray.delete(); blurred.delete(); thresh.delete(); morphed.delete();
+        if (kernel) kernel.delete();
+        contours.delete(); hierarchy.delete();
     }
+}
 </script>
 
 </body>
