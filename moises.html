@@ -31,6 +31,7 @@
         .card-resultado { margin-top: 20px; padding: 15px; border-radius: 8px; background: #eef9ff; border: 1px solid #b6e0fe; text-align: left; }
         .nota { font-size: 24px; font-weight: bold; color: #155724; margin-bottom: 10px; }
         .badge-config { background: #e2e3e5; color: #383d41; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .preview-title { font-size: 14px; font-weight: bold; color: #495057; margin-top: 15px; margin-bottom: 5px; }
     </style>
 </head>
 <body>
@@ -52,9 +53,11 @@
         </div>
 
         <div id="painelSliders" style="display:none;" class="passo-box">
-            <h4>🎯 Verifique os Círculos na Imagem Recortada abaixo:</h4>
-            <p style="font-size: 13px; color: #666;">Mova os controles até que cada círculo vermelho fique exatamente em cima das bolinhas A, B, C, D, E do gabarito.</p>
-            
+            <div class="preview-title">🟢 1. Cantos Detectados na Foto Original:</div>
+            <canvas id="canvasFotoOriginalAjuste"></canvas>
+
+            <div class="preview-title" style="margin-top:20px;">🎯 2. Alinhamento dos Círculos na Folha Recortada:</div>
+            <p style="font-size: 13px; color: #666; margin-top: 2px;">Mova os controles abaixo até que cada círculo vermelho fique em cima das alternativas.</p>
             <canvas id="canvasCalibPreview"></canvas>
 
             <h4 style="margin-top:20px;">🎛️ Controles de Posição (X, Y)</h4>
@@ -103,17 +106,19 @@
             <div class="nota" id="textNota"></div>
             <p><strong>Gabarito Oficial:</strong> <span id="textGabaritoOficial"></span></p>
             <p><strong>Respostas Lidas:</strong> <span id="textRespostas"></span></p>
-            <h4>🔍 Imagem Analisada:</h4>
+            
+            <div class="preview-title">🟢 Cantos Detectados na Foto Original:</div>
+            <canvas id="canvasFotoOriginalCorretor"></canvas>
+
+            <div class="preview-title">🔍 Leitura dos Pontos (Warped):</div>
             <canvas id="canvasWarpedResult"></canvas>
         </div>
     </div>
 </div>
 
-<!-- Configuração obrigatória ANTES de importar a biblioteca OpenCV -->
 <script>
     let cvReady = false;
 
-    // Callback global de inicialização do WebAssembly do OpenCV
     var Module = {
         onRuntimeInitialized: function() {
             cvReady = true;
@@ -136,7 +141,6 @@
     }
 </script>
 
-<!-- Importação da biblioteca OpenCV.js -->
 <script async src="https://docs.opencv.org/4.9.0/opencv.js" onerror="onOpenCvError()"></script>
 
 <script>
@@ -156,7 +160,7 @@
     const defaultGabarito = ['B','D','C','B','C','D','C','B','A','B'];
     const sliders = ['x1', 'y1', 'x2', 'y2', 'spX', 'spY'];
 
-    // 1. Inicialização da Interface do Gabarito Oficial
+    // 1. Interface do Gabarito Oficial
     const containerGab = document.getElementById('containerGabarito');
     for (let i = 0; i < 10; i++) {
         const div = document.createElement('div');
@@ -174,8 +178,6 @@
             .catch(err => {
                 alert("Atenção: A câmera só funciona se o site estiver publicado no GitHub Pages (HTTPS) ou rodando em servidor local (localhost).");
             });
-    } else {
-        alert("Seu navegador bloqueou o acesso à câmera porque o arquivo foi aberto direto do computador (file://). Publique no GitHub Pages para testar.");
     }
 
     // 3. Gerenciamento de Telas
@@ -251,19 +253,25 @@
         ctx.drawImage(video, 0, 0, canvasHidden.width, canvasHidden.height);
 
         let src = cv.imread(canvasHidden);
-        let warped = processarPerspectiva(src);
+        let res = processarPerspectiva(src);
         src.delete();
 
-        if (warped) {
+        if (res) {
+            // Exibe a imagem original com os 4 pontos destacados
+            cv.imshow('canvasFotoOriginalAjuste', res.srcComPontos);
+
+            // Armazena a imagem desentortada limpa em memória
             imagemBaseWarpedCanvas.width = 600;
             imagemBaseWarpedCanvas.height = 450;
-            cv.imshow(imagemBaseWarpedCanvas, warped);
-            warped.delete();
+            cv.imshow(imagemBaseWarpedCanvas, res.warped);
+
+            res.warped.delete();
+            res.srcComPontos.delete();
 
             document.getElementById('painelSliders').style.display = 'block';
             desenharPreviewAjuste();
         } else {
-            alert("⚠️ Os 4 cantos do gabarito não foram identificados. Tente focar melhor a câmera na folha.");
+            alert("⚠️ Os 4 cantos do gabarito não foram identificados. Certifique-se de que os 4 marcadores quadrados pretos estejam bem visíveis.");
         }
     });
 
@@ -325,13 +333,19 @@
         ctx.drawImage(video, 0, 0, canvasHidden.width, canvasHidden.height);
 
         let src = cv.imread(canvasHidden);
-        let warped = processarPerspectiva(src);
+        let res = processarPerspectiva(src);
         src.delete();
 
-        if (!warped) {
+        if (!res) {
             alert("⚠️ Os 4 cantos do gabarito não foram identificados. Enquadre melhor a folha.");
             return;
         }
+
+        // Exibe a foto original com os pontos detectados
+        cv.imshow('canvasFotoOriginalCorretor', res.srcComPontos);
+        res.srcComPontos.delete();
+
+        let warped = res.warped;
 
         let warpedGray = new cv.Mat();
         cv.cvtColor(warped, warpedGray, cv.COLOR_RGBA2GRAY);
@@ -404,7 +418,7 @@
         warped.delete(); warpedGray.delete(); warpedBlur.delete(); warpedThresh.delete();
     });
 
-    // 7. Perspectiva
+    // 7. Processamento de Perspectiva com Marcação dos Cantos na Foto Original
     function processarPerspectiva(src) {
         let gray = new cv.Mat();
         let blur = new cv.Mat();
@@ -443,6 +457,7 @@
 
             if (anchors.length !== 4) return null;
 
+            // Ordena os 4 cantos
             let sum = anchors.map(p => p.x + p.y);
             let diff = anchors.map(p => p.y - p.x);
 
@@ -451,6 +466,25 @@
             let tr = anchors[diff.indexOf(Math.min(...diff))];
             let bl = anchors[diff.indexOf(Math.max(...diff))];
 
+            // Cópia da imagem original para desenhar os marcadores dos 4 cantos
+            let srcComPontos = src.clone();
+            let ptsOrder = [tl, tr, br, bl];
+            
+            // Desenha linhas amarelas conectando os cantos
+            let ptsPoly = cv.matFromArray(4, 1, cv.CV_32SC2, [tl.x, tl.y, tr.x, tr.y, br.x, br.y, bl.x, bl.y]);
+            let ptsVec = new cv.MatVector();
+            ptsVec.push_back(ptsPoly);
+            cv.polylines(srcComPontos, ptsVec, true, new cv.Scalar(255, 255, 0, 255), 3);
+            ptsPoly.delete(); ptsVec.delete();
+
+            // Desenha círculos verdes numerados nos 4 cantos
+            ptsOrder.forEach((p, idx) => {
+                let center = new cv.Point(p.x, p.y);
+                cv.circle(srcComPontos, center, 14, new cv.Scalar(0, 255, 0, 255), -1);
+                cv.putText(srcComPontos, `${idx+1}`, new cv.Point(p.x - 5, p.y + 5), cv.FONT_HERSHEY_SIMPLEX, 0.6, new cv.Scalar(0, 0, 0, 255), 2);
+            });
+
+            // Transformação de Perspectiva
             let dW = 600, dH = 450;
             let srcTri = cv.matFromArray(4, 1, cv.CV_32FC2, [tl.x, tl.y, tr.x, tr.y, bl.x, bl.y, br.x, br.y]);
             let dstTri = cv.matFromArray(4, 1, cv.CV_32FC2, [0, 0, dW, 0, 0, dH, dW, dH]);
@@ -460,7 +494,7 @@
             cv.warpPerspective(src, warped, M, new cv.Size(dW, dH));
 
             srcTri.delete(); dstTri.delete(); M.delete();
-            return warped;
+            return { warped, srcComPontos };
 
         } finally {
             gray.delete(); blur.delete(); thresh.delete(); contours.delete(); hierarchy.delete();
