@@ -1,0 +1,4076 @@
+[
+  {
+    "turma": "801",
+    "aluno": "AGATHA LAVÍNIA OLIVEIRA DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.23
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.23
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 27.23
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "ALICE MARQUES DE OLIVEIRA LOPES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 21.31
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 25.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 22.56
+      },
+      "ARTE": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.1,
+        "2º_trimestre": 22.66
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 25.66
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "ALICE MONTEIRO DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 19.31
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 10.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 22.35
+      },
+      "ARTE": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.85
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.35
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 25.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "ALINE SOUZA QUENUPE",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 21.65
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 21.69
+      },
+      "ARTE": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 19.1,
+        "2º_trimestre": 20.69
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 25.19
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "ANA LAURA SILVA FREITAS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 23.81
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 25.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 25.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 26.99
+      },
+      "ARTE": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.69
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.6,
+        "2º_trimestre": 23.19
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 26.69
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "ARTHUR YAGO FAGUNDES VIEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 18.06
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 25.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 19.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 25.91
+      },
+      "ARTE": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.91
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "AUDREY MIRELLA SOARES SANTANA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 20.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 21.25
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 14.25
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 26.25
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "BERNARDO DE PAULA DO CARMO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 23.69
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.26
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 11.46
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 25.96
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "DAVI LUCAS RODRIGUES DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 25.38
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 30.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 24.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 23.46
+      },
+      "ARTE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.3,
+        "2º_trimestre": 26.26
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 23.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 28.26
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "ELOAH RAÍSSA MENDONÇA MARTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 20.17
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 25.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 26.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 25.05
+      },
+      "ARTE": {
+        "1º_trimestre": 27.25,
+        "2º_trimestre": 19.05
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 17.65,
+        "2º_trimestre": 18.55
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 23.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 27.25,
+        "2º_trimestre": 22.55
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 23.25,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "EMANUELLE SILVA GONÇALVES BARRETO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 18.1
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 20.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 23.29
+      },
+      "ARTE": {
+        "1º_trimestre": 26.25,
+        "2º_trimestre": 18.04
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 16.54
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 18.29
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.5,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "EVELYN SOFHIA DA SILVA FERNANDES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 27.04
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 30.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 28.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 27.08
+      },
+      "ARTE": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 23.58
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 27.6,
+        "2º_trimestre": 21.08
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 25.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 25.58
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "GEANY CAROLINE GONÇALVES COSTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 23.62
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 24.69
+      },
+      "ARTE": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 19.89
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 24.1,
+        "2º_trimestre": 19.39
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 21.89
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "HENRIQUE FREITAS MAGALHAES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 24.92
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 21.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 25.64
+      },
+      "ARTE": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 19.34
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.2,
+        "2º_trimestre": 22.34
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 21.34
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "ISABELLY EDUARDA MARQUES DUARTE",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 25.56
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 26.56
+      },
+      "ARTE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.81
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 21.2,
+        "2º_trimestre": 23.56
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.75
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "JHONATAN ALEX SANTOS SOUZA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 1.5
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 10.0,
+        "2º_trimestre": 0.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 5.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 5.5,
+        "2º_trimestre": 1.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 6.0,
+        "2º_trimestre": 0.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 0.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "JULIA GABRIELE DA SILVA ALVES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 16.5,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 11.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 14.05,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.25,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.25,
+        "2º_trimestre": 23.57
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "JUNIO CESAR VIEIRA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 16.96
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 11.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 11.0,
+        "2º_trimestre": 3.23
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "KETHELYN RAISSA FIAU DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 22.06
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 24.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 25.98
+      },
+      "ARTE": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 23.23
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 22.3,
+        "2º_trimestre": 20.98
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 23.98
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "KETHLEN SUELLEM DE SALLES OLIVEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 25.31
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 27.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 26.34
+      },
+      "ARTE": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 24.04
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 22.3,
+        "2º_trimestre": 23.54
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 26.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 24.04
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "LAURA EMANUELLY DIAS GOMES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 18.15
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.8
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 20.8
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "LAVINIA GABRIELY SANTOS DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 19.58
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 29.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 21.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 24.31
+      },
+      "ARTE": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 22.81
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.3,
+        "2º_trimestre": 22.31
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 21.31
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "LAVINYA RODRIGUES DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.12
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 25.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 22.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 20.2
+      },
+      "ARTE": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 22.2
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "LUCAS GABRIEL RODRIGUES FARIAS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 15.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 17.0
+      },
+      "ARTE": {
+        "1º_trimestre": 25.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 16.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 19.95
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 20.95
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "MARIA ALICE SANTOS SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 20.56
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 22.83
+      },
+      "ARTE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.83
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 27.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "MARIA EDUARDA DE SOUZA BARBOSA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 20.92
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 22.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 22.46
+      },
+      "ARTE": {
+        "1º_trimestre": 27.5,
+        "2º_trimestre": 21.21
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 26.35,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 21.96
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.75,
+        "2º_trimestre": 27.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "MARIA EDUARDA SOARES DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 21.74,
+        "2º_trimestre": 20.46
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.96
+      },
+      "ARTE": {
+        "1º_trimestre": 27.74,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 20.24,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 23.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 28.74,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 25.74,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "MARIANA MENDES DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 18.73
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 20.72
+      },
+      "ARTE": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 19.4,
+        "2º_trimestre": 14.42
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 20.42
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 27.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "MATHEUS SILVA PONTES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 18.44
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 25.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 19.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 24.17
+      },
+      "ARTE": {
+        "1º_trimestre": 26.75,
+        "2º_trimestre": 18.67
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 20.45,
+        "2º_trimestre": 19.67
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 22.17
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 25.75,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "MIGUEL FILIPE SILVA DE SOUZA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 19.96
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 23.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 23.54
+      },
+      "ARTE": {
+        "1º_trimestre": 24.25,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.3,
+        "2º_trimestre": 15.54
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 22.54
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 28.5,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "NATHALIA CAROLINE ARAUJO PEREIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 27.42
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 30.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 19.45
+      },
+      "ARTE": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 25.6,
+        "2º_trimestre": 20.15
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.15
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "801",
+    "aluno": "SOPHIA EMANUELLE SOUZA DE OLIVEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 19.38
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 21.3
+      },
+      "ARTE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 27.8
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "ALEXIA VITORIA RODRIGUES ROCHA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.26
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.5
+      },
+      "ARTE": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 24.5
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 13.5
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 23.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "ANA CLARA SILVA FERREIRA BATISTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.04
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 11.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 17.0
+      },
+      "ARTE": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 19.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 13.94
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 17.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 24.44
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "ANDRESSA SANTOS HERMISDORFF RIBEIRO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.86
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 29.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 20.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 22.25
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 26.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 20.25
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 24.25
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "ANNE GABRIELLY ALVES VIEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 19.55
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 24.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 21.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 22.32
+      },
+      "ARTE": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.82
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 25.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 26.32
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.5,
+        "2º_trimestre": 27.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "BEATRIZ MOTA PAIVA MARÇAL",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 19.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.52
+      },
+      "ARTE": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 22.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.02
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 23.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 18.52
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.5,
+        "2º_trimestre": 18.52
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "CAUA PIERRE GONÇALVES MUNIZ",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 12.0
+      },
+      "ARTE": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 22.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 16.35,
+        "2º_trimestre": 5.92
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 27.92
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "DAVI LUCAS DOS SANTOS LANA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 14.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 22.5
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "DAVI LUCAS GUSMÃO BATISTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.41
+      },
+      "ARTE": {
+        "1º_trimestre": 20.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 10.6,
+        "2º_trimestre": 10.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.91
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 25.91
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "ELIZA ABREU CORRÊA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.1
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 28.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 24.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.12
+      },
+      "ARTE": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 23.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 22.7,
+        "2º_trimestre": 19.92
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 24.42
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "ERICK FERNANDO OLIVEIRA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.52
+      },
+      "ARTE": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 15.55,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 21.02
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 24.02
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "GEOVANNA STEPHANY COELHO AMORIM",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 19.17
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.45
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 20.65,
+        "2º_trimestre": 12.45
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.25,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 22.45
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "GIOVANNA VIEIRA MENDES RODRIGUES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.38
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 20.32
+      },
+      "ARTE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 19.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.02
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 22.02
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 25.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "HADASSA VITORIA ALMEIDA RAMOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 21.44
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 24.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 21.32
+      },
+      "ARTE": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 23.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 19.2,
+        "2º_trimestre": 18.02
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 21.52
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "HEITOR SILVA DE PAULA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.52
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.65
+      },
+      "ARTE": {
+        "1º_trimestre": 26.75,
+        "2º_trimestre": 22.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 26.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 24.65
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 28.75,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "HELOISA CAMPOS CLEMENTE",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.79
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 20.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 22.73
+      },
+      "ARTE": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.73
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 18.73
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 25.75,
+        "2º_trimestre": 26.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "ISABELLA SANTANA VIEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 20.25,
+        "2º_trimestre": 23.83
+      },
+      "ARTE": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 22.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 14.43
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 23.43
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.25,
+        "2º_trimestre": 25.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "JOÃO MIGUEL SILVA CANDIDO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 19.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.79
+      },
+      "ARTE": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 22.29
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 27.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "KETLEN RODRIGUES MIRANDA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 18.59
+      },
+      "ARTE": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 24.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 9.29
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.79
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 23.79
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "LAUANY CRISTINA ALVES CLEMENTE",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.83
+      },
+      "ARTE": {
+        "1º_trimestre": 19.25,
+        "2º_trimestre": 23.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 7.03
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "LINDSAY DE OLIVEIRA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 20.91
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.5
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 15.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.81
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 28.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "MAIKI FILIPE SILVA BARBOSA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 20.27
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 29.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 24.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 26.71
+      },
+      "ARTE": {
+        "1º_trimestre": 26.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.21
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 25.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 23.71
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "MARIA JULIA DE OLIVEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.65
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 27.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 25.78
+      },
+      "ARTE": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 25.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.78
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 25.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 22.28
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "NATIELLY WILIANE FERREIRA DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 14.0
+      },
+      "ARTE": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 5.04
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 11.0,
+        "2º_trimestre": 8.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "PEDRO HENRIQUE PIMENTA DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 8.38
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 22.88
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "PEDRO HENRIQUE TEIXEIRA GOMES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 19.72
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 26.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 22.55,
+        "2º_trimestre": 13.73
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 26.23
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.75,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "RAYANE VALLENTINA GOMES DE MATOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 24.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.73
+      },
+      "ARTE": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 11.23
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 19.23
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "RODRIGO AUGUSTO RIBEIRO DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 11.0,
+        "2º_trimestre": 3.96
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 22.96
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "SABRINA CRISTINA DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 8.5,
+        "2º_trimestre": 2.19
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 24.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "SAYMON VINICIUS CIRILO LOBO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 17.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 6.39
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 25.39
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "SOFIA LORENZA DE OLIVEIRA MENDES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 19.49
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 25.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 23.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 18.62
+      },
+      "ARTE": {
+        "1º_trimestre": 26.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.92
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 27.82
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 29.0
+      }
+    }
+  },
+  {
+    "turma": "802",
+    "aluno": "YASMIN VITORIA TOGUIAS LIRIO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 25.25,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.25,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 26.25,
+        "2º_trimestre": 26.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "ALESSANDRO EUSTAQUIO BORGES JUNIOR",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 13.2,
+        "2º_trimestre": 3.85
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 22.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "ANA CLARA OLIVEIRA FERREIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.09
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "ANA JULIA ABREU DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.88
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 21.74
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 24.6,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 25.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.94
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 25.94
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "ARTHUR JADSON SANTOS MARTINS ANDRADE",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 2.0,
+        "2º_trimestre": 0.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 10.0,
+        "2º_trimestre": 0.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 12.0,
+        "2º_trimestre": 8.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 0.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 2.0,
+        "2º_trimestre": 0.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 5.0,
+        "2º_trimestre": 0.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "DAVI LUCA SANTOS DE SOUZA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 14.0
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 4.52
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.02
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.02
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "DAYVID GOMES DE OLIVEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 18.94
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 25.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 23.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 23.25,
+        "2º_trimestre": 23.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 23.34
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 28.34
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "DIOGO LUCCA SOUZA BORGES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.42
+      },
+      "ARTE": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 3.92
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.42
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 25.75,
+        "2º_trimestre": 21.42
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "ELIZA EMANUELE SOARES PEREIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 15.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 22.27
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "EMILY VICTORIA FERREIRA GUEDES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 11.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 10.6,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 12.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 23.42
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "EMMANUEL MOREIRA DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 19.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 15.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.75
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 14.65,
+        "2º_trimestre": 8.52
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.25,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 25.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "ENDRIO MIGUEL PACHECO PRISCO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 8.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 5.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 10.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 21.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "FILIPE ARAUJO LOPES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 19.11
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 17.0
+      },
+      "ARTE": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 6.81
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 23.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "GABRIEL MORAIS OLIVEIRA DE SOUZA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.44
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.75
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 20.48
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 25.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "GABRIEL RODRIGUES PEREIRA NUNES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 19.25,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.25,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 19.25,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "GUSTAVO ALMEIDA CAVALCANTI",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.23
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 20.98
+      },
+      "ARTE": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.25,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 24.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "ISABELLE HELENA BARBOSA DIAS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 16.0
+      },
+      "ARTE": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 9.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "ISADORA VITORIA PEREIRA DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 5.69
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "ITALO PEREIRA LACERDA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 12.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 9.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 13.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.11
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 23.11
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "JADSON JESUS DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 7.0,
+        "2º_trimestre": 11.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 5.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "KAIO HENRIQUE MATHIAS DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 16.6
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 1.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "KAYLAINE VICTORIA DE SOUZA MORAIS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 19.74
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 20.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 22.76
+      },
+      "ARTE": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 14.0,
+        "2º_trimestre": 11.96
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 21.96
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 28.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "LÍVIA APARECIDA OLIVEIRA DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 23.88
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "MARIA CECILIA ROCHA PIMENTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.18
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 21.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.58
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.78
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 21.78
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "MARIA CLARA SILVA GONÇALVES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.17
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.01
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.1
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "MARIA LUIZA RODRIGUES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.67
+      },
+      "ARTE": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 9.37
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 25.37
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "MARIANA APARECIDA DA COSTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 18.12
+      },
+      "ARTE": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 19.42
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 25.42
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "NARYELLY LAYSLA ROMUALDO DE JESUS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 15.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 5.0,
+        "2º_trimestre": 1.96
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 10.0,
+        "2º_trimestre": 10.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "PETRICK SAMUEL DE CARVALHO MARTINS ROSA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.39
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 8.6,
+        "2º_trimestre": 12.42
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "RUAN VANDERLEI XAVIER SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 11.6,
+        "2º_trimestre": 3.75
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.98
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 22.98
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "SOPHIA EMANUELLE DE JESUS COSTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.08
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 17.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 21.17
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 12.21
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.67
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 22.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "VITOR RODRIGUES FARIA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 10.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 20.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "WESLEY MATHEUS DOS REIS PEREIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 14.0
+      },
+      "ARTE": {
+        "1º_trimestre": 23.25,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 12.75,
+        "2º_trimestre": 8.92
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 26.75,
+        "2º_trimestre": 24.92
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "YAN EMANUEL MENDES LOPES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.41
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.08
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 25.0
+      }
+    }
+  },
+  {
+    "turma": "803",
+    "aluno": "YURI HENRIQUE BENZAQUEM FERREIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 21.03
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 19.0
+      },
+      "CIÊNCIAS": {
+        "1º_trimestre": 20.75,
+        "2º_trimestre": 18.28
+      },
+      "ARTE": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 22.75
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 23.15,
+        "2º_trimestre": 20.48
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 22.98
+      },
+      "ENSINO RELIGIOSO": {
+        "1º_trimestre": 26.75,
+        "2º_trimestre": 28.0
+      }
+    }
+  }
+]

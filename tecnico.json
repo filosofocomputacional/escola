@@ -1,0 +1,3482 @@
+[
+  {
+    "turma": "TEC 1",
+    "aluno": "AGNES LORRAYNE OLIVEIRA REIS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 19.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 23.5
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 21.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 20.05
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 29.5,
+        "2º_trimestre": 19.55
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "ANA REBEKA LIMA PAULINO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.01
+      },
+      "FÍSICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 21.8
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 21.5
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 21.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 22.75
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 19.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 19.5
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 23.5
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "ANNY HELLEN GOMES LOPES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.25,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.25,
+        "2º_trimestre": 21.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 27.25,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 20.71
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 28.25,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "BEATRIZ MARTINS BARROSO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.18
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.44
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.47,
+        "2º_trimestre": 24.75
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 8.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 18.79
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 23.54
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 19.54
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "BRUNA KEREN DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 20.33
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.75
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 20.53
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.73
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 24.25,
+        "2º_trimestre": 20.53
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "DANIELLE FLAVIA GONÇALVES SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 13.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 10.0,
+        "2º_trimestre": 13.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 17.06
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 14.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 10.75,
+        "2º_trimestre": 18.16
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 14.56
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "DENIS JUNIO FERREIRA MENESES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 15.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.15
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 22.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 19.2
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 17.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.5
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.45
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "ELOAH VITORIA SOUTO FERREIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 16.18
+      },
+      "FÍSICA": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 17.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 22.75
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 20.05
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 17.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.2
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 20.8
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "ENDRICK PIERRE SILVA COSTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 22.13
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.73,
+        "2º_trimestre": 25.15
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 27.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 28.23,
+        "2º_trimestre": 28.75
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 25.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 27.23,
+        "2º_trimestre": 27.75
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 23.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 26.73,
+        "2º_trimestre": 27.95
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 27.73,
+        "2º_trimestre": 27.25
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "JOÃO VICTOR LIMA DURÃES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 22.95
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.25,
+        "2º_trimestre": 25.61
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 23.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 25.25,
+        "2º_trimestre": 24.5
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 24.25,
+        "2º_trimestre": 24.06
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 20.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 20.25,
+        "2º_trimestre": 26.01
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 27.25,
+        "2º_trimestre": 22.81
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "KAUA KAIO SANT ANA SOUZA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.96
+      },
+      "FÍSICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 28.5,
+        "2º_trimestre": 24.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 24.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 19.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 19.1
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.75
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "LARA ALVES DA COSTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 19.94
+      },
+      "FÍSICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 22.85
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 24.25
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 21.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 26.75
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 21.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 25.45
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 22.75
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "LARISSA DA SILVA DE ASSIS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.77
+      },
+      "FÍSICA": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 18.49
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.25,
+        "2º_trimestre": 19.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 24.25,
+        "2º_trimestre": 20.44
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 22.64
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 14.19
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "LARYSSA SARA MENDES DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 22.56
+      },
+      "FÍSICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 21.65
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 27.25
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 25.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 25.25
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 23.25
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 26.75
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "LAURA ELISA ALVES DE OLIVEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.08
+      },
+      "FÍSICA": {
+        "1º_trimestre": 14.0,
+        "2º_trimestre": 17.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 24.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 6.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.5
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "LUCAS JOSE DE OLIVEIRA BARRETO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 22.58
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 27.5,
+        "2º_trimestre": 24.5
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 24.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 27.5,
+        "2º_trimestre": 21.38
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 22.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 27.5,
+        "2º_trimestre": 24.88
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 20.38
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "LUIZ GUSTAVO CAETANO DE OLIVEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 20.75,
+        "2º_trimestre": 18.2
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 26.75,
+        "2º_trimestre": 23.5
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 28.25,
+        "2º_trimestre": 18.57
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 19.47
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 26.25,
+        "2º_trimestre": 19.57
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "MARIA EDUARDA MENDONÇA SABINO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 16.67
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.75
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 22.5
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 21.95
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 22.3
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 21.45
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "MARIA LUISA MUNIZ MOREIRA DE AGUIAR",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.43
+      },
+      "FÍSICA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 19.17
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 23.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 21.75
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 12.0,
+        "2º_trimestre": 20.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 21.02
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 11.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.17
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 21.27
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "MIGUEL HENRIQUE GARCIA DE OLIVEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.89
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.36
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 27.2
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.31
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 20.16
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 20.06
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "MIGUEL LUCAS MARTINS SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 8.5
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 5.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 10.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 13.5
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "PRISCILA CARVALHO KELLER",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.25,
+        "2º_trimestre": 21.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 24.25,
+        "2º_trimestre": 19.5
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.75,
+        "2º_trimestre": 21.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 27.25,
+        "2º_trimestre": 18.5
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "REBECA BATISTA SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 18.08
+      },
+      "FÍSICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 21.3
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 29.25,
+        "2º_trimestre": 24.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 27.75,
+        "2º_trimestre": 21.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 22.4
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 26.75,
+        "2º_trimestre": 18.5
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "SAMUEL LUIZ OLIVEIRA DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 15.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 13.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 4.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 13.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": null,
+        "2º_trimestre": 15.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "SARA CRISTINA GUIMARÃES SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 16.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 15.52
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 12.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 14.5,
+        "2º_trimestre": 18.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "SOPHIA RAMOS ALVES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 12.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 13.0,
+        "2º_trimestre": 11.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 11.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.18
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "SOPHIA VICTORIA DE OLIVEIRA ARAÚJO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.8
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 23.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 23.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 20.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 26.25,
+        "2º_trimestre": 22.25
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 20.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 20.75,
+        "2º_trimestre": 24.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 21.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "VICTOR EMANOEL NICANOR RODRIGUES DUARTE",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 12.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 19.25,
+        "2º_trimestre": 17.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 22.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 19.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 26.25,
+        "2º_trimestre": 18.76
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 18.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "YASMIN GABRIELE MARQUES DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 22.43
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 23.35
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 23.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.75
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 22.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 27.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 21.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 25.25
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 25.75
+      }
+    }
+  },
+  {
+    "turma": "TEC 1",
+    "aluno": "YASMIN NATASHA BARROSO DE RESENDE",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.8
+      },
+      "FÍSICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 23.97
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 22.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 23.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 0.0,
+        "2º_trimestre": 21.32
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 23.22
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 0.0,
+        "2º_trimestre": 21.07
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "ANA JULIA LOPES FERREIRA PAULINO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 24.71
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 27.9,
+        "2º_trimestre": 28.38
+      },
+      "FÍSICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 26.09
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 28.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 27.5
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 29.5,
+        "2º_trimestre": 26.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 28.19
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 26.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 25.69
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 28.5,
+        "2º_trimestre": 27.94
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 26.69
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 25.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 26.2,
+        "2º_trimestre": 25.39
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 26.19
+      },
+      "ARTE": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 28.19
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 25.94
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "ANA LUIZA GONÇALVES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 15.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 17.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 27.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": null,
+        "2º_trimestre": 15.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 12.0
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 12.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 11.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 14.2
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 20.5
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 22.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": null,
+        "2º_trimestre": 10.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "ANA VITORIA VIEIRA CARVALHO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 20.87
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 21.1
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.07
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 27.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 21.75
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.25,
+        "2º_trimestre": 21.25
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 19.12
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 23.37
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 20.87
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 20.12
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 14.0,
+        "2º_trimestre": 25.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 14.35,
+        "2º_trimestre": 20.77
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 18.37
+      },
+      "ARTE": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 26.37
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 28.5,
+        "2º_trimestre": 18.62
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "ANDRESSA FERREIRA DE MELO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 19.3,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 17.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 20.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 20.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 23.25,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 18.5
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 20.25,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 19.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 12.8
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.2
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 22.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 20.25,
+        "2º_trimestre": 15.5
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "BEATRIZ APARECIDA DA COSTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.5
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 19.08
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 22.25
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 25.25
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 23.83
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 23.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 26.58
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 23.33
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 23.08
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 19.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.98
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 27.75,
+        "2º_trimestre": 20.18
+      },
+      "ARTE": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 27.58
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 23.58
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "BRUNA HELOIZA DA SILVA SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 17.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 23.25
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 20.65,
+        "2º_trimestre": 23.25
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 19.25,
+        "2º_trimestre": 25.25
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 21.25
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 19.75
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 23.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 20.25,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 19.0
+      },
+      "ARTE": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 26.25
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 21.75
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "CAIO ISRAEL FERREIRA SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.4,
+        "2º_trimestre": 21.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 20.54
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 27.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 21.5
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 24.65,
+        "2º_trimestre": 24.64
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 23.64
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 23.64
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 20.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 21.3,
+        "2º_trimestre": 14.29
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 19.04
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 26.89
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 21.64
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "CAMYLLI EMMANUELE GOMES CHAVES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 10.5,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 16.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 15.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.75
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 13.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 19.75
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 13.75,
+        "2º_trimestre": 18.0
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 17.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 23.6,
+        "2º_trimestre": 20.05
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 22.45
+      },
+      "ARTE": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.25
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 15.25,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "DANIEL RODRIGUES DE SOUSA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 23.84
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.2,
+        "2º_trimestre": 21.63
+      },
+      "FÍSICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 25.6
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 27.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 23.75
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 27.75
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 23.15,
+        "2º_trimestre": 19.75
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 20.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 23.75
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 19.5
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 21.5,
+        "2º_trimestre": 21.25
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 23.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.15
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 23.75
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 27.75
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 20.25
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "DAVI ISAÍAS CABRAL",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 19.11
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 19.41
+      },
+      "FÍSICA": {
+        "1º_trimestre": 22.5,
+        "2º_trimestre": 19.67
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 27.5,
+        "2º_trimestre": 23.25
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 29.5,
+        "2º_trimestre": 26.75
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.87
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 21.78
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 25.62
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 22.37
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 21.87
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 23.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 28.4,
+        "2º_trimestre": 19.52
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 23.57
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 27.12
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "DEBORA VITORIA DE SOUZA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 21.18
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.9,
+        "2º_trimestre": 21.77
+      },
+      "FÍSICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.64
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 25.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 25.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 26.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 27.73,
+        "2º_trimestre": 24.14
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 23.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 27.64
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 26.73,
+        "2º_trimestre": 24.14
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 26.73,
+        "2º_trimestre": 25.14
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 24.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 29.9,
+        "2º_trimestre": 24.84
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 23.64
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 27.64
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 28.23,
+        "2º_trimestre": 22.64
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "EMILLY DE SOUZA SALDANHA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.44
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 21.04
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.95
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 27.25,
+        "2º_trimestre": 29.75
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 27.75
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 27.75,
+        "2º_trimestre": 26.5
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 19.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 27.75
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 23.25,
+        "2º_trimestre": 24.75
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 27.25,
+        "2º_trimestre": 26.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 20.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 28.1,
+        "2º_trimestre": 23.35
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 26.95
+      },
+      "ARTE": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 29.75
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 23.75
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "ESTER VITÓRIA APOLINÁRIO BORGES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 14.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 15.75,
+        "2º_trimestre": 18.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 20.5
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 19.88
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 14.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 19.25,
+        "2º_trimestre": 18.38
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 19.38
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.38
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 14.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 22.15,
+        "2º_trimestre": 21.28
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 18.28
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 25.88
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "GUILHERME ANTONIO TORRES FRANÇA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.88
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 21.4,
+        "2º_trimestre": 23.85
+      },
+      "FÍSICA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 19.22
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 28.5,
+        "2º_trimestre": 21.5
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 23.5
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 23.3,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 25.75,
+        "2º_trimestre": 19.52
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 18.0
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 18.52
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 18.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 26.4,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 22.72
+      },
+      "ARTE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 24.52
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 18.02
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "HUGO CALDEIRA DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 15.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 16.25,
+        "2º_trimestre": 13.25
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 27.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 23.75
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 19.25
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 18.25
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 19.25
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 15.5
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 23.25,
+        "2º_trimestre": 15.75
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 25.85,
+        "2º_trimestre": 8.95
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 23.75
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 15.75
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "JOÃO EMANUEL LIMA DURAES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 21.78
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 22.6,
+        "2º_trimestre": 23.05
+      },
+      "FÍSICA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 22.48
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 26.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 28.5
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 21.88
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 26.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 19.13
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.38
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 21.63
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 24.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 26.3,
+        "2º_trimestre": 19.53
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 21.38
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 29.13
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 18.88
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "KAYQUE ALEXANDRE ARAÚJO MACEDO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 12.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 19.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.25,
+        "2º_trimestre": 20.75
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 15.0,
+        "2º_trimestre": 15.0
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 13.0,
+        "2º_trimestre": 15.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 17.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 24.35,
+        "2º_trimestre": 9.91
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 22.71
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 16.75,
+        "2º_trimestre": 7.96
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "KETLEN SOPHIA DOS SANTOS SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.47
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 11.0,
+        "2º_trimestre": 23.28
+      },
+      "FÍSICA": {
+        "1º_trimestre": 12.5,
+        "2º_trimestre": 23.15
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 26.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 23.75
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 18.5,
+        "2º_trimestre": 25.25
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 18.75
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 24.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 25.75
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 21.75
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 19.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 22.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 23.9,
+        "2º_trimestre": 22.65
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 24.25
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 29.25
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "KEYCILA RAISSA DE OLIVEIRA LOPES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 26.79
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 27.4,
+        "2º_trimestre": 29.08
+      },
+      "FÍSICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 24.7
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 27.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 30.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 29.5
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 29.5
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 29.25,
+        "2º_trimestre": 28.25
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 27.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 29.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 28.25,
+        "2º_trimestre": 28.5
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 29.75,
+        "2º_trimestre": 25.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 23.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 28.7,
+        "2º_trimestre": 25.4
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 27.2
+      },
+      "ARTE": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 30.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 28.75,
+        "2º_trimestre": 28.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "LUARA FAGUNDES DE SOUSA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.2,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.25,
+        "2º_trimestre": 19.34
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 21.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 24.75,
+        "2º_trimestre": 15.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 20.75,
+        "2º_trimestre": 23.25
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 23.5,
+        "2º_trimestre": 18.94
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 21.0,
+        "2º_trimestre": 20.19
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 21.69
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 20.94
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 15.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 24.1,
+        "2º_trimestre": 13.19
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 21.75,
+        "2º_trimestre": 22.44
+      },
+      "ARTE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 25.19
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 18.94
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "MARIA CECILIA DOS SANTOS OLIVEIRA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 25.34
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 24.85
+      },
+      "FÍSICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 21.45
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 27.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 26.75
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 27.25
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 24.25
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 21.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 26.75
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 24.75
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 23.75
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 25.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 29.1,
+        "2º_trimestre": 25.95
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 25.75
+      },
+      "ARTE": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 28.75
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 22.75
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "MARIANA CRISTINA PEREIRA TOMAZ",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 21.7,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": 23.25,
+        "2º_trimestre": 18.43
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 26.75,
+        "2º_trimestre": 20.75
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 21.75
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 24.65,
+        "2º_trimestre": 19.63
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 21.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 26.25,
+        "2º_trimestre": 21.13
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 20.38
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 21.13
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 19.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 22.75,
+        "2º_trimestre": 19.53
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 22.33
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 26.13
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 18.63
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "NICOLLY ANDRESSA SENA DE SOUZA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 19.71
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.45
+      },
+      "FÍSICA": {
+        "1º_trimestre": 21.25,
+        "2º_trimestre": 19.1
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 26.25,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 25.25,
+        "2º_trimestre": 23.5
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 25.4,
+        "2º_trimestre": 23.25
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 24.25
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 23.75
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 23.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 22.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 26.55,
+        "2º_trimestre": 17.05
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 23.75,
+        "2º_trimestre": 25.1
+      },
+      "ARTE": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 28.25
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 19.25,
+        "2º_trimestre": 20.5
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "RAYSON SAMUEL PEREIRA DA SILVA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 12.0
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 15.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 17.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 12.3
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 22.3
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": null,
+        "2º_trimestre": 7.8
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "REBECA LUSTOSA DOS SANTOS",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 23.84
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.8,
+        "2º_trimestre": 22.42
+      },
+      "FÍSICA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.8
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 25.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 24.5
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 26.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 28.9,
+        "2º_trimestre": 25.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 21.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 28.0
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 28.25,
+        "2º_trimestre": 28.0
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 29.25,
+        "2º_trimestre": 26.5
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 24.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 25.8
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 29.0
+      },
+      "ARTE": {
+        "1º_trimestre": 30.0,
+        "2º_trimestre": 29.0
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 28.25,
+        "2º_trimestre": 27.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "RHYANN RAMOS MACHADO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.9
+      },
+      "FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.35
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 20.75
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": null,
+        "2º_trimestre": 21.35
+      },
+      "QUÍMICA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.1
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 19.6
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.35
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 17.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": null,
+        "2º_trimestre": 20.0
+      },
+      "ARTE": {
+        "1º_trimestre": null,
+        "2º_trimestre": 25.6
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": null,
+        "2º_trimestre": 18.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "RYAN LUCAS DOS SANTOS BARBOSA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 21.68
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 25.8,
+        "2º_trimestre": 22.28
+      },
+      "FÍSICA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 20.5
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 26.5,
+        "2º_trimestre": 23.0
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 25.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 25.8,
+        "2º_trimestre": 18.0
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 19.25
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 20.75
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 20.25
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 20.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 26.2,
+        "2º_trimestre": 18.0
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 21.4
+      },
+      "ARTE": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 26.75
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.0
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "VITORIA REIS DO NASCIMENTO",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 24.0,
+        "2º_trimestre": 19.22
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.24
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.75,
+        "2º_trimestre": 22.36
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 26.0,
+        "2º_trimestre": 22.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 27.25,
+        "2º_trimestre": 26.75
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 27.75,
+        "2º_trimestre": 27.75
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 19.55,
+        "2º_trimestre": 22.81
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 19.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 27.75,
+        "2º_trimestre": 23.56
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 23.56
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 23.0,
+        "2º_trimestre": 24.06
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 24.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 26.45,
+        "2º_trimestre": 23.46
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 22.25,
+        "2º_trimestre": 24.06
+      },
+      "ARTE": {
+        "1º_trimestre": 20.0,
+        "2º_trimestre": 28.06
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 19.5,
+        "2º_trimestre": 20.56
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "YAGO ALVES DA COSTA",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 28.0,
+        "2º_trimestre": 18.08
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 20.3,
+        "2º_trimestre": 24.52
+      },
+      "FÍSICA": {
+        "1º_trimestre": 22.0,
+        "2º_trimestre": 22.86
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 29.0,
+        "2º_trimestre": 21.25
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 28.5,
+        "2º_trimestre": 21.25
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 26.9,
+        "2º_trimestre": 24.56
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 25.0,
+        "2º_trimestre": 20.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 24.5,
+        "2º_trimestre": 20.81
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 25.75,
+        "2º_trimestre": 28.06
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 26.25,
+        "2º_trimestre": 25.06
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 22.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 28.1,
+        "2º_trimestre": 17.71
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 25.06
+      },
+      "ARTE": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 26.31
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 25.75,
+        "2º_trimestre": 23.81
+      }
+    }
+  },
+  {
+    "turma": "TEC 2",
+    "aluno": "YASMIN FONSECA PIRES",
+    "notas": {
+      "LÍNGUA PORTUGUESA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "MATEMÁTICA": {
+        "1º_trimestre": 13.0,
+        "2º_trimestre": 18.56
+      },
+      "FÍSICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.57
+      },
+      "HISTÓRIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 28.0
+      },
+      "GEOGRAFIA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 20.0
+      },
+      "EDUCAÇÃO DIGITAL": {
+        "1º_trimestre": 25.5,
+        "2º_trimestre": 22.5
+      },
+      "EDUCAÇÃO FÍSICA": {
+        "1º_trimestre": 19.0,
+        "2º_trimestre": 21.0
+      },
+      "ÉTICA E RELAÇÕES HUMANAS": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 21.57
+      },
+      "QUÍMICA": {
+        "1º_trimestre": 18.0,
+        "2º_trimestre": 18.0
+      },
+      "BIOLOGIA": {
+        "1º_trimestre": 20.5,
+        "2º_trimestre": 18.57
+      },
+      "PROJETOS INTEGRADORES E DE CORRESPONSABILIDADE": {
+        "1º_trimestre": 20.75,
+        "2º_trimestre": 19.82
+      },
+      "FERRAMENTAS PARA O MUNDO DO": {
+        "1º_trimestre": 20.75,
+        "2º_trimestre": 22.32
+      },
+      "LÍNGUA INGLESA": {
+        "1º_trimestre": 17.0,
+        "2º_trimestre": 18.0
+      },
+      "FILOSOFIA": {
+        "1º_trimestre": 24.6,
+        "2º_trimestre": 23.47
+      },
+      "SOCIOLOGIA": {
+        "1º_trimestre": 16.0,
+        "2º_trimestre": 18.67
+      },
+      "ARTE": {
+        "1º_trimestre": 27.0,
+        "2º_trimestre": 27.07
+      },
+      "SUSTENTABILIDADE E RESPONSABILIDADE SOCIOAMBIENTAL": {
+        "1º_trimestre": 19.75,
+        "2º_trimestre": 18.07
+      }
+    }
+  }
+]
