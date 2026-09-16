@@ -82,9 +82,10 @@
       margin-bottom: 0.5rem;
       color: var(--text);
     }
+    .input-wrapper { position: relative; }
     .search-box input, .search-box select {
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 3rem 1rem 1rem;
       font-size: 1.1rem;
       border: 2px solid var(--border);
       border-radius: 8px;
@@ -92,6 +93,30 @@
       transition: border-color 0.2s;
     }
     .search-box input:focus, .search-box select:focus { border-color: var(--primary); }
+    .btn-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      color: #94a3b8;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 5;
+    }
+    .btn-clear:hover {
+      background: #f1f5f9;
+      color: var(--danger);
+    }
+    .btn-clear.hidden { display: none; }
     .loading-indicator {
       font-size: 0.9rem;
       color: #64748b;
@@ -367,8 +392,9 @@
       <div id="tabSearch" class="tab-content active">
         <div class="search-box">
           <label for="searchInput">Digite o nome do aluno:</label>
-          <div class="autocomplete-wrapper">
+          <div class="autocomplete-wrapper input-wrapper">
             <input type="text" id="searchInput" placeholder="Ex: Digite o nome..." disabled>
+            <button type="button" id="btnClear" class="btn-clear hidden" title="Limpar pesquisa">✕</button>
             <div id="autocompleteDropdown" class="autocomplete-dropdown"></div>
           </div>
           <div id="loadingStatus" class="loading-indicator">🔄 Carregando dados...</div>
@@ -487,6 +513,7 @@
       document.getElementById("mainContent").style.display = "none";
       document.getElementById("selectionScreen").style.display = "block";
       document.getElementById("searchInput").value = "";
+      document.getElementById("btnClear").classList.add("hidden");
       document.getElementById("boletimCard").classList.remove("active");
       document.getElementById("classSelect").value = "";
       document.getElementById("classBoletimCard").style.display = "none";
@@ -499,6 +526,7 @@
     // ------------------- Carregar Dados -------------------
     async function loadData() {
       const searchInput = document.getElementById("searchInput");
+      const btnClear = document.getElementById("btnClear");
       const loadingStatus = document.getElementById("loadingStatus");
       const classSelect = document.getElementById("classSelect");
 
@@ -609,8 +637,17 @@
 
     function updateAutocomplete(query) {
       const dropdown = document.getElementById("autocompleteDropdown");
+      const btnClear = document.getElementById("btnClear");
       const q = query.trim();
-      if (!q) { closeAutocomplete(); return; }
+      
+      // Mostra/esconde botão de limpar
+      if (q) {
+        btnClear.classList.remove("hidden");
+      } else {
+        btnClear.classList.add("hidden");
+        closeAutocomplete();
+        return;
+      }
 
       currentMatches = allStudents
         .filter(s => s.nomeCompleto.toLowerCase().includes(q.toLowerCase()))
@@ -646,8 +683,18 @@
 
     function selectStudent(aluno) {
       document.getElementById("searchInput").value = aluno.nomeCompleto;
+      document.getElementById("btnClear").classList.remove("hidden");
       closeAutocomplete();
       renderBoletim(aluno);
+    }
+
+    // ✅ Limpar pesquisa
+    function clearSearch() {
+      document.getElementById("searchInput").value = "";
+      document.getElementById("btnClear").classList.add("hidden");
+      closeAutocomplete();
+      document.getElementById("boletimCard").classList.remove("active");
+      document.getElementById("searchInput").focus();
     }
 
     // ------------------- Renderizar Boletim Individual -------------------
@@ -801,6 +848,8 @@
 
     // ------------------- Eventos de Busca -------------------
     const searchInput = document.getElementById("searchInput");
+    const btnClear = document.getElementById("btnClear");
+    
     searchInput.addEventListener("input", e => updateAutocomplete(e.target.value));
     searchInput.addEventListener("keydown", e => {
       if (!document.getElementById("autocompleteDropdown").classList.contains('open')) return;
@@ -814,13 +863,20 @@
         e.preventDefault();
         if (highlightedIndex >= 0) selectStudent(currentMatches[highlightedIndex]);
       } else if (e.key === "Escape") {
-        closeAutocomplete();
+        clearSearch();
       }
       document.querySelectorAll('.autocomplete-item').forEach((it, i) => {
         it.classList.toggle('highlighted', i === highlightedIndex);
       });
     });
-    searchInput.addEventListener("blur", () => setTimeout(closeAutocomplete, 150));
+    searchInput.addEventListener("blur", () => setTimeout(() => {
+      if (!searchInput.value.trim()) {
+        btnClear.classList.add("hidden");
+      }
+      closeAutocomplete();
+    }, 150));
+    
+    btnClear.addEventListener("click", clearSearch);
   </script>
 </body>
 </html>
