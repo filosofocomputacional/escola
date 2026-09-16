@@ -230,6 +230,31 @@
     .tab-content { display: none; }
     .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
 
+    /* Filtro de Trimestre */
+    .trimestre-filter {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+    .trimestre-btn {
+      padding: 8px 16px;
+      border: 2px solid var(--primary);
+      background: white;
+      color: var(--primary);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .trimestre-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+    .trimestre-btn:hover:not(.active) {
+      background: #eff6ff;
+    }
+
     .class-table-card {
       background: white;
       border-radius: 12px;
@@ -247,25 +272,35 @@
     .class-table th {
       background-color: var(--primary);
       color: white;
-      padding: 12px 8px;
+      padding: 10px 6px;
       text-align: center;
       border: 1px solid #1e3a8a;
+      font-size: 0.85rem;
     }
-    .class-table th:first-child { text-align: left; min-width: 200px; }
+    .class-table th:first-child {
+      text-align: left;
+      min-width: 160px;
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      background-color: var(--primary);
+    }
     .class-table td {
-      padding: 10px 8px;
+      padding: 8px 6px;
       text-align: center;
       border: 1px solid var(--border);
       font-weight: 600;
+      font-size: 0.85rem;
     }
     .class-table td:first-child {
       text-align: left;
       background-color: #f8fafc;
-      min-width: 200px;
+      min-width: 160px;
       position: sticky;
       left: 0;
       z-index: 2;
       box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+      font-size: 0.85rem;
     }
     .class-table td.grade-danger { background-color: var(--danger-bg); color: var(--danger); }
     .class-table td.grade-ok { background-color: #f0fdf4; color: var(--success); }
@@ -273,6 +308,7 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* 📱 Ajustes para CELULAR — fontes menores na tabela do boletim */
     @media (max-width: 768px) {
       body { padding: 1rem 0.5rem; }
       header h1 { font-size: 1.6rem; }
@@ -280,6 +316,21 @@
       .tabs { flex-wrap: nowrap; gap: 5px; }
       .tab-btn { padding: 10px 12px; font-size: 0.85rem; }
       .boletim-footer { flex-direction: column; gap: 10px; text-align: center; }
+
+      /* Tabela de notas — fontes reduzidas */
+      .grades-table { padding: 0 1rem 1rem; }
+      .grades-table th, .grades-table td {
+        padding: 0.5rem 0.4rem;
+        font-size: 0.8rem;
+      }
+      .grade-value { font-size: 0.9rem; }
+      .boletim-header h2 { font-size: 1.3rem; }
+      .boletim-header p { font-size: 0.95rem; }
+
+      /* Tabela por turma */
+      .class-table { font-size: 0.75rem; }
+      .class-table th, .class-table td { padding: 6px 4px; font-size: 0.75rem; }
+      .class-table th:first-child, .class-table td:first-child { min-width: 120px; }
     }
   </style>
 </head>
@@ -340,8 +391,8 @@
               <thead>
                 <tr>
                   <th>Disciplina</th>
-                  <th>1º Trimestre</th>
-                  <th>2º Trimestre</th>
+                  <th>1º Tri</th>
+                  <th>2º Tri</th>
                   <th>Situação</th>
                 </tr>
               </thead>
@@ -369,7 +420,15 @@
             <option value="">Carregando turmas...</option>
           </select>
         </div>
-        <div id="classBoletimCard" class="class-table-card boletim">
+
+        <!-- 🔘 Botões de Trimestre -->
+        <div class="trimestre-filter" id="trimestreFilter" style="display: none;">
+          <button class="trimestre-btn active" data-trimestre="todos">📊 Todos</button>
+          <button class="trimestre-btn" data-trimestre="1">1º Trimestre</button>
+          <button class="trimestre-btn" data-trimestre="2">2º Trimestre</button>
+        </div>
+
+        <div id="classBoletimCard" class="class-table-card boletim" style="display: none;">
           <div class="boletim-header" style="border-radius: 12px 12px 0 0;">
             <h2 id="classTitle">Boletim da Turma</h2>
           </div>
@@ -385,7 +444,7 @@
   </div>
 
   <script>
-    // 📋 Arquivos JSON que você criou — coloque na mesma pasta do HTML!
+    // 📋 Arquivos JSON
     const FILES = {
       '8_ano': { nome: '8º Ano', url: '8_ano.json' },
       '9_ano': { nome: '9º Ano', url: '9_ano.json' },
@@ -401,6 +460,19 @@
     let highlightedIndex = -1;
     let currentMatches = [];
     let currentSerie = null;
+    let currentTurmaSelecionada = null;
+    let trimestreAtual = 'todos';
+
+    // ------------------- Formatar Nome: 1º nome + 3 letras do 2º -------------------
+    function formatarNome(nomeCompleto) {
+      if (!nomeCompleto) return "—";
+      const partes = nomeCompleto.trim().split(/\s+/);
+      if (partes.length === 1) return partes[0];
+      const primeiro = partes[0];
+      const segundo = partes[1];
+      const abreviatura = segundo.length >= 3 ? segundo.substring(0, 3) + '.' : segundo;
+      return `${primeiro} ${abreviatura}`;
+    }
 
     // ------------------- Tela de Seleção -------------------
     function selectSerie(serieKey) {
@@ -417,8 +489,11 @@
       document.getElementById("searchInput").value = "";
       document.getElementById("boletimCard").classList.remove("active");
       document.getElementById("classSelect").value = "";
+      document.getElementById("classBoletimCard").style.display = "none";
+      document.getElementById("trimestreFilter").style.display = "none";
       allStudents = [];
       allClasses = {};
+      currentTurmaSelecionada = null;
     }
 
     // ------------------- Carregar Dados -------------------
@@ -444,7 +519,6 @@
           allClasses[s.turma].push(s);
         });
 
-        // Preenche selects
         populateClassSelect();
 
         loadingStatus.textContent = `✅ ${allStudents.length} alunos carregados`;
@@ -462,18 +536,16 @@
     // ------------------- Processar Dados -------------------
     function processData(raw) {
       return raw.map(item => {
-        const aluno = item.aluno || item.ALUNO || "Sem nome";
+        const alunoCompleto = item.aluno || item.ALUNO || "Sem nome";
         const turma = item.turma || item.Turma || "Sem turma";
         const notas = item.notas || {};
 
-        // Converte notas para números
         const disciplinas = Object.entries(notas).map(([nome, vals]) => ({
           nome,
           trim1: parseNota(vals['1º_trimestre']),
           trim2: parseNota(vals['2º_trimestre'])
         }));
 
-        // Cálculos
         medias = disciplinas.map(d => {
           valido = [d.trim1, d.trim2].filter(n => n !== null);
           return valido.length ? valido.reduce((a,b) => a+b, 0) / valido.length : null;
@@ -484,7 +556,8 @@
         mediaGeral = validas.length ? validas.reduce((a,b) => a+b, 0) / validas.length : 0;
 
         return {
-          nome: aluno,
+          nomeCompleto: alunoCompleto,
+          nome: formatarNome(alunoCompleto),
           turma,
           disciplinas,
           medias,
@@ -540,7 +613,7 @@
       if (!q) { closeAutocomplete(); return; }
 
       currentMatches = allStudents
-        .filter(s => s.nome.toLowerCase().includes(q.toLowerCase()))
+        .filter(s => s.nomeCompleto.toLowerCase().includes(q.toLowerCase()))
         .slice(0, MAX_AUTOCOMPLETE);
       highlightedIndex = -1;
 
@@ -552,7 +625,7 @@
 
       dropdown.innerHTML = currentMatches.map((s, i) => `
         <div class="autocomplete-item" data-index="${i}">
-          <span class="name">${highlightMatch(s.nome, q)}</span>
+          <span class="name">${highlightMatch(s.nomeCompleto, q)}</span>
           <span class="class-tag">${escapeHtml(s.turma)}</span>
         </div>`).join('');
       dropdown.classList.add('open');
@@ -572,14 +645,14 @@
     }
 
     function selectStudent(aluno) {
-      document.getElementById("searchInput").value = aluno.nome;
+      document.getElementById("searchInput").value = aluno.nomeCompleto;
       closeAutocomplete();
       renderBoletim(aluno);
     }
 
     // ------------------- Renderizar Boletim Individual -------------------
     function renderBoletim(aluno) {
-      document.getElementById("studentName").textContent = aluno.nome;
+      document.getElementById("studentName").textContent = aluno.nomeCompleto;
       document.getElementById("studentClass").textContent = aluno.turma;
       document.getElementById("studentAvg").textContent = aluno.mediaGeral.toFixed(1);
       document.getElementById("studentBelowCount").textContent = aluno.abaixo;
@@ -619,8 +692,31 @@
     // ------------------- Boletim por Turma -------------------
     document.getElementById("classSelect").addEventListener("change", e => {
       const turma = e.target.value;
-      if (!turma) return;
+      if (!turma) {
+        document.getElementById("classBoletimCard").style.display = "none";
+        document.getElementById("trimestreFilter").style.display = "none";
+        currentTurmaSelecionada = null;
+        return;
+      }
+      currentTurmaSelecionada = turma;
+      trimestreAtual = 'todos';
+      document.querySelectorAll('.trimestre-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.trimestre === 'todos');
+      });
+      document.getElementById("trimestreFilter").style.display = "flex";
       renderClassBoletim(turma);
+    });
+
+    // 🔘 Trocar trimestre
+    document.querySelectorAll('.trimestre-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.trimestre-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        trimestreAtual = btn.dataset.trimestre;
+        if (currentTurmaSelecionada) {
+          renderClassBoletim(currentTurmaSelecionada);
+        }
+      });
     });
 
     function renderClassBoletim(turma) {
@@ -629,27 +725,74 @@
 
       document.getElementById("classTitle").textContent = `Boletim — ${turma}`;
 
-      // Pega todas as disciplinas
       const disciplinas = [...new Set(alunos.flatMap(a => a.disciplinas.map(d => d.nome)))].sort();
 
       // Cabeçalho
       const thead = document.getElementById("classTableHead");
-      thead.innerHTML = `<tr><th>Nome</th>${disciplinas.map(d => `<th>${escapeHtml(d)}</th>`).join('')}</tr>`;
+      let cabecalhoHtml = `<tr><th>Nome</th>`;
+      
+      if (trimestreAtual === 'todos') {
+        disciplinas.forEach(d => {
+          cabecalhoHtml += `<th colspan="2">${escapeHtml(d)}</th>`;
+        });
+      } else {
+        disciplinas.forEach(d => {
+          cabecalhoHtml += `<th>${escapeHtml(d)}</th>`;
+        });
+      }
+      cabecalhoHtml += `</tr>`;
+
+      if (trimestreAtual === 'todos') {
+        cabecalhoHtml += `<tr><th></th>`;
+        disciplinas.forEach(() => {
+          cabecalhoHtml += `<th style="font-size:0.7rem; background:#1e40af;">1º</th><th style="font-size:0.7rem; background:#1e40af;">2º</th>`;
+        });
+        cabecalhoHtml += `</tr>`;
+      }
+      
+      thead.innerHTML = cabecalhoHtml;
 
       // Corpo
       const tbody = document.getElementById("classTableBody");
       tbody.innerHTML = "";
-      alunos.sort((a,b) => a.nome.localeCompare(b.nome)).forEach(aluno => {
+      alunos.sort((a,b) => a.nomeCompleto.localeCompare(b.nomeCompleto)).forEach(aluno => {
         const tr = document.createElement("tr");
         tr.innerHTML = `<td>${escapeHtml(aluno.nome)}</td>`;
+        
         disciplinas.forEach(nomeDisc => {
           const disc = aluno.disciplinas.find(d => d.nome === nomeDisc);
-          const val = disc?.trim2 ?? disc?.trim1;
-          const td = document.createElement("td");
-          td.textContent = val !== null ? val.toFixed(1) : "—";
-          td.className = val !== null && val < 18 ? "grade-danger" : "grade-ok";
-          tr.appendChild(td);
+          
+          if (trimestreAtual === 'todos') {
+            // Os dois trimestres
+            const val1 = disc?.trim1;
+            const val2 = disc?.trim2;
+            
+            const td1 = document.createElement("td");
+            td1.textContent = val1 !== null ? val1.toFixed(1) : "—";
+            td1.className = val1 !== null && val1 < 18 ? "grade-danger" : "grade-ok";
+            tr.appendChild(td1);
+            
+            const td2 = document.createElement("td");
+            td2.textContent = val2 !== null ? val2.toFixed(1) : "—";
+            td2.className = val2 !== null && val2 < 18 ? "grade-danger" : "grade-ok";
+            tr.appendChild(td2);
+          } else if (trimestreAtual === '1') {
+            // Apenas 1º trimestre
+            const val = disc?.trim1;
+            const td = document.createElement("td");
+            td.textContent = val !== null ? val.toFixed(1) : "—";
+            td.className = val !== null && val < 18 ? "grade-danger" : "grade-ok";
+            tr.appendChild(td);
+          } else {
+            // Apenas 2º trimestre
+            const val = disc?.trim2;
+            const td = document.createElement("td");
+            td.textContent = val !== null ? val.toFixed(1) : "—";
+            td.className = val !== null && val < 18 ? "grade-danger" : "grade-ok";
+            tr.appendChild(td);
+          }
         });
+        
         tbody.appendChild(tr);
       });
 
@@ -673,7 +816,6 @@
       } else if (e.key === "Escape") {
         closeAutocomplete();
       }
-      // Destaque visual
       document.querySelectorAll('.autocomplete-item').forEach((it, i) => {
         it.classList.toggle('highlighted', i === highlightedIndex);
       });
