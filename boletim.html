@@ -27,8 +27,7 @@
     header { text-align: center; margin-bottom: 2rem; }
     header h1 { color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem; }
     header p { color: #64748b; }
-
-    /* Tela de Seleção Inicial Responsiva */
+    
     .selection-card {
       background: var(--card);
       padding: 3rem 2rem;
@@ -65,13 +64,11 @@
       transform: translateY(-3px);
       box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
     }
-
     .search-box { background: var(--card); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 2rem; position: relative; }
     .search-box label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
     .search-box input, .search-box select { width: 100%; padding: 1rem; font-size: 1.1rem; border: 2px solid var(--border); border-radius: 8px; outline: none; transition: border-color 0.2s; }
     .search-box input:focus, .search-box select:focus { border-color: var(--primary); }
     .loading-indicator { font-size: 0.9rem; color: #64748b; margin-top: 0.5rem; text-align: center; font-style: italic; }
-
     .autocomplete-wrapper { position: relative; }
     .autocomplete-dropdown {
       position: absolute;
@@ -107,19 +104,16 @@
     .autocomplete-item .class-tag { font-size: 0.75rem; background: var(--primary); color: white; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
     .autocomplete-empty { padding: 1rem; text-align: center; color: #94a3b8; font-style: italic; }
     .autocomplete-footer { padding: 0.5rem 1rem; background: #f1f5f9; font-size: 0.75rem; color: #64748b; text-align: right; border-top: 1px solid var(--border); }
-
     .boletim { background: var(--card); border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); overflow: hidden; display: none; border: 1px solid var(--border); }
     .boletim.active { display: block; animation: fadeIn 0.4s ease; }
     
     .boletim-header { background: var(--primary); color: white; padding: 1.5rem; text-align: center; position: relative; }
     .boletim-header h2 { font-size: 1.8rem; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 1px; }
     .boletim-header p { font-size: 1.1rem; opacity: 0.9; }
-
     .alert-critical { background-color: var(--danger-bg); border-left: 6px solid var(--danger); padding: 1rem 1.5rem; margin: 1.5rem; border-radius: 6px; display: flex; align-items: center; gap: 1rem; }
     .alert-critical .icon { font-size: 2rem; }
     .alert-critical .text h4 { color: var(--danger); margin-bottom: 0.2rem; font-size: 1.2rem; }
     .alert-critical .text p { color: #991b1b; font-size: 0.95rem; }
-
     .grades-table { padding: 0 1.5rem 1.5rem 1.5rem; overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
     th, td { padding: 0.8rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
@@ -130,13 +124,10 @@
     .grade-value { font-weight: 600; font-size: 1.1rem; }
     .grade-danger { color: var(--danger); }
     .grade-ok { color: var(--text); }
-
     .boletim-footer { background: #f1f5f9; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
     .stat { display: flex; flex-direction: column; }
     .stat-label { font-size: 0.8rem; color: #64748b; text-transform: uppercase; font-weight: 600; }
     .stat-value { font-size: 1.2rem; font-weight: 700; }
-
-    /* Barra de navegação responsiva */
     .tabs {
       display: flex;
       gap: 10px;
@@ -147,7 +138,6 @@
       -webkit-overflow-scrolling: touch;
       padding-bottom: 4px;
     }
-
     .tab-btn {
       background: none;
       border: none;
@@ -161,7 +151,6 @@
     }
     .tab-btn:hover { color: var(--primary); }
     .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
-
     .btn-voltar {
       background: #e2e8f0;
       color: #475569;
@@ -175,10 +164,8 @@
       white-space: nowrap;
     }
     .btn-voltar:hover { background: #cbd5e1; color: #1e293b; }
-
     .tab-content { display: none; }
     .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
-
     .class-table-card {
       background: white;
       border-radius: 12px;
@@ -186,7 +173,6 @@
       box-shadow: 0 4px 6px rgba(0,0,0,.08);
       margin-bottom: 20px;
     }
-
     .class-table-wrapper {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -194,7 +180,6 @@
       border: 1px solid var(--border);
       border-radius: 8px;
     }
-
     .class-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
     .class-table th { background-color: var(--primary); color: white; padding: 12px 8px; text-align: center; vertical-align: bottom; height: 120px; border: 1px solid #1e3a8a; }
     .class-table th.vertical-header { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; text-align: left; height: 120px; padding: 8px 4px; font-size: 0.75rem; }
@@ -211,12 +196,10 @@
       z-index: 2;
       box-shadow: 2px 0 5px rgba(0,0,0,0.05);
     }
-
     .class-table td.grade-danger { background-color: var(--danger-bg); color: var(--danger); }
     .class-table td.grade-ok { background-color: #f0fdf4; color: var(--success); }
     .class-table tr:hover td { background-color: #e0e7ff; }
     .class-table tr:hover td:first-child { background-color: #c7d2fe; }
-
     .chart-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,.08); margin-bottom: 20px; }
     .chart-title { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; text-align: center; }
     .chart-subtitle { text-align: center; color: #64748b; font-size: 0.9rem; margin-bottom: 24px; }
@@ -229,11 +212,9 @@
     .chart-bar.level-high { background: linear-gradient(90deg, #fca5a5, #dc2626); }
     .chart-value { min-width: 100px; text-align: right; font-weight: 700; color: var(--text); font-size: 0.95rem; }
     .chart-value .percent { display: block; font-size: 0.75rem; color: #64748b; font-weight: 500; }
-
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Customizações extras de Responsividade Extrema (Celulares) */
+    
     @media (max-width: 768px) {
       body { padding: 1rem 0.5rem; }
       header h1 { font-size: 1.6rem; }
@@ -256,58 +237,6 @@
       .autocomplete-item { flex-direction: column; align-items: flex-start; gap: 4px; }
       .autocomplete-item .class-tag { align-self: flex-end; font-size: 0.7rem; }
     }
-    /* Ajustes na classe base para suportar a animação lenta */
-.btn-turno {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  /* Mudança na cor e borda acompanham o ritmo lento de 0.8s */
-  transition: color 0.8s ease, transform 0.3s ease, border-color 0.8s ease, box-shadow 0.3s ease;
-}
-
-/* Garante que o texto e os emojis fiquem sempre visíveis acima do fundo */
-.btn-turno * {
-  position: relative;
-  z-index: 2;
-}
-
-/* Base da camada de fundo com transição suavizada (0.8 segundos) */
-.btn-turno::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  z-index: -1;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 0.8s ease; /* Transição mais lenta e elegante */
-}
-
-/* Efeito Manhã: Filtro azul sutil + sua imagem dia.jpg */
-.btn-manha::before {
-  background-image: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(14, 165, 233, 0.5)), 
-                    url('./dia.jpg');
-}
-
-/* Efeito Noite: Filtro escuro translúcido + sua imagem noite.jpg */
-.btn-noite::before {
-  background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.5), rgba(30, 41, 59, 0.6)), 
-                    url('./noite.jpg');
-}
-
-/* Revela o fundo suavemente ao passar o mouse */
-.btn-turno:hover::before {
-  opacity: 1;
-}
-
-/* Transição do texto para branco */
-.btn-turno:hover {
-  color: #ffffff !important;
-  border-color: transparent;
-}
   </style>
 </head>
 <body>
@@ -320,24 +249,22 @@
       <h2>📋 Sistema de Boletins Nova Contagem</h2>
       <p>Selecione o turno que deseja acessar:</p>
       <div class="btn-grid">
-       <button onclick="selectTurno('manha')" class="btn-turno btn-manha">☀️ 1º Turno<span style="font-size:0.9rem; font-weight:normal; opacity:0.8;">Manhã</span></button>
-       <button onclick="selectTurno('noite')" class="btn-turno btn-noite">🌙 3º Turno<span style="font-size:0.9rem; font-weight:normal; opacity:0.8;">Noite</span></button>      </div>
+       <button onclick="selectTurno('manha')" class="btn-turno">☀️ 1º Turno<span style="font-size:0.9rem; font-weight:normal; opacity:0.8;">Manhã</span></button>
+       <button onclick="selectTurno('noite')" class="btn-turno">🌙 3º Turno<span style="font-size:0.9rem; font-weight:normal; opacity:0.8;">Noite</span></button>
+      </div>
     </div>
-
     <div id="mainContent" style="display: none;">
       
       <header>
         <h1 id="mainTitle">📋 Boletim Escolar Integrado</h1>
         <p id="mainSubtitle">Painel de Controle</p>
       </header>
-
       <div class="tabs">
         <button id="btnTabSearch" class="tab-btn active" onclick="showTab('tabSearch', this)">🔍 Buscar Aluno</button>
         <button id="btnTabClass" class="tab-btn" onclick="showTab('tabClass', this)">📋 Boletim por Turma</button>
         <button id="btnTabChart" class="tab-btn" onclick="showTab('tabChart', this)">📊 Médias Perdidas</button>
         <button class="btn-voltar" onclick="backToSelection()">🔄 Trocar Turno</button>
       </div>
-
       <div id="tabSearch" class="tab-content active">
         <div class="search-box">
           <label for="searchInput">Digite o nome do aluno:</label>
@@ -347,7 +274,6 @@
           </div>
           <div id="loadingStatus" class="loading-indicator">🔄 Sincronizando dados escolares...</div>
         </div>
-
         <div id="boletimCard" class="boletim">
           <div class="boletim-header">
             <h2 id="studentName">Nome do Aluno</h2>
@@ -384,7 +310,6 @@
           </div>
         </div>
       </div>
-
       <div id="tabClass" class="tab-content">
         <div class="search-box">
           <label for="classSelect">Selecione uma Turma para Visualização:</label>
@@ -393,7 +318,6 @@
           </select>
           <div id="classLoadingStatus" class="loading-indicator">Aguardando definição do turno...</div>
         </div>
-
         <div id="classBoletimCard" class="class-table-card boletim">
           <div class="boletim-header" style="border-radius: 12px 12px 0 0;">
             <h2 id="classTitle">Boletim da Turma</h2>
@@ -407,7 +331,6 @@
           </div>
         </div>
       </div>
-
       <div id="tabChart" class="tab-content">
         <div class="search-box">
           <label for="chartClassSelect">Selecione a Turma para Análise Estatística:</label>
@@ -416,29 +339,26 @@
           </select>
           <div id="chartLoadingStatus" class="loading-indicator">Aguardando definição do turno...</div>
         </div>
-
         <div id="chartCard" class="chart-card" style="display: none;">
           <div class="chart-title">Análise Quanti-Qualitativa de Rendimento</div>
           <div id="chartSubtitle" class="chart-subtitle"></div>
           <div id="chartContainer"></div>
         </div>
       </div>
-
     </div>
   </div>
-
   <script>
     const MAX_AUTOCOMPLETE = 8;
-    const FILES = [
-      { name: "Ensino Fundamental", url: "https://raw.githubusercontent.com/filosofocomputacional/escola/main/fundamental.json" },
-      { name: "1º Ano EM", url: "https://raw.githubusercontent.com/filosofocomputacional/escola/main/primeiro.json" },
-      { name: "2º Ano EM", url: "https://raw.githubusercontent.com/filosofocomputacional/escola/main/segundo.json" },
-      { name: "3º Ano EM", url: "https://raw.githubusercontent.com/filosofocomputacional/escola/main/terceiros.json" },
-      { name: "Ensino Técnico", url: "https://raw.githubusercontent.com/filosofocomputacional/escola/main/tec.json" }
-    ];
-
+    
+    // 🔴 APONTE AQUI para o seu arquivo JSON unificado
+    const JSON_URL = "notas_alunos.json"; 
+    
+    // Turmas da noite para filtro automático
     const NOITE_CLASSES = ["1006", "1007", "2004", "2005", "2006", "2007", "2008", "3003", "3004", "3005", "3006", "3007"];
-
+    
+    // Matérias que devem ser ignoradas
+    const IGNORE_FIELDS = ["ALUNO", "Turma", "TURMA", "RECUPERAÇÕES", "QTD_ABAIXO_36", "MAIS_3_ABAIXO", "ORIGEM_ABA"];
+    
     let allStudents = [];
     let allClasses = {};
     let highlightedIndex = -1;
@@ -451,7 +371,7 @@
       document.getElementById(tabId).classList.add('active');
       btn.classList.add('active');
     }
-
+    
     function selectTurno(turno) {
       currentTurno = turno;
       const turnoTexto = turno === 'noite' ? "3º Turno (Noite)" : "1º Turno (Manhã / Integral)";
@@ -464,7 +384,7 @@
         populateClassSelects();
       }
     }
-
+    
     function backToSelection() {
       document.getElementById("mainContent").style.display = "none";
       document.getElementById("selectionScreen").style.display = "block";
@@ -476,101 +396,107 @@
       document.getElementById("chartClassSelect").value = "";
       document.getElementById("chartCard").style.display = "none";
     }
-
+    
     async function fetchAllData() {
       const searchInput = document.getElementById("searchInput");
       const loadingStatus = document.getElementById("loadingStatus");
       const classSelect = document.getElementById("classSelect");
       const chartClassSelect = document.getElementById("chartClassSelect");
-
+      
       try {
-        const fetchPromises = FILES.map(async (file) => {
-          let res;
-          try {
-            res = await fetch(`${file.url}?t=${Date.now()}`);
-          } catch {
-            res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(file.url)}`);
-          }
-          if (!res.ok) return [];
-          const data = await res.json();
-          return processRawData(data, file.name);
-        });
-
-        const results = await Promise.all(fetchPromises);
-        allStudents = results.flat();
-
+        // Leitura direta do SEU JSON unificado
+        let res = await fetch(JSON_URL + "?t=" + Date.now());
+        if (!res.ok) throw new Error("Não encontrado");
+        const rawData = await res.json();
+        
+        allStudents = processRawData(rawData);
         allClasses = {};
         allStudents.forEach(student => {
           if (!allClasses[student.turma]) allClasses[student.turma] = [];
           allClasses[student.turma].push(student);
         });
-
+        
         if (currentTurno) {
           populateClassSelects();
         }
         
-        loadingStatus.textContent = `✅ Base sincronizada com sucesso.`;
+        loadingStatus.textContent = `✅ Base sincronizada com ${allStudents.length} alunos.`;
         loadingStatus.style.color = "var(--success)";
         searchInput.disabled = false;
-
         classSelect.disabled = false;
         chartClassSelect.disabled = false;
         document.getElementById("classLoadingStatus").textContent = "✅ Selecione uma turma listada abaixo:";
         document.getElementById("classLoadingStatus").style.color = "var(--success)";
         document.getElementById("chartLoadingStatus").textContent = "✅ Selecione uma turma listada abaixo:";
         document.getElementById("chartLoadingStatus").style.color = "var(--success)";
-
+        
       } catch (error) {
-        console.error("Erro ao carregar dados:", error);
-        loadingStatus.textContent = "❌ Erro ao conectar com o banco de dados escolar. Recarregue a página.";
+        console.error("Erro ao carregar:", error);
+        loadingStatus.textContent = "❌ Erro ao carregar. Verifique se " + JSON_URL + " está na pasta.";
         loadingStatus.style.color = "var(--danger)";
       }
     }
-
-    function processRawData(rawData, levelName) {
+    
+    function processRawData(rawData) {
       return rawData.map(row => {
-        const norm = {};
-        for (const [k, v] of Object.entries(row)) {
-          norm[k.toLowerCase().trim()] = v;
-        }
-
-        const nome = norm.aluno || norm.nome || norm.name || "Sem nome";
-        const turmaOriginal = (norm.turma || norm.classe || "").toString().trim();
-        const turma = turmaOriginal ? `${turmaOriginal} (${levelName})` : levelName;
-
-        const numeroTurmaPuro = turmaOriginal.replace(/\D/g, ''); 
-        const ehNoite = NOITE_CLASSES.includes(numeroTurmaPuro);
-        const turnoAluno = ehNoite ? 'noite' : 'manha';
-
-        const ignore = ['aluno','nome','name','turma','classe','id','matricula','recuperações'];
+        // Normalizar campos
+        const nome = row.ALUNO || row.NOME || row.nome || "Sem nome";
+        const turmaOriginal = (row.Turma || row.TURMA || row.turma || "").toString().trim();
         
-        const grades = Object.entries(norm)
-          .filter(([k]) => !ignore.includes(k))
-          .map(([subj, val]) => {
-            let num = typeof val === 'string' ? parseFloat(val.replace(',', '.')) : parseFloat(val);
-            if (isNaN(num)) num = 0;
-            return { subject: subj.toUpperCase(), grade: num };
-          });
-
+        // Definir turno
+        const numeroTurma = turmaOriginal.replace(/\D/g, '');
+        const ehNoite = NOITE_CLASSES.includes(numeroTurma);
+        const turnoAluno = ehNoite ? 'noite' : 'manha';
+        
+        // Extrair notas de todas as matérias
+        const grades = [];
+        Object.entries(row).forEach(([chave, valor]) => {
+          if (IGNORE_FIELDS.includes(chave) || chave.includes("_TOTAL") || chave.includes("_1º") || chave.includes("_2º")) return;
+          
+          // Limpar nome da matéria
+          let nomeMateria = chave.replace(/_/g, " ").trim();
+          
+          // Converter nota
+          let num;
+          if (typeof valor === 'string') {
+            num = parseFloat(valor.replace(',', '.'));
+          } else {
+            num = parseFloat(valor);
+          }
+          if (isNaN(num) || num === "") return;
+          
+          grades.push({ subject: nomeMateria, grade: num });
+        });
+        
+        // Calcular estatísticas
         const countBelow18 = grades.filter(g => g.grade < 18).length;
         const validGrades = grades.filter(g => g.grade > 0);
-        const avg = validGrades.length ? validGrades.reduce((s,g) => s+g.grade, 0) / validGrades.length : 0;
-
-        return { nome, turma, grades, countBelow18, avg, turno: turnoAluno };
+        const avg = validGrades.length 
+          ? validGrades.reduce((s, g) => s + g.grade, 0) / validGrades.length 
+          : 0;
+        
+        return { 
+          nome, 
+          turma: turmaOriginal, 
+          grades, 
+          countBelow18, 
+          avg, 
+          turno: turnoAluno 
+        };
       });
     }
-
+    
     function populateClassSelects() {
       const classSelect = document.getElementById("classSelect");
       const chartClassSelect = document.getElementById("chartClassSelect");
       
       classSelect.innerHTML = '<option value="">Selecione uma turma...</option>';
       chartClassSelect.innerHTML = '<option value="">Selecione uma turma...</option>';
-
+      
       Object.keys(allClasses).sort().forEach(className => {
-        const amostraEstudante = allClasses[className][0];
-        if (!amostraEstudante || amostraEstudante.turno !== currentTurno) return;
-
+        const amostra = allClasses[className][0];
+        if (!amostra || amostra.turno !== currentTurno) return;
+        
         const count = allClasses[className].length;
         const label = `${className} (${count} alunos)`;
         
@@ -578,18 +504,18 @@
         opt1.value = className;
         opt1.textContent = label;
         classSelect.appendChild(opt1);
-
+        
         const opt2 = document.createElement("option");
         opt2.value = className;
         opt2.textContent = label;
         chartClassSelect.appendChild(opt2);
       });
     }
-
+    
     function escapeHtml(str) {
       return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     }
-
+    
     function highlightMatch(text, query) {
       if (!query) return escapeHtml(text);
       const idx = text.toLowerCase().indexOf(query.toLowerCase());
@@ -599,59 +525,54 @@
       const after = escapeHtml(text.slice(idx + query.length));
       return `${before}<mark>${match}</mark>${after}`;
     }
-
+    
     function updateAutocomplete(query) {
       const dropdown = document.getElementById("autocompleteDropdown");
       const trimmed = query.trim().toLowerCase();
-
       if (!trimmed) {
         closeAutocomplete();
         return;
       }
-
       currentMatches = allStudents
         .filter(s => s.turno === currentTurno && s.nome.toLowerCase().includes(trimmed))
         .slice(0, MAX_AUTOCOMPLETE);
-
       highlightedIndex = -1;
-
+      
       if (currentMatches.length === 0) {
-        dropdown.innerHTML = `<div class="autocomplete-empty">Nenhum aluno deste turno encontrado para "<strong>${escapeHtml(query)}</strong>"</div>`;
+        dropdown.innerHTML = `<div class="autocomplete-empty">Nenhum aluno encontrado para "<strong>${escapeHtml(query)}</strong>"</div>`;
         dropdown.classList.add('open');
         return;
       }
-
+      
       const totalMatches = allStudents.filter(s => s.turno === currentTurno && s.nome.toLowerCase().includes(trimmed)).length;
-
       let html = currentMatches.map((s, i) => `
         <div class="autocomplete-item" data-index="${i}" data-name="${escapeHtml(s.nome)}">
           <span class="name">${highlightMatch(s.nome, query)}</span>
           <span class="class-tag">${escapeHtml(s.turma)}</span>
         </div>
       `).join('');
-
+      
       if (totalMatches > MAX_AUTOCOMPLETE) {
         html += `<div class="autocomplete-footer">Mostrando ${MAX_AUTOCOMPLETE} de ${totalMatches} resultados.</div>`;
       }
-
+      
       dropdown.innerHTML = html;
       dropdown.classList.add('open');
-
+      
       dropdown.querySelectorAll('.autocomplete-item').forEach(item => {
         item.addEventListener('mousedown', (e) => {
           e.preventDefault();
-          const name = item.getAttribute('data-name');
-          selectStudent(name);
+          selectStudent(item.getAttribute('data-name'));
         });
       });
     }
-
+    
     function closeAutocomplete() {
       document.getElementById("autocompleteDropdown").classList.remove('open');
       highlightedIndex = -1;
       currentMatches = [];
     }
-
+    
     function highlightItem(index) {
       const dropdown = document.getElementById("autocompleteDropdown");
       const items = dropdown.querySelectorAll('.autocomplete-item');
@@ -661,28 +582,22 @@
         items[index].scrollIntoView({ block: 'nearest' });
       }
     }
-
+    
     function selectStudent(name) {
-      const searchInput = document.getElementById("searchInput");
-      searchInput.value = name;
+      document.getElementById("searchInput").value = name;
       closeAutocomplete();
-      const student = allStudents.find(s => s.turno === currentTurno && s.nome.toLowerCase() === name.toLowerCase());
+      const student = allStudents.find(s => s.turno === currentTurno && s.nome === name);
       if (student) renderBoletim(student);
     }
-
+    
     const searchInput = document.getElementById("searchInput");
-
-    searchInput.addEventListener("input", (e) => {
-      updateAutocomplete(e.target.value);
-    });
-
+    searchInput.addEventListener("input", (e) => updateAutocomplete(e.target.value));
     searchInput.addEventListener("keydown", (e) => {
       const dropdown = document.getElementById("autocompleteDropdown");
       if (!dropdown.classList.contains('open')) return;
-
       const items = dropdown.querySelectorAll('.autocomplete-item');
       if (items.length === 0) return;
-
+      
       if (e.key === "ArrowDown") {
         e.preventDefault();
         highlightedIndex = (highlightedIndex + 1) % items.length;
@@ -700,31 +615,26 @@
         closeAutocomplete();
       }
     });
-
-    searchInput.addEventListener("blur", () => {
-      setTimeout(closeAutocomplete, 150);
-    });
-
+    searchInput.addEventListener("blur", () => setTimeout(closeAutocomplete, 150));
     searchInput.addEventListener("focus", () => {
-      if (searchInput.value.trim()) {
-        updateAutocomplete(searchInput.value);
-      }
+      if (searchInput.value.trim()) updateAutocomplete(searchInput.value);
     });
-
+    
     function renderBoletim(student) {
       document.getElementById("studentName").textContent = student.nome;
       document.getElementById("studentClass").textContent = student.turma;
       document.getElementById("studentAvg").textContent = student.avg.toFixed(1);
       document.getElementById("studentBelowCount").textContent = student.countBelow18;
-
+      
       const alertBox = document.getElementById("criticalAlert");
       if (student.countBelow18 >= 3) {
-        document.getElementById("criticalText").textContent = `O aluno está em situação crítica, possuindo ${student.countBelow18} disciplinas com nota abaixo da média regulamentar exigida (18.0).`;
+        document.getElementById("criticalText").textContent = 
+          `O aluno está em situação crítica, possuindo ${student.countBelow18} disciplinas com nota abaixo da média regulamentar exigida (18.0).`;
         alertBox.style.display = "flex";
       } else {
         alertBox.style.display = "none";
       }
-
+      
       const tbody = document.getElementById("gradesBody");
       tbody.innerHTML = "";
       
@@ -743,10 +653,10 @@
         `;
         tbody.appendChild(tr);
       });
-
+      
       document.getElementById("boletimCard").classList.add("active");
     }
-
+    
     document.getElementById("classSelect").addEventListener("change", function(e) {
       const className = e.target.value;
       if (!className) {
@@ -755,18 +665,18 @@
       }
       renderClassBoletim(className);
     });
-
+    
     function renderClassBoletim(className) {
       const students = allClasses[className];
       if (!students || students.length === 0) return;
-
+      
       document.getElementById("classTitle").textContent = `Boletim de Turma: ${className}`;
       document.getElementById("classSubtitle").textContent = `${students.length} Alunos Listados`;
-
+      
       const allSubjects = new Set();
       students.forEach(s => s.grades.forEach(g => allSubjects.add(g.subject)));
       const subjects = Array.from(allSubjects).sort();
-
+      
       const thead = document.getElementById("classTableHead");
       thead.innerHTML = "";
       const headerRow = document.createElement("tr");
@@ -774,26 +684,26 @@
       const thNome = document.createElement("th");
       thNome.textContent = "Nome Completo do Aluno";
       headerRow.appendChild(thNome);
-
+      
       subjects.forEach(subj => {
         const th = document.createElement("th");
         th.className = "vertical-header";
         th.textContent = subj;
         headerRow.appendChild(th);
       });
-
+      
       thead.appendChild(headerRow);
-
+      
       const tbody = document.getElementById("classTableBody");
       tbody.innerHTML = "";
-
+      
       students.sort((a, b) => a.nome.localeCompare(b.nome)).forEach(student => {
         const tr = document.createElement("tr");
         
         const tdNome = document.createElement("td");
         tdNome.textContent = student.nome;
         tr.appendChild(tdNome);
-
+        
         subjects.forEach(subj => {
           const td = document.createElement("td");
           const gradeObj = student.grades.find(g => g.subject === subj);
@@ -804,13 +714,13 @@
           
           tr.appendChild(td);
         });
-
+        
         tbody.appendChild(tr);
       });
-
+      
       document.getElementById("classBoletimCard").classList.add("active");
     }
-
+    
     document.getElementById("chartClassSelect").addEventListener("change", function(e) {
       const className = e.target.value;
       if (!className) {
@@ -819,34 +729,32 @@
       }
       renderLostGradesChart(className);
     });
-
+    
     function renderLostGradesChart(className) {
       const students = allClasses[className];
       if (!students || students.length === 0) return;
-
+      
       const totalStudents = students.length;
       const subjectFailedCount = {};
-
+      
       students.forEach(student => {
         student.grades.forEach(g => {
           if (!subjectFailedCount[g.subject]) subjectFailedCount[g.subject] = 0;
-          if (g.grade < 18) {
-            subjectFailedCount[g.subject]++;
-          }
+          if (g.grade < 18) subjectFailedCount[g.subject]++;
         });
       });
-
+      
       const sortedSubjects = Object.entries(subjectFailedCount)
         .filter(([_, count]) => count > 0)
         .sort((a, b) => b[1] - a[1]);
-
+      
       const maxCount = sortedSubjects.length > 0 ? sortedSubjects[0][1] : 1;
       const container = document.getElementById("chartContainer");
       container.innerHTML = "";
-
+      
       document.getElementById("chartSubtitle").textContent = 
         `Turma ${className} • Análise baseada em ${totalStudents} matriculados`;
-
+      
       if (sortedSubjects.length === 0) {
         container.innerHTML = `
           <div style="text-align:center; padding:2rem; color:var(--success);">
@@ -859,18 +767,18 @@
         document.getElementById("chartCard").style.display = "block";
         return;
       }
-
+      
       sortedSubjects.forEach(([subject, failedCount]) => {
         const percentage = (failedCount / maxCount) * 100;
         const percentOfTotal = ((failedCount / totalStudents) * 100).toFixed(1);
-
+        const ratio = failedCount / totalStudents;
+        
         let levelClass = "level-low";
-        if (failedCount / totalStudents >= 0.5) levelClass = "level-high";
-        else if (failedCount / totalStudents >= 0.25) levelClass = "level-mid";
-
+        if (ratio >= 0.5) levelClass = "level-high";
+        else if (ratio >= 0.25) levelClass = "level-mid";
+        
         const row = document.createElement("div");
         row.className = "chart-row";
-        
         row.innerHTML = `
           <div class="chart-label">${subject}</div>
           <div class="chart-bar-container">
@@ -883,13 +791,12 @@
             <span class="percent">${percentOfTotal}% da turma</span>
           </div>
         `;
-        
         container.appendChild(row);
       });
-
+      
       document.getElementById("chartCard").style.display = "block";
     }
-
+    
     window.addEventListener("DOMContentLoaded", fetchAllData);
   </script>
 </body>
